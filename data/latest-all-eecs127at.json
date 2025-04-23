@@ -1,0 +1,1795 @@
+{
+  "entries": [
+    {
+      "id": 0,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 1",
+      "problem_statement": "Please copy the following statement in the space provided below and sign your name.\n\\textit{As a member of the UC Berkeley community, I act with honesty, integrity, and respect for others. I will follow the rules and do this exam on my own.}\\\n\\textbf{IF YOU DO NOT COPY THE HONOR CODE AND SIGN YOUR NAME,}\\\n\\textbf{YOU WILL GET A 0 ON THE EXAM.}\\",
+      "solution": null,
+      "golden_answer": "No official answer.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 1,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 2",
+      "problem_statement": "BEFORE THE EXAM STARTS, WRITE YOUR SID AT THE TOP OF FIRST PAGE AND LAST PAGE.\\\nALSO MENTION YOUR EXAM LOCATION AT THE TOP OF FIRST PAGE.\\\nNo extra time will be given for this task.",
+      "solution": null,
+      "golden_answer": "No official answer.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 2,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 3",
+      "problem_statement": "What is your favorite sport? Any answer, including no answer, will be given full credit.",
+      "solution": "Any answer is fine.",
+      "golden_answer": "Any answer is fine.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 3,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 4(a)",
+      "problem_statement": "Consider the least squares problem\\[\\min_{\\vec{x} \\in \\mathbb{R}^n} \\frac{1}{2}\\,\\|A\\vec{x} - \\vec{b}\\|_2^2,\\]for some \\(\\vec{b} \\in \\mathbb{R}^n\\), \\(A \\in \\mathbb{R}^{n \\times n}\\) such that \\(A \\neq O_{n\\times n}\\).\\\n\\textbf{(a) (4 pts)}\\ What is the most restrictive class of optimization problem that this problem belongs to from the following options? No justification is required.\\\n\\textbf{NOTE:} In this problem, choosing ``I don\u2019t know'' merits 1 point.\\\n\\textbf{HINT:} Recall that LP \\(\\subseteq\\) QP \\(\\subseteq\\) QCQP \\(\\subseteq\\) SOCP \\(\\subseteq\\) Convex optimization problems.\\",
+      "solution": "Solution: QP.",
+      "golden_answer": "QP",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 4,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 4(b)",
+      "problem_statement": "Suppose\\[A = \\begin{pmatrix}1 & 2\\\\3 & 4\\end{pmatrix}, \\quad\\vec{b} =\\begin{pmatrix}4\\\\6\\end{pmatrix}.\\]Consider running gradient descent for the least squares problem\\[\\min_{\\vec{x}\\in \\mathbb{R}^2} \\frac{1}{2}\\,\\|A \\vec{x} - \\vec{b}\\|_2^2,\\]with step size \\(\\eta = 1\\) and initialization \\(\\vec{x}^{(0)} =\\begin{pmatrix}0\\\\0\\end{pmatrix}.\\) What is the next iterate \\(\\vec{x}^{(1)}\\)? Please provide a numerical value for each entry of \\(\\vec{x}^{(1)}\\).\\",
+      "solution": "Solution: The gradient is \\(A^\\top(A\\vec{x} - \\vec{b})\\). Evaluated at \\(\\vec{x} = \\begin{pmatrix}0\\\\0\\end{pmatrix}\\), this is \\(-A^\\top \\vec{b} = \\begin{pmatrix}-22\\\\-32\\end{pmatrix}\\). So, the next iterate is \\(\\begin{pmatrix}0\\\\0\\end{pmatrix} - 1 \\cdot \\begin{pmatrix}-22\\\\-32\\end{pmatrix} = \\begin{pmatrix}22\\\\32\\end{pmatrix}.\\)",
+      "golden_answer": "x^(1) = (22, 32).",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 5,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 4(c)",
+      "problem_statement": "Suppose\\[A = \\begin{pmatrix}1 & 2\\\\3 & 4\\end{pmatrix},\\quad\\vec{b} = \\begin{pmatrix}4\\\\6\\end{pmatrix}.\\]Consider running Newton\u2019s method for the least squares problem\\[\\min_{\\vec{x}\\in \\mathbb{R}^2}\\; \\tfrac{1}{2}\\,\\|A \\vec{x} - \\vec{b}\\|_2^2,\\]with initialization \\(\\vec{x}^{(0)} = \\begin{pmatrix}0\\\\0\\end{pmatrix}.\\) What is the next iterate \\(\\vec{x}^{(1)}\\)? Please provide a numerical value for each entry.\\",
+      "solution": "Solution: Newton\u2019s Method converges in one iteration for this QP. So, the next iterate is \\(\\vec{x}^{(1)} = A^{-1} \\vec{b} = \\begin{pmatrix}-2\\\\3\\end{pmatrix}\\).",
+      "golden_answer": "x^(1) = (-2, 3).",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 6,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 5(a)",
+      "problem_statement": "Let \\(f_0, f_1, \\dots, f_m : \\mathbb{R}^n \\to \\mathbb{R}\\) be given. Suppose we have the primal problem\\[p^\\star = \\min_{\\vec{x}\\in \\mathbb{R}^n}\\; f_0(\\vec{x})\\quad\\text{s.t.}\\quad f_i(\\vec{x}) \\le 0,\\quad\\forall \\,i=1,\\dots,m,\\]where the dual function is \\(g(\\vec{\\lambda}) = \\min_{\\vec{x}\\in \\mathbb{R}^n} L(\\vec{x}, \\vec{\\lambda})\\) for the Lagrangian \\(L(\\vec{x}, \\vec{\\lambda})\\).\\\n\\textbf{(a) (4 pts)}\\ If \\(f_i(\\vec{x})\\) is a convex function for all \\(i=0,\\dots,m\\), then what can we say about \\(g(\\vec{\\lambda})\\)?\\",
+      "solution": "Solution: \\(g(\\vec{\\lambda})\\) is concave in \\(\\vec{\\lambda}\\).",
+      "golden_answer": "g(\u03bb) is concave in \u03bb.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 7,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 5(b)",
+      "problem_statement": "If \\(f_i(\\vec{x})\\) is neither convex nor concave, for all \\(i = 0,\\dots,m\\), then what can we say about \\(g(\\vec{\\lambda})\\)?",
+      "solution": "Solution: \\(g(\\vec{\\lambda})\\) is concave in \\(\\vec{\\lambda}\\).",
+      "golden_answer": "It remains concave in \u03bb.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 8,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 5(c)",
+      "problem_statement": "Suppose \\(p^\\star = 0\\), and \\(f_0(\\vec{x})\\) is linear, and \\(f_i(\\vec{x})\\) are affine for \\(i = 1,\\dots,m\\). What is the strongest statement we can make about \\(d^\\star\\)?",
+      "solution": "Solution: \\(d^\\star = 0\\) since it\u2019s a feasible LP.",
+      "golden_answer": "d^* = 0.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 9,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 5(d)",
+      "problem_statement": "Suppose \\(p^\\star = 0\\), and \\(f_i(\\vec{x})\\) is a convex function for each \\(i \\in \\{0,1,\\dots,m\\}\\). Moreover, there exists a vector \\(\\vec{c} \\in \\mathbb{R}^n\\) that satisfies \\(\\max_{i\\in \\{1,\\dots,m\\}} f_i(\\vec{c}) = -3\\). What is the strongest statement we can make about \\(d^\\star\\)?",
+      "solution": "Solution: \\(d^\\star = 0\\) since Slater\u2019s condition holds for \\(\\vec{c}\\).",
+      "golden_answer": "d^* = 0.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 10,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 5(e)",
+      "problem_statement": "Suppose \\(p^\\star = 0\\), and \\(f_i(\\vec{x})\\) is a convex quadratic function of \\(\\vec{x}\\) for each \\(i\\in \\{0,1,\\dots,m\\}\\). What can we say about \\(d^\\star\\)?",
+      "solution": "Solution: \\(d^\\star \\le 0\\) by weak duality. It is a QCQP, and we cannot ascertain strong duality.",
+      "golden_answer": "d^* \u2264 0.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 11,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 6(a)",
+      "problem_statement": "Let \\(A \\in \\mathbb{R}^{m \\times n}\\) with \\(m \\le n\\), with columns \\(\\vec{a}_1\\) through \\(\\vec{a}_n\\). Suppose \\(AA^\\top = I_{m \\times m}\\).\\\n(a) (4 pts) Find the average of the squared norms of the columns of \\(A\\), i.e. \\(\\frac{1}{n}\\sum_{i=1}^n \\|\\vec{a}_i\\|_2^2\\).",
+      "solution": "Solution: We have \\(\\sum_i \\|\\vec{a}_i\\|_2^2 = \\|A\\|_F^2 = \\mathrm{tr}(AA^\\top) = m.\\) Thus, the average is \\(m/n\\).",
+      "golden_answer": "m/n.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 12,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 6(b)",
+      "problem_statement": "Show that the norm of every column of \\(A\\) is at most 1, i.e. \\(\\|\\vec{a}_i\\|_2 \\le 1\\) for all \\(i\\).",
+      "solution": "Solution: Since \\(AA^\\top = I_m\\), the matrix \\(A\\) has \\(m\\) singular values, each equal to 1. Hence \\(\\|\\vec{a}_i\\|_2 \\le \\|A\\|_2 = 1\\) for every column. Another argument uses the orthonormal rows of \\(A\\).",
+      "golden_answer": "Each column\u2019s norm is at most 1.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 13,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 7(a)",
+      "problem_statement": "Consider the problem\\[\\min_{x,y\\in \\mathbb{R}}\\; 2x + y\\quad\\text{s.t.}\\quad x^2 + y^2 \\le 1,\\quad (x-2)^2 + y^2 \\le c,\\]for some parameter \\(c>0\\).\\\n(a) (4 pts) If \\(c = 4\\), does this problem satisfy Slater\u2019s condition? Justify your answer.",
+      "solution": "Solution: Yes. For example, the point \\((\\tfrac{1}{2}, 0)\\) is strictly feasible.",
+      "golden_answer": "Yes, Slater\u2019s condition is satisfied for c=4.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 14,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 7(b)",
+      "problem_statement": "If \\(c=1\\), what is the feasible set of the problem?",
+      "solution": "Solution: The two constraints become two closed circles each of radius 1, one centered at (0,0) and the other at (2,0). Their intersection is the single point \\((1,0)\\).",
+      "golden_answer": "The feasible set is {(1,0)}.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 15,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 7(c)",
+      "problem_statement": "If \\(c=1\\), does the problem satisfy Slater\u2019s condition? Justify your answer.",
+      "solution": "Solution: No, because the feasible set is a single point, so it has empty relative interior.",
+      "golden_answer": "No, it fails Slater\u2019s condition.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 16,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 8",
+      "problem_statement": "Let \\(I_{n\\times n}\\) denote the \\(n\\times n\\) identity matrix. Is the following a convex optimization problem?\\[\n\\min_{X\\in \\mathbb{R}^{n\\times n}} \\|X - 2I_{n\\times n}\\|_F^2 \\quad\\text{s.t.}\\quad \\vec{e}_i^\\top X\\,\\vec{e}_i \\ge 0,\\;\\forall i,\\quad \\mathrm{tr}(X) = n.\n\\]",
+      "solution": "Solution: Yes, it is convex. The Frobenius norm squared is a convex function, and the constraints are linear in the entries of \\(X\\).",
+      "golden_answer": "Yes, it is a convex optimization problem.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 17,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 9(a)",
+      "problem_statement": "Let\\[K := \\{\\,\\vec{x} = (x_1,x_2)\\in \\mathbb{R}^2 : x_2 \\ge 2x_1 \\ge 0\\}.\\]\\(a)\\) Prove that \\(K\\) is a cone.",
+      "solution": "Solution: We show that if \\(\\vec{x}\\in K\\) and \\(\\alpha\\ge0\\), then \\(\\alpha\\vec{x}\\in K\\) too. In particular, if \\(\\vec{x}=(x_1,x_2)\\) with \\(x_2\\ge 2x_1\\ge 0\\), then \\((\\alpha x_2)\\ge 2(\\alpha x_1)\\ge 0\\).",
+      "golden_answer": "K is indeed a cone because it is closed under nonnegative scaling.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 18,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 9(b)",
+      "problem_statement": "Let \\(K^*\\) denote the dual cone of \\(K\\). Compute \\(K^*\\) in the form\\[K^* = \\{ (y_1,y_2) : a_1y_1 + a_2y_2 \\ge 0,\\; b_1y_1 + b_2y_2 \\ge 0 \\}.\\]",
+      "solution": "Solution: A vector \\((y_1,y_2)\\) is in the dual cone if \\(y_1 x_1 + y_2 x_2 \\ge 0\\) for all \\((x_1,x_2)\\in K\\). Rewriting \\(x_2 = 2x_1 + u\\), we deduce the conditions \\(y_2 \\ge 0\\) and \\(y_1 + 2y_2 \\ge 0\\). Therefore \\(K^* = \\{ (y_1,y_2) : y_2 \\ge 0,\\; y_1 + 2y_2 \\ge 0 \\}.\\)",
+      "golden_answer": "K^* = { (y1,y2) : y2 \u2265 0, y1 + 2y2 \u2265 0 }.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 19,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 10",
+      "problem_statement": "Consider the following optimization problem for fixed scalars \\(\\alpha,\\beta\\in\\mathbb{R}\\):\\[\\min_{x\\in \\mathbb{R}} \\frac{1}{2}\\,(x-\\alpha)^2 + \\beta x \\quad \\text{s.t.}\\quad x\\ge 0.\\]Show that the optimal solution is \\(x^\\star = \\max\\{0,\\alpha - \\beta\\}\\).",
+      "solution": "Solution: One can solve by setting the derivative of the objective to zero if the unconstrained optimum is nonnegative, or else the solution is zero. Combining these cases, \\(x^\\star = \\max\\{0,\\alpha - \\beta\\}\\).",
+      "golden_answer": "x* = max{0, \u03b1 \u2212 \u03b2}.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 20,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 11(a)",
+      "problem_statement": "Let \\(a_1,a_2\\in \\mathbb{R}\\). Consider the problem:\\[\\min_{x_1,x_2\\in \\mathbb{R}}\\;(x_1 + a_1)^4 + (x_2 + a_2)^6\\quad\\text{s.t.}\\quad x_1\\ge 0,\\;x_2\\ge 0,\\;x_1 + x_2 = 1.\\]Show that the objective function is convex.",
+      "solution": "Solution: The Hessian is diagonal with diagonal entries strictly nonnegative (12(x1+a1)^2, 30(x2+a2)^4). Hence it is convex, and the feasible set is a polyhedron. Thus it is a convex optimization problem.",
+      "golden_answer": "Yes, the function (x1+a1)^4 + (x2+a2)^6 is convex.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 21,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 11(b)",
+      "problem_statement": "With the Lagrangian in mind,\\[L(x_1,x_2,\\lambda_1,\\lambda_2,\\nu) = (x_1 + a_1)^4 + (x_2 + a_2)^6 - \\lambda_1 x_1 - \\lambda_2 x_2 + \\nu(x_1 + x_2 - 1),\\]write down the KKT equations for the problem.",
+      "solution": "Solution: The KKT conditions include:\\\n1) Primal feasibility: \\(x_1^*\\ge 0,\\; x_2^*\\ge 0,\\; x_1^* + x_2^* = 1.\\)\\\n2) Dual feasibility: \\(\\lambda_1^* \\ge 0,\\; \\lambda_2^* \\ge 0.\\)\\\n3) Complementary slackness: \\(\\lambda_1^* x_1^* = 0,\\; \\lambda_2^* x_2^* = 0.\\)\\\n4) Stationarity: \\(\n4(a_1 + x_1^*)^3 - \\lambda_1^* + \\nu^* = 0,\\quad\n6(a_2 + x_2^*)^5 - \\lambda_2^* + \\nu^* = 0.\\)\n",
+      "golden_answer": "KKT: primal feasibility, dual feasibility, complementary slackness, and stationarity as stated.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 22,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 12(a)",
+      "problem_statement": "Consider a matrix \\(A \\in \\mathbb{R}^{m\\times n}\\). Let\\[p^\\star = \\min_{\\vec{x}\\in P_m}\\,\\max_{\\vec{y}\\in P_n}\\;\\vec{x}^\\top A\\,\\vec{y},\\]where \\(P_m\\) and \\(P_n\\) are unit simplices.\\\n(a) (6 pts) Show that for any \\(\\vec{x}\\in P_m\\), there exists \\(\\vec{e}_{j^\\star}\\in E_n\\) such that\\[\\vec{x}^\\top A\\,\\vec{e}_{j^\\star} = \\max_{\\vec{y}\\in P_n}\\; \\vec{x}^\\top A\\,\\vec{y}.\\]",
+      "solution": "Solution: The maximization over \\(P_n\\) is a linear program, so its maximum is attained at an extreme point of the simplex, i.e., at some \\(\\vec{e}_{j^\\star}\\).",
+      "golden_answer": "Yes. The maximum is achieved by a vertex e_j of the simplex.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 23,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 12(b)",
+      "problem_statement": "Show that\\[\\min_{\\vec{x}\\in P_m}\\;\\max_{\\vec{y}\\in P_n}\\;\\vec{x}^\\top A\\,\\vec{y} = \\min_{\\vec{x}\\in P_m}\\;\\max_{\\vec{e}_j\\in E_n}\\;\\vec{x}^\\top A\\,\\vec{e}_j.\\]",
+      "solution": "Solution: We use part (a) to see that \\(\\max_{\\vec{y}\\in P_n}\\vec{x}^\\top A\\,\\vec{y} = \\max_{\\vec{e}_j\\in E_n}\\vec{x}^\\top A\\,\\vec{e}_j\\). Also, \\(E_n\\subseteq P_n\\) ensures the two maxima match. Hence the minima match as well.",
+      "golden_answer": "They are equal, exploiting the fact that an LP on a simplex attains its max at a vertex.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 24,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 12(c)",
+      "problem_statement": "Formulate \\(\\min_{\\vec{x}\\in P_m}\\max_{\\vec{e}_j\\in E_n} \\vec{x}^\\top A\\,\\vec{e}_j\\) as a linear program.",
+      "solution": "Solution: Introduce a variable \\(v\\). Constrain \\(v \\ge \\sum_{i=1}^m x_i A_{ij}\\) for all \\(j\\). Then minimize \\(v\\) subject to \\(\\sum_{i=1}^m x_i=1\\) and \\(x_i\\ge 0\\).",
+      "golden_answer": "LP: minimize v, subject to v \u2265 \u03a3 x_i A_{ij} (for each j), \u03a3 x_i = 1, x_i \u2265 0.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 25,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 13",
+      "problem_statement": "Let \\(f : \\mathbb{R}\\to \\mathbb{R}\\) be differentiable. We do one step of gradient descent on \\(f\\) with step size 1/4, from \\(x_0\\). So \\(x_1 = x_0 - \\tfrac{1}{4} f'(x_0).\\) Suppose \\(g(x) := 2x^2 - f(x)\\) is convex. Show that \\( f(x_1) \\le f(x_0) - \\tfrac{1}{8} (f'(x_0))^2.\\)",
+      "solution": "Solution: Since \\(g\\) is convex, we have \\(g(x_1) \\ge g(x_0) + (x_1-x_0)g'(x_0).\\) Substituting \\(x_1 = x_0 - \\tfrac{1}{4} f'(x_0)\\) and rearranging yields \\(f(x_1) \\le f(x_0) - \\tfrac{1}{8} (f'(x_0))^2.\\)",
+      "golden_answer": "f(x1) \u2264 f(x0) \u2212 1/8 [f\u2032(x0)]\u00b2.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 26,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 14(a)",
+      "problem_statement": "Fix \\(A\\in \\mathbb{R}^{m\\times n}\\), \\(\\vec{y}\\in \\mathbb{R}^m\\), and \\(\\lambda,\\mu>0\\). Consider\\[\\min_{\\vec{x}\\in \\mathbb{R}^n}\\;\\|A\\vec{x} - \\vec{y}\\|_2^2 + \\mu\\,\\|\\vec{x}\\|_2 + \\lambda\\,\\|\\vec{x}\\|_1.\\]Show it can be written as an SOCP by introducing appropriate variables.\\\n(a) (4 pts) Find \\(\\vec{a},\\vec{b},u,v\\) for an equivalent formulation.",
+      "solution": "Solution: We set \\(\\vec{a} = \\vec{0}\\), \\(u=1\\), \\(v=\\mu\\), and \\(\\vec{b} = \\lambda \\,\\vec{1}\\). Then the objective becomes \\(t + \\mu\\,p + \\lambda\\sum_i r_i\\) subject to \\(\\|A\\vec{x}-\\vec{y}\\|_2^2 \\le t,\\; \\|\\vec{x}\\|_2 \\le p,\\; |x_i|\\le r_i\\).",
+      "golden_answer": "a = 0, u = 1, v = \u03bc, b = \u03bb\u00b71.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 27,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 14(b)",
+      "problem_statement": "Find a second-order cone constraint over \\((\\vec{x},t)\\) that is equivalent to \\(\\|A\\vec{x}-\\vec{y}\\|_2^2 \\le t\\).",
+      "solution": "Solution: We can rewrite \\(\\|A\\vec{x}-\\vec{y}\\|_2^2 \\le t\\) as \\(\\|(2\\sqrt{2}A)\\vec{x} - 2\\sqrt{2}\\,\\vec{y}\\|_2^2 + (1-2t)^2 \\le 1 + 2t\\). This is a standard second-order cone in the \\((\\vec{x},t)\\)-space.",
+      "golden_answer": "\u2016(2\u221a2 A)x \u2212 2\u221a2 y\u2016\u00b2 + (1 \u2212 2t)\u00b2 \u2264 1 + 2t.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 28,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 14(c)",
+      "problem_statement": "For each \\(i\\), find a second-order cone constraint over \\((x_i,r_i)\\) that is equivalent to \\(|x_i|\\le r_i\\).",
+      "solution": "Solution: The condition \\(|x_i|\\le r_i\\) is equivalent to \\(\\sqrt{x_i^2}\\le r_i\\), \\(r_i\\ge 0\\). This is a standard SOCP form.",
+      "golden_answer": "\u2016x_i\u2016\u2082 \u2264 r_i, with r_i \u2265 0, for each i.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 29,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 15(a)",
+      "problem_statement": "Recall the maximum margin SVM problem: \\(\\min_{\\vec{w},b}\\; \\tfrac12\\|\\vec{w}\\|_2^2\\;\\text{s.t.}\\; y_i(\\vec{w}^\\top\\vec{x}_i + b)\\ge 1,\\;\\forall i.\\)\\\n(a) (8 pts) Consider the data with features in \\(\\mathbb{R}^2\\) and labels \\(\\pm1\\) given below. The maximum margin hyperplane is depicted with support vectors. Find \\(\\vec{w}\\) and \\(b\\).\\\n\\(\\begin{array}{c|c|c}\\text{Index } i & (x_{i1},x_{i2}) & y_i\\\\\\hline1 & (1,1) & +1\\\\2 & (3,4) & +1\\\\3 & (3,5) & +1\\\\4 & (4,0) & -1\\\\5 & (5,1) & -1\\\\6 & (6,6) & -1\\end{array}\\)",
+      "solution": "Solution: The support vectors are (3,4) with label +1, and (4,0), (6,6) with label -1. Solving the linear system for margin = 1 obtains \\(w_1^* = -\\frac{6}{7}, w_2^*=\\frac{2}{7}, b^*=\\frac{17}{7}\\).",
+      "golden_answer": "w = (-6/7, 2/7), b = 17/7.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 30,
+      "source": "Fall 2023, EECS 127/227AT, Final, Problem 15(b)",
+      "problem_statement": "Now consider the data in \\(\\mathbb{R}^2\\) with labels \\(\\pm1\\) below:\\\n\\(\\begin{array}{c|c|c}\\text{Index } i & (x_{i1},x_{i2}) & y_i\\\\\\hline1 & (1,1) & +1\\\\2 & (4.5,1) & +1\\\\3 & (4,6) & +1\\\\4 & (4,0) & -1\\\\5 & (4,2) & -1\\\\6 & (5,1) & -1\\end{array}\\)\nIf possible, find a separating hyperplane that solves the SVM problem with this data, or justify why not.",
+      "solution": "Solution: No linear classifier can separate (4.5,1) labeled +1 from the convex hull of the -1 points. Hence no feasible separating hyperplane exists.",
+      "golden_answer": "No linear separator exists; the data are not linearly separable.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 31,
+      "source": "Spring 2020, EECS 127/227AT, Final, Problem 1",
+      "problem_statement": "1. (2 Points) What are you looking forward to over summer break?",
+      "solution": null,
+      "golden_answer": "Answers may vary.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 32,
+      "source": "Spring 2020, EECS 127/227AT, Final, Problem 2",
+      "problem_statement": "2. (2 Points) If you had a superpower, what would it be?",
+      "solution": null,
+      "golden_answer": "Answers may vary.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 33,
+      "source": "Spring 2020, EECS 127/227AT, Final, Problem 3(a)",
+      "problem_statement": "3. (8 points) Newton's method\n\nConsider the function $f : \\mathbb{R} \\to \\mathbb{R}, \\; f(x) = x^4.$\n\n(a) (2 points) Find the optimal value $x^* = \\arg\\min_x f(x).$",
+      "solution": "Note that $f(x) = x^4 \\ge 0$ and is equal to $0$ if and only if $x = 0.$ Thus $x^* = 0.$",
+      "golden_answer": "$x^* = 0.$",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 34,
+      "source": "Spring 2020, EECS 127/227AT, Final, Problem 3(b)",
+      "problem_statement": "(b) (6 points) Now, we analyze the performance of Newton's method on this problem. Starting from $x_0,$ for $k \\ge 0$ we take Newton steps of the form\n\\[\nx_{k+1} = x_k \\;-\\; \\frac{f'(x_k)}{f''(x_k)}.\n\\]\nFind the minimum number of Newton steps that are required to be within a distance of $\\varepsilon > 0$ from the optimum $x^*.$ Formally find $k^* \\in \\mathbb{N}$ which is the smallest $k$ for which $|x_k - x^*| \\le \\varepsilon,$ i.e.\n\\[\nk^* = \\min_{k \\in \\mathbb{N} :\\, |x_k - x^*| \\le \\varepsilon} k.\\]\nAssume that $x_0 > \\varepsilon > 0.$ Your answer should be in terms of $\\varepsilon$ and $x_0.$",
+      "solution": "First we calculate the derivatives of $f(x).$\\[ f'(x) = 4x^3, \\quad f''(x) = 12x^2.\\]For $k \\ge 0$ we have\\[ x_{k+1} = x_k - \\frac{4x_k^3}{12x_k^2} = x_k - \\frac{x_k}{3} = \\frac{2}{3} x_k.\\]Thus,\\[ x_k = \\Bigl(\\tfrac{2}{3}\\Bigr)^k x_0.\\]Since $x^* = 0,$\\[\\Bigl(\\tfrac{2}{3}\\Bigr)^k |x_0| \\le \\varepsilon \\;\\;\\Longrightarrow\\;\\; \\Bigl(\\tfrac{2}{3}\\Bigr)^k \\le \\frac{\\varepsilon}{|x_0|}\\;\\;\\Longrightarrow\\;\\; k \\,\\log\\Bigl(\\tfrac{2}{3}\\Bigr) \\le \\log\\Bigl(\\tfrac{\\varepsilon}{|x_0|}\\Bigr).\\]We switched the sign of the inequality since $\\log(\\tfrac{2}{3}) < 0.$ The smallest natural number $k^*$ for which this occurs is\\[ k^* \\;=\\; \\left\\lceil \\frac{\\log(\\tfrac{\\varepsilon}{|x_0|})}{\\log(\\tfrac{2}{3})} \\right\\rceil.\\]",
+      "golden_answer": "$k^* = \\displaystyle \\left\\lceil \\frac{\\log\\bigl(\\tfrac{\\varepsilon}{|x_0|}\\bigr)}{\\log\\bigl(\\tfrac{2}{3}\\bigr)} \\right\\rceil.$",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 35,
+      "source": "Spring 2020, EECS 127/227AT, Final, Problem 4(a)",
+      "problem_statement": "4. (9 points) A Linear Program\n\n(a) (5 points) Copy the axes below onto your answer sheet. Plot the feasible region for the optimization problem:\\[\\min_{\\vec{x} \\in \\mathbb{R}^2} \\; x_1 + x_2\\]\\[x_1 \\ge 0,\\quad x_2 \\ge 0,\\quad 1 - x_1 - x_2 \\le 0,\\quad x_1 \\le 3,\\quad x_2 \\le 3.\\]",
+      "solution": "No written solution provided here, the student plots the region.",
+      "golden_answer": "The feasible region is the intersection of the constraints $x_1 \\ge 0, x_2 \\ge 0, x_1 \\le 3, x_2 \\le 3,$ and $1 - x_1 - x_2 \\le 0.$",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 36,
+      "source": "Spring 2020, EECS 127/227AT, Final, Problem 4(b)",
+      "problem_statement": "(b) (4 points) Find $p^*.$ Justify your answer. \\textit{Hint: You don't have to find the dual to solve this part.}",
+      "solution": "To solve any LP, we can just look at the vertices of the polytope defined by the constraints, evaluate the objective at each of these points, and find the minimum. In this problem, there are a total of 5 vertices. At $(0,3)$ and $(3,0)$, the objective value is 3. At $(3,3),$ the objective value is 6. At $(0,1)$ and $(1,0),$ the value is 1. Therefore, $p^* = 1,$ which is attained anywhere on the line connecting $(0,1)$ and $(1,0).$",
+      "golden_answer": "$p^* = 1.$",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 37,
+      "source": "Spring 2020, EECS 127/227AT, Final, Problem 5(a)",
+      "problem_statement": "5. (10 points) Reformulate\n\n(a) (5 points) Reformulate the following problem as an SOCP:\n\\[\\min_{\\vec{x}} \\;\\max_{i=1,2,\\dots,m} \\;\\|A\\vec{x} - B\\vec{y}_i\\|_2.\\]",
+      "solution": "Introducing slack variable $t \\in \\mathbb{R},$ we can rewrite the problem as\\[\\min_{\\vec{x},t}\\; t\\quad\\text{s.t.}\\;\\|A\\vec{x} - B\\vec{y}_i\\|_2 \\;\\le\\; t,\\; i=1,2,\\dots,m.\\]This is an SOCP in standard form.",
+      "golden_answer": "Reformulated as $\\min_{x,t} t$ subject to $\\|A x - B y_i\\|_2 \\le t$ for each $i.$",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 38,
+      "source": "Spring 2020, EECS 127/227AT, Final, Problem 5(b)",
+      "problem_statement": "(b) (5 points) The optimization problem below is not a convex QP because $A$ is not a positive semidefinite symmetric matrix. Reformulate the following problem as a convex QP:\n\\[\\min_{\\vec{x}\\in \\mathbb{R}^2} \\;\\vec{x}^\\top A \\vec{x}\\quad\\text{s.t.}\\;\\vec{c}^\\top \\vec{x} \\;\\ge 1,\\]\\nwhere\\[A = \\begin{pmatrix}1 & -1\\\\[6pt]0 & 1\\end{pmatrix}\\quad\\text{and}\\quad\\vec{c} \\in \\mathbb{R}^2.\\]",
+      "solution": "Note that\\[\\vec{x}^\\top A \\vec{x} \\;=\\; \\vec{x}^\\top B \\vec{x}\\]with\\[B = \\begin{pmatrix}1 & -\\tfrac12\\\\[4pt]-\\tfrac12 & 1\\end{pmatrix}.\\]Because the eigenvalues of $B$ are $\\{\\tfrac32,\\,\\tfrac12\\},$ $B$ is positive definite, so the following problem is a convex QP:\\[\\min_{x \\in \\mathbb{R}^n}\\; \\vec{x}^\\top B \\vec{x}\\quad\\text{s.t.}\\;\\vec{c}^\\top \\vec{x} \\;\\ge 1.\\]",
+      "golden_answer": "Rewrite $\\vec{x}^\\top A \\vec{x}$ as $\\vec{x}^\\top B \\vec{x}$ with $B$ symmetric and positive definite, yielding a convex QP with the same linear constraint.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 39,
+      "source": "Spring 2020, EECS 127/227AT, Final, Problem 6(a)",
+      "problem_statement": "6. (14 points) Orthogonal lines\n\n(a) (4 points) Finding the equation of a line. Suppose we have $n$ noisy samples from a line in the 2D plane $\\{(x_i,y_i)\\}_{i=1}^n,$ which is governed by the equation:\n\\[\\beta x + y = \\gamma_1\\quad(\\text{line A}).\\]\nWe can formulate this as a least squares problem:\n\\[\\min_{\\vec{z}} \\;\\|G\\vec{z} - \\vec{h}\\|_2^2,\\]\nfor matrix $G \\in \\mathbb{R}^{n\\times 2}$ and vector $\\vec{h} \\in \\mathbb{R}^n.$ Find $G$ and $\\vec{h}.$",
+      "solution": "The least squares problem involves minimizing the sum of residuals:\\[\\min_{\\beta,\\gamma_1}\\;\\sum_{i=1}^n (y_i + \\beta x_i - \\gamma_1)^2.\\]Thus,\\[\\vec{h} = \\begin{pmatrix}-y_1\\\\ \\vdots\\\\ -y_n\\end{pmatrix},\\quad G = \\begin{pmatrix}x_1 & -1\\\\ \\vdots & \\vdots\\\\ x_n & -1\\end{pmatrix}.\\]",
+      "golden_answer": "$G = \\begin{pmatrix}x_1 & -1\\\\ \\vdots & \\vdots\\\\ x_n & -1\\end{pmatrix}$, $\\vec{h} = \\begin{pmatrix}-y_1\\\\ \\vdots\\\\ -y_n\\end{pmatrix}.$",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 40,
+      "source": "Spring 2020, EECS 127/227AT, Final, Problem 6(b)",
+      "problem_statement": "(b) (4 points) Suppose now, we have two lines in the 2D plane:\n\\[\\beta x + y = \\gamma_1\\quad(\\text{line A}),\\quad-\\,x + \\beta y = \\gamma_2\\quad(\\text{line B}).\\]\nShow that lines A and B are orthogonal to one another.",
+      "solution": "The inner product of the normal directions to the lines, $[\\beta,\\;1]$ and $[-1,\\;\\beta],$ is zero, hence they are orthogonal.",
+      "golden_answer": "Their normal vectors have a zero dot product, so the lines are orthogonal.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 41,
+      "source": "Spring 2020, EECS 127/227AT, Final, Problem 6(c)",
+      "problem_statement": "(c) (6 points) Consider lines A and B as in part (b). Suppose we have $n$ noisy samples from each line: $\\{(x_i^A,y_i^A)\\}_{i=1}^n$ and $\\{(x_i^B,y_i^B)\\}_{i=1}^n.$ We want to estimate the parameters of the two lines jointly so they remain orthogonal. We write\n\\[\\min_{\\vec{w}}\\;\\|C \\vec{w} - \\vec{d}\\|_2^2,\\]\nfor $C \\in \\mathbb{R}^{2n \\times 3}$ and $\\vec{d} \\in \\mathbb{R}^{2n}.$ Find $C$ and $\\vec{d}.$",
+      "solution": "Similar to part (a) we would like to minimize the sum of the residuals for both lines A and B:\\[\\min_{\\beta,\\gamma_1,\\gamma_2} \\;\\Biggl[\\sum_{i=1}^n (y_i^A + \\beta x_i^A - \\gamma_1)^2 + \\sum_{i=1}^n (\\beta y_i^B - x_i^B - \\gamma_2)^2\\Biggr].\\]Rewriting this in matrix form we get a block structure for $C$ and a stacked vector $\\vec{d}.$ Specifically,\n\\[\nC = \\begin{pmatrix}\nx_1^A & -1 & 0\\\\\n\\vdots & \\vdots & \\vdots\\\\\nx_n^A & -1 & 0\\\\\n0 & 0 & -1\\\\\n\\vdots & \\vdots & \\vdots\\\\\n0 & 0 & -1\\end{pmatrix}\n\\quad\\text{(with the last $n$ rows being $(y_i^B,\\;0,\\;-1)$)},\\quad\n\\vec{d} = \\begin{pmatrix}-y_1^A\\\\ \\vdots\\\\ -y_n^A\\\\ x_1^B\\\\ \\vdots\\\\ x_n^B\\end{pmatrix}.\n\\]",
+      "golden_answer": "$C$ is formed by stacking rows $[x_i^A,\\,-1,\\,0]$ for line A and $[y_i^B,\\,0,\\,-1]$ for line B; $\\vec{d}$ is stacked as $[-y_i^A]$ followed by $[x_i^B].$",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 42,
+      "source": "Spring 2020, EECS 127/227AT, Final, Problem 7(a)",
+      "problem_statement": "7. (11 points) 1D regularization\n\n(a) (8 points) Find $x^*.$ Show your work.\n\\[\\text{where}\\quad f(x) = \\tfrac12(\\alpha - x)^2 + \\lambda I_{x \\neq 0}.\\]",
+      "solution": "We break the problem into cases: $x = 0$ or $x \\neq 0.$ If $x = 0,$ the objective is $\\tfrac12\\alpha^2.$ If $x \\neq 0,$ the objective is $\\tfrac12(\\alpha - x)^2 + \\lambda.$ Minimizing the quadratic term alone suggests $x = \\alpha.$ Comparing the values $\\lambda$ versus $\\tfrac12\\alpha^2$ determines the optimum. Thus, if $\\lambda \\le \\tfrac12\\alpha^2,$ $x^* = \\alpha,$ else $x^* = 0.$ If $\\lambda = \\tfrac12\\alpha^2,$ either solution is optimal.",
+      "golden_answer": "$x^* = \\alpha$ if $\\lambda \\le \\tfrac12 \\alpha^2,$ otherwise $x^* = 0.$",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 43,
+      "source": "Spring 2020, EECS 127/227AT, Final, Problem 7(b)",
+      "problem_statement": "(b) (3 points) What happens to $x^*$ if $\\lambda \\to \\infty?$",
+      "solution": "As $\\lambda \\to \\infty,$ the penalty for $x \\neq 0$ dominates, so $x^* = 0.$",
+      "golden_answer": "$x^*$ becomes 0 as $\\lambda$ grows large.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 44,
+      "source": "Spring 2020, EECS 127/227AT, Final, Problem 8(a)",
+      "problem_statement": "8. (21 points) Minimizing a Quadratic Form\n\n(a) (3 points) Is this optimization problem convex as stated?\n\\[\\min_{\\vec{x} \\in \\mathbb{R}^n}\\;\\vec{x}^\\top A \\vec{x}\\quad\\text{s.t.}\\;\\vec{x}^\\top B \\vec{x} \\;\\ge 1,\\]",
+      "solution": "No; the problem is not convex since the constraint $\\vec{x}^\\top B \\vec{x} \\ge 1$ is not a convex set for a positive definite $B,$ and we do not know if $A$ is positive semidefinite. Thus the objective need not be convex either.",
+      "golden_answer": "No, it is not convex.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 45,
+      "source": "Spring 2020, EECS 127/227AT, Final, Problem 8(b)",
+      "problem_statement": "(b) (6 points) Find the Lagrangian dual problem using $\\lambda \\in \\mathbb{R}$ as the dual variable corresponding to the constraint.",
+      "solution": "The Lagrangian is $L(\\vec{x},\\lambda) = \\vec{x}^\\top A \\vec{x} + \\lambda(1 - \\vec{x}^\\top B \\vec{x}).$ Minimizing over $\\vec{x}$ yields the condition $A - \\lambda B \\succeq 0.$ Hence the dual problem is\n\\[d^* = \\max_{\\lambda \\ge 0}\\;\\lambda \\quad\\text{s.t.}\\;A - \\lambda B \\succeq 0.\\]",
+      "golden_answer": "$d^* = \\max_{\\lambda \\ge 0}\\;\\lambda\\;\\text{s.t.}\\;A - \\lambda B \\succeq 0.$",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 46,
+      "source": "Spring 2020, EECS 127/227AT, Final, Problem 8(c)",
+      "problem_statement": "(c) (6 points) Assume $A \\succeq 0.$ Let $\\vec{x}^* \\in \\mathbb{R}^n$ and $\\lambda^* \\ge 0$ be optimal solutions to the primal and dual programs, respectively. Show that $A\\,\\vec{x}^* = \\lambda^*\\;B\\,\\vec{x}^*.$",
+      "solution": "Since strong duality holds and the problem is differentiable, the KKT conditions are necessary for optimality. We have $\\nabla_{\\vec{x}} L(\\vec{x}^*, \\lambda^*) = (A - \\lambda^* B)\\,\\vec{x}^* = 0,$ which implies $A\\,\\vec{x}^* = \\lambda^* B\\,\\vec{x}^*.$",
+      "golden_answer": "$A\\,\\vec{x}^* = \\lambda^* B\\,\\vec{x}^*.$",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 47,
+      "source": "Spring 2020, EECS 127/227AT, Final, Problem 8(d)",
+      "problem_statement": "(d) (6 points) Again, assume $A \\succeq 0$ and let $\\vec{x}^* \\in \\mathbb{R}^n$ and $\\lambda^* \\ge 0$ be optimal. Show that $\\vec{x}^* \\notin \\mathcal{N}(A) \\;\\Longrightarrow\\; \\vec{x}^*\\!^\\top B\\,\\vec{x}^* = 1.$",
+      "solution": "From complementary slackness, $\\lambda^*(1 - \\vec{x}^*\\!^\\top B\\,\\vec{x}^*) = 0.$ If $A\\,\\vec{x}^* \\neq 0,$ we must have $\\lambda^* > 0,$ hence $\\vec{x}^*\\!^\\top B\\,\\vec{x}^* = 1.$",
+      "golden_answer": "If $\\vec{x}^* \\notin \\mathcal{N}(A),$ then $\\lambda^* > 0$ which forces $\\vec{x}^*\\!^\\top B\\,\\vec{x}^* = 1.$",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 48,
+      "source": "Spring 2020, EECS 127/227AT, Final, Problem 9(a)",
+      "problem_statement": "9. (30 points) Duality\n\n(a) (2 points) First, let us consider a simple example, to gain intuition. Let $\\vec{y} = [2,\\;1]^\\top,$ and let $\\mu = 1.$ Here $p^* = 1.$ Find the optimal solution $\\vec{x}^*$ that achieves this value.",
+      "solution": "We choose $\\vec{x}^* = [1,\\;0]^\\top.$ Then $\\|\\vec{y} - \\vec{x}^*\\|_\\infty = 1$ and $\\|\\vec{x}^*\\|_1 = 1 \\le 1,$ so $p^* = 1.$",
+      "golden_answer": "$\\vec{x}^* = [1,0]^\\top,$ achieving $p^* = 1.$",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 49,
+      "source": "Spring 2020, EECS 127/227AT, Final, Problem 9(b)",
+      "problem_statement": "(b) (2 points) Now, consider a second example. Let $\\vec{y} = [2,\\;1]^\\top,$ and let $\\mu = 2.$ Here $p^* = 0.5.$ Find the optimal solution $\\vec{x}^*$ that achieves this value.",
+      "solution": "We choose $\\vec{x}^* = [1.5,\\;0.5]^\\top.$ Then $\\max(|2 - 1.5|, |1 - 0.5|) = 0.5$ and $\\|\\vec{x}^*\\|_1 = 2.0 \\le 2,$ so $p^* = 0.5.$",
+      "golden_answer": "$\\vec{x}^* = [1.5,\\,0.5]^\\top,$ achieving $p^* = 0.5.$",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 50,
+      "source": "Spring 2020, EECS 127/227AT, Final, Problem 9(c)",
+      "problem_statement": "(c) (6 points) Now, assume $y_1 \\ge y_2 \\cdots \\ge y_d \\ge 0$ and suppose $y_1 \\ge \\tau^* \\ge 0$ satisfies $\\sum_{i=1}^d (y_i - \\min(y_i,\\,\\tau^*)) = \\mu.$ Next define $\\vec{w}$ by $w_i = y_i - \\min(y_i,\\,\\tau^*).$ Prove that $\\|\\vec{y} - \\vec{w}\\|_\\infty = \\tau^*$ and $\\|\\vec{w}\\|_1 = \\mu.$ Justify why this implies $p^* \\le \\tau^*.$",
+      "solution": "First, for all $i$, we have $|y_i - w_i| = |y_i - (y_i - \\min(y_i,\\tau^*))| = \\min(y_i,\\,\\tau^*).$ Because $y_1 \\ge \\tau^*$, at least one component has absolute value exactly $\\tau^*,$ so $\\|\\vec{y} - \\vec{w}\\|_\\infty = \\tau^*.$ Next, $\\|\\vec{w}\\|_1 = \\sum_{i=1}^d (y_i - \\min(y_i,\\tau^*)) = \\mu$ by construction. Since $\\vec{w}$ is feasible (it satisfies $\\|\\vec{w}\\|_1 = \\mu$) and achieves objective $\\|\\vec{y} - \\vec{w}\\|_\\infty = \\tau^*,$ we have $p^* \\le \\tau^*.$",
+      "golden_answer": "$\\|\\vec{y} - \\vec{w}\\|_\\infty = \\tau^*$ and $\\|\\vec{w}\\|_1 = \\mu,$ so $p^* \\le \\tau^*.$",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 51,
+      "source": "Spring 2020, EECS 127/227AT, Final, Problem 9(d)",
+      "problem_statement": "(d) (10 points) Derive a dual of the problem by introducing a vector-valued dual variable $\\vec{z}$ for the $\\ell_\\infty$ norm in the objective and a scalar-valued dual variable $\\lambda$ for the constraint. Formally, prove that a dual is:\n\\[\\max_{\\vec{z},\\,\\lambda}\\;\\vec{z}^\\top \\vec{y} \\;-\\;\\lambda\\,\\mu\\quad\\text{s.t.}\\;\\|\\vec{z}\\|_1 \\le 1,\\;\\|\\vec{z}\\|_\\infty \\le \\lambda,\\;\\lambda \\ge 0.\\]",
+      "solution": "We rewrite $\\|\\vec{y} - \\vec{x}\\|_\\infty$ as $\\max_{\\|\\vec{z}\\|_1 \\le 1} \\vec{z}^\\top(\\vec{y} - \\vec{x}).$ Then, introducing $\\lambda \\ge 0$ for the constraint $\\|\\vec{x}\\|_1 \\le \\mu,$ the Lagrangian becomes $L(\\vec{x}, \\vec{z}, \\lambda) = \\vec{z}^\\top(\\vec{y} - \\vec{x}) + \\lambda(\\|\\vec{x}\\|_1 - \\mu).$ Minimizing over $\\vec{x}$ imposes $\\|\\vec{z}\\|_\\infty \\le \\lambda.$ Thus the dual is $\\max_{\\vec{z},\\,\\lambda} \\vec{z}^\\top\\vec{y} - \\lambda\\mu$ subject to $\\|\\vec{z}\\|_1 \\le 1,$ $\\|\\vec{z}\\|_\\infty \\le \\lambda,$ and $\\lambda \\ge 0.$",
+      "golden_answer": "A valid dual is $\\max_{\\vec{z},\\,\\lambda}\\; (\\vec{z}^\\top \\vec{y} - \\lambda\\mu)$ subject to $\\|\\vec{z}\\|_1 \\le 1,\\;\\|\\vec{z}\\|_\\infty \\le \\lambda,\\;\\lambda \\ge 0.$",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 52,
+      "source": "Spring 2020, EECS 127/227AT, Final, Problem 9(e)",
+      "problem_statement": "(e) (8 points) We design a dual feasible point $(\\vec{z}^*, \\lambda^*)$ with dual objective value $\\tau^*.$ Consider\n\\[z^*_i = \\begin{cases}\\frac{1}{k}, & i = 1, 2,\\dots,k,\\\\0, & i = k+1,\\dots,d,\\end{cases}\\]\nwhere $k = \\max \\{\\,i :\\; y_i \\ge \\tau^* \\}.$ Verify that $\\|\\vec{z}^*\\|_1 \\le 1,$ and find $\\lambda^*$ such that $(\\vec{z}^*, \\lambda^*)$ is feasible for the dual and the value of the dual objective is $\\tau^*.$",
+      "solution": "By construction, $z^*_i = 1/k$ for $i \\le k$ and $0$ otherwise, so $\\|\\vec{z}^*\\|_1 = \\sum_{i=1}^k 1/k = 1.$ Also $\\|\\vec{z}^*\\|_\\infty = 1/k.$ For feasibility we need $\\lambda^* \\ge 1/k.$ The best choice is $\\lambda^* = 1/k,$ which makes $\\|\\vec{z}^*\\|_\\infty = \\lambda^*.$ Then the dual objective is $\\frac{1}{k}\\sum_{i=1}^k y_i - \\frac{1}{k}\\mu,$ which equals $\\tau^*$ by the definition of $\\mu$ and $\\tau^*.$",
+      "golden_answer": "Choose $\\lambda^* = 1/k.$ This ensures dual feasibility and yields a dual objective of $\\tau^*.$",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 53,
+      "source": "Spring 2020, EECS 127/227AT, Final, Problem 9(f)",
+      "problem_statement": "(f) (2 points) Using the results from the previous parts, justify why $\\tau^*$ is the optimal value of the primal problem.",
+      "solution": "We have found a primal feasible solution achieving objective $\\tau^*$ and a dual feasible solution with objective $\\tau^*.$ By weak duality, $p^* = \\tau^*.$",
+      "golden_answer": "$p^* = \\tau^*$ because we matched primal and dual feasible points both achieving $\\tau^*.$",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 54,
+      "source": "2023 Fall, EECS 127/227AT, Midterm, Q1",
+      "problem_statement": "Please copy the following statement in the space provided below and sign your name.\nAs a member of the UC Berkeley community, I act with honesty, integrity, and respect for others. I will follow the rules and do this exam on my own.\nIF YOU DO NOT COPY THE HONOR CODE AND SIGN YOUR NAME,\nYOU WILL GET A 0 ON THE EXAM.",
+      "solution": null,
+      "golden_answer": "N/A",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 55,
+      "source": "2023 Fall, EECS 127/227AT, Midterm, Q2",
+      "problem_statement": "WHEN THE EXAM STARTS, WRITE YOUR SID AT THE TOP OF EVERY PAGE.\nNo extra time will be given for this task.",
+      "solution": null,
+      "golden_answer": "N/A",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 56,
+      "source": "2023 Fall, EECS 127/227AT, Midterm, Q3(a)",
+      "problem_statement": "What\u2019s your favorite restaurant in Berkeley?",
+      "solution": "Any answer is fine.",
+      "golden_answer": "Any answer is fine.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 57,
+      "source": "2023 Fall, EECS 127/227AT, Midterm, Q3(b)",
+      "problem_statement": "What\u2019s some music that makes you happy?",
+      "solution": "Any answer is fine.",
+      "golden_answer": "Any answer is fine.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 58,
+      "source": "2023 Fall, EECS 127/227AT, Midterm, Q4(a)",
+      "problem_statement": "Prove that R(AB) \u2286 R(A).\nHINT: R(A) = {y : y = A x for some x \u2208 \u211d\u207f}.",
+      "solution": "To solve this problem, it is sufficient to show that if \\vec{y} \u2208 R(AB) then \\vec{y} \u2208 R(A). Consider arbitrary \\vec{y} \u2208 R(AB), then there exists a \\vec{z} \u2208 \u211d^p such that \\vec{y} = AB\\vec{z}. Define \\vec{w} \u2208 \u211d^n to be \\vec{w} = B\\vec{z} \u2208 \u211d^n. Consequently, it holds that \\vec{y} = A\\vec{w}. Therefore, we can conclude that \\vec{y} \u2208 R(A).\n\nAlternate Solution: An alternate solution is to note that we can represent the product matrix AB as\n\nAB = [ A\\vec{b}_1  A\\vec{b}_2  \u2026  A\\vec{b}_p ],\n\nwhere \\vec{b}_1,\\vec{b}_2,\u2026,\\vec{b}_p \u2208 \u211d^n are the columns of matrix B. Recall that the range space of any matrix is the span of its columns. Therefore,\n\nR(AB) = span{ A\\vec{b}_1, A\\vec{b}_2, \u2026, A\\vec{b}_p }.\n\nSince A\\vec{b}_i \u2208 R(A) for every i \u2208 {1,2,\u2026,p}, it holds that\n\nspan{ A\\vec{b}_1, A\\vec{b}_2, \u2026, A\\vec{b}_p } \u2286 R(A).\n\n\u00a9 UCB EECS 127/227AT, Fall 2023. All Rights Reserved. This may not be publicly shared without explicit permission.",
+      "golden_answer": "R(AB) is a subspace of R(A).",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 59,
+      "source": "2023 Fall, EECS 127/227AT, Midterm, Q4(b)",
+      "problem_statement": "Prove that the following inequality holds:\n0 \u2264 rank(AB) \u2264 min{ rank(A), rank(B) }.\nHINT: Recall that the rank of a matrix is the dimension of its range space.\nHINT: You may use the result of part (a), and the fact that the rank of any matrix is the same as the rank of its transpose.",
+      "solution": "Recall that rank of any matrix is the dimension of the column space of that matrix. Therefore the rank has to be always non-negative. This proves the lower bound in the problem.\n\nTo show the upper bound, it is enough to show that\n\nrank(AB) \u2264 rank(A),   (P1)\n\nrank(AB) \u2264 rank(B).   (P2)\n\nFirst, we show (P1). This is a consequence of part (a) where we showed that R(AB) \u2286 R(A). Therefore\n\nrank(AB) = dim(R(AB)) \u2264 dim(R(A)) = rank(A).\n\nNext, we show (P2). Observe that\n\nrank(AB) = rank((AB)\u1d40) = rank(B\u1d40 A\u1d40) \u2264 rank(B\u1d40) = rank(B),\n\nwhere the first equality is due to the fact that the rank of any matrix is the same as the rank of its transpose, and the inequality step follows from (P1) by replacing A with B\u1d40 and B with A\u1d40.\n\n\u00a9 UCB EECS 127/227AT, Fall 2023. All Rights Reserved. This may not be publicly shared without explicit permission.",
+      "golden_answer": "0 \u2264 rank(AB) \u2264 min{ rank(A), rank(B) }.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 60,
+      "source": "2023 Fall, EECS 127/227AT, Midterm, Q4(c)",
+      "problem_statement": "Give an example of matrices A, B such that rank(A) \u2260 0, rank(B) \u2260 0 but rank(AB) = 0, by finding suitable values of x, y, z \u2208 \u211d in the following matrices:\n\nA =  [ x   y ]\n      [ 0   0 ],\n\nB =  [ 1   0 ]\n      [ 1   z ].",
+      "solution": "In general, we can show that any solution with x + y = 0, x \u2260 0, z = 0 will work.\n\nTo do this, we multiply AB and get:\n\nAB =  [ x   y ] [ 1   0 ] =  [ x + y   y z ]\n       [ 0   0 ] [ 1   z ]    [   0       0   ].\n\nFor this to have rank zero, we need x + y = 0 and y z = 0. Also, for A to have nonzero rank, we need at least one of x and y to be nonzero.\n\nFor a specific example, consider the matrices\n\nA =  [ 1  -1 ]\n      [ 0   0 ],\n\nB =  [ 1   0 ]\n      [ 1   0 ].\n\nNote that rank(A) = rank(B) = 1. But\n\nAB =  [ 0  0 ]\n       [ 0  0 ].\n\nTherefore, rank(AB) = 0. This corresponds to x=1, y=-1, z=0.\n\n\u00a9 UCB EECS 127/227AT, Fall 2023. All Rights Reserved. This may not be publicly shared without explicit permission.",
+      "golden_answer": "Example: A = [[1, -1],[0, 0]], B = [[1, 0],[1, 0]] gives rank(A)=1, rank(B)=1, rank(AB)=0.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 61,
+      "source": "2023 Fall, EECS 127/227AT, Midterm, Q5",
+      "problem_statement": "Consider two sets of orthonormal vectors {p\u2081, p\u2082} \u2282 \u211d\u1d50 with p\u2081 \u27c2 p\u2082, and {q\u2081, q\u2082} \u2282 \u211d\u207f with q\u2081 \u27c2 q\u2082. Let C \u2208 \u211d\u1d50\u02e3\u207f be defined as\n\nC = p\u2081 q\u2081\u1d40 + (1/2) p\u2082 q\u2082\u1d40.\n\nWrite the compact SVD representation of matrix C in terms of p\u2081, p\u2082, q\u2081, q\u2082. That is, compute the SVD matrices U\u1d63 \u2208 \u211d\u1d50\u02e3\u02b3, \u03a3\u1d63 \u2208 \u211d\u02b3\u02e3\u02b3, V\u1d63 \u2208 \u211d\u207f\u02e3\u02b3, such that C = U\u1d63 \u03a3\u1d63 V\u1d63\u1d40.",
+      "solution": "The compact SVD representation of matrix C in terms of p\u2081, p\u2082, q\u2081, q\u2082 with all three matrices is given by:\n\nC = [ p\u2081   p\u2082 ]\n    [       ]\n    [       ]\n    [       ]\n    [       ]\n    [       ]\n    [ p\u2081   p\u2082 ] [ 1     0     ] [ q\u2081\u1d40 ]\n                  [ 0   1/2   ] [ q\u2082\u1d40 ].\n\nIn simpler terms:\n\nC = [ p\u2081  p\u2082 ]  [ 1   0   ]  [ q\u2081\u1d40 ]\n              [ 0  1/2 ]  [ q\u2082\u1d40 ].\n\n\u00a9 UCB EECS 127/227AT, Fall 2023. All Rights Reserved. This may not be publicly shared without explicit permission.",
+      "golden_answer": "C = [p\u2081 p\u2082] diag(1, 1/2) [q\u2081 q\u2082]\u1d40.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 62,
+      "source": "2023 Fall, EECS 127/227AT, Midterm, Q6(a)",
+      "problem_statement": "Let A \u2208 \u211d\u1d50\u02e3\u207f be a matrix with rank r > 0. Consider the equation A x = b for some b \u2208 R(A). Show that\n\nx\u2080 = V\u1d63 \u03a3\u1d63\u207b\u00b9 U\u1d63\u1d40 b\n\nis a solution to A x = b, where the compact SVD of A is A = U\u1d63 \u03a3\u1d63 V\u1d63\u1d40. Show your work.\n\nHINT: Remember that U\u1d63 U\u1d63\u1d40 isn\u2019t necessarily the identity, but U\u1d63 U\u1d63\u1d40 d = d for any d \u2208 R(U\u1d63).",
+      "solution": "One way is to note that\n\nA x\u2080 = U\u1d63 \u03a3\u1d63 V\u1d63\u1d40 V\u1d63 \u03a3\u1d63\u207b\u00b9 U\u1d63\u1d40 b = U\u1d63 \u03a3\u1d63 \u03a3\u1d63\u207b\u00b9 U\u1d63\u1d40 b = U\u1d63 U\u1d63\u1d40 b = b,\n\nwhere we used the fact that V\u1d63 has orthonormal columns (so V\u1d63\u1d40 V\u1d63 = I). The last step involves noting that the columns of U\u1d63 span R(A) and b \u2208 R(A), so b = U\u1d63 z for some z. Then, U\u1d63 U\u1d63\u1d40 b = U\u1d63 U\u1d63\u1d40 U\u1d63 z = U\u1d63 z = b.\n\nAnother way is to see that A x = U\u1d63 \u03a3\u1d63 V\u1d63\u1d40 x = b. Left multiplying on both sides by U\u1d63\u1d40 and using U\u1d63\u1d40 U\u1d63 = I, we get\n\n\u03a3\u1d63 V\u1d63\u1d40 x = U\u1d63\u1d40 b.\n\nOnce again left multiplying on both sides by \u03a3\u1d63\u207b\u00b9, we have\n\nV\u1d63\u1d40 x = \u03a3\u1d63\u207b\u00b9 U\u1d63\u1d40 b.\n\nNow, substitute x = x\u2080 = V\u1d63 \u03a3\u1d63\u207b\u00b9 U\u1d63\u1d40 b to see that\n\nV\u1d63\u1d40 V\u1d63 \u03a3\u1d63\u207b\u00b9 U\u1d63\u1d40 b = \u03a3\u1d63\u207b\u00b9 U\u1d63\u1d40 b,\n\nand using V\u1d63\u1d40 V\u1d63 = I shows the left hand side and right hand side are equal.\n\n\u00a9 UCB EECS 127/227AT, Fall 2023. All Rights Reserved. This may not be publicly shared without explicit permission.",
+      "golden_answer": "x\u2080 = V\u1d63 \u03a3\u1d63\u207b\u00b9 U\u1d63\u1d40 b solves A x = b.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 63,
+      "source": "2023 Fall, EECS 127/227AT, Midterm, Q6(b)",
+      "problem_statement": "Let A \u2208 \u211d\u1d50\u02e3\u207f be a matrix with m < n and rank r > 0, and let b \u2208 R(A).\nAlso, let the compact and full SVD representations of A be, respectively,\n\nA = U\u1d63 \u03a3\u1d63 V\u1d63\u1d40,\n\nA = [ U\u1d63   U\u2098\u208b\u1d63 ]\n    [          ]\n    [          ]\n    (\u03a3\u1d63    0   )  ( V\u1d63\u1d40 )\n    ( 0    0   )  ( V\u2099\u208b\u1d63\u1d40 ),\n\nwhere U\u2098\u208b\u1d63 \u2208 \u211d\u1d50\u02e3(m-r), V\u2099\u208b\u1d63 \u2208 \u211d\u207f\u02e3(n-r). Show that\n\nV\u1d63 \u03a3\u1d63\u207b\u00b9 U\u1d63\u1d40 b + V\u2099\u208b\u1d63 z\n\nis a solution to A x = b, for any z \u2208 \u211d\u207f\u207b\u02b3.",
+      "solution": "We plug in the given solution into A x, yielding\n\nA( V\u1d63 \u03a3\u1d63\u207b\u00b9 U\u1d63\u1d40 b + V\u2099\u208b\u1d63 z )\n= A V\u1d63 \u03a3\u1d63\u207b\u00b9 U\u1d63\u1d40 b + A V\u2099\u208b\u1d63 z\n= U\u1d63 \u03a3\u1d63 V\u1d63\u1d40 V\u1d63 \u03a3\u1d63\u207b\u00b9 U\u1d63\u1d40 b + U\u1d63 \u03a3\u1d63 (V\u1d63\u1d40 V\u2099\u208b\u1d63) z.\n\nThen, we get U\u1d63 \u03a3\u1d63 \u03a3\u1d63\u207b\u00b9 U\u1d63\u1d40 b = U\u1d63 U\u1d63\u1d40 b = b, where we used the fact that V\u1d63 has orthonormal columns (so V\u1d63\u1d40 V\u1d63 = I, V\u1d63\u1d40 V\u2099\u208b\u1d63 = 0).",
+      "golden_answer": "All vectors of the form V\u1d63 \u03a3\u1d63\u207b\u00b9 U\u1d63\u1d40 b + V\u2099\u208b\u1d63 z satisfy A x = b.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 64,
+      "source": "2023 Fall, EECS 127/227AT, Midterm, Q6(c)",
+      "problem_statement": "Again, let A \u2208 \u211d\u1d50\u02e3\u207f be a matrix with m < n and rank r, and let b \u2208 R(A).\nAlso, let the compact and full SVD representations of A be, respectively,\n\nA = U\u1d63 \u03a3\u1d63 V\u1d63\u1d40,\n\nA = [ U\u1d63   U\u2098\u208b\u1d63 ]\n    [          ]\n    [          ]\n    (\u03a3\u1d63    0   )  ( V\u1d63\u1d40 )\n    ( 0    0   )  ( V\u2099\u208b\u1d63\u1d40 ),\n\nwhere U\u2098\u208b\u1d63 \u2208 \u211d\u1d50\u02e3(m-r), V\u2099\u208b\u1d63 \u2208 \u211d\u207f\u02e3(n-r).\n\nLet x* be the solution to the following problem:\n\nx* = argmin  \u2225 x \u2225\u2082\u00b2\n     x\u2208\u211d\u207f\n     s.t. A x = b.\n\nFind x* and justify your answer.",
+      "solution": "Using the fact in the hint, we reduce our problem to\n\nmin  \u2225 V\u1d63 \u03a3\u1d63\u207b\u00b9 U\u1d63\u1d40 b + V\u2099\u208b\u1d63 z \u2225\u2082\u00b2\n z\u2208\u211d\u207f\u207b\u02b3.\n\nWe can expand the inner product to get:\n\nmin ( \u2225 V\u1d63 \u03a3\u1d63\u207b\u00b9 U\u1d63\u1d40 b \u2225\u2082\u00b2 + \u2225 V\u2099\u208b\u1d63 z \u2225\u2082\u00b2 + 2 (V\u1d63 \u03a3\u1d63\u207b\u00b9 U\u1d63\u1d40 b)\u1d40 (V\u2099\u208b\u1d63 z) ).\n\nNow, note that V is an orthogonal matrix (or that R(V\u1d63) = R(A\u1d40), R(V\u2099\u208b\u1d63) = N(A)), so R(V\u1d63) \u27c2 R(V\u2099\u208b\u1d63). Thus, the cross term is zero, and we are left with\n\nmin ( \u2225 V\u1d63 \u03a3\u1d63\u207b\u00b9 U\u1d63\u1d40 b \u2225\u2082\u00b2 + \u2225 V\u2099\u208b\u1d63 z \u2225\u2082\u00b2 ).\n\nThe first term does not depend on z; the second term is minimized by choosing z = 0. Therefore,\n\nthe minimum norm solution is x* = V\u1d63 \u03a3\u1d63\u207b\u00b9 U\u1d63\u1d40 b.\n",
+      "golden_answer": "x* = V\u1d63 \u03a3\u1d63\u207b\u00b9 U\u1d63\u1d40 b (the minimum-norm solution).",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 65,
+      "source": "2023 Fall, EECS 127/227AT, Midterm, Q7(a)",
+      "problem_statement": "Let f : \u211d\u207f \u2192 \u211d be defined as\n\nf(x) = \u2225 A x \u2225\u2082\u00b2,\n\nwhere A \u2208 \u211d\u1d50\u02e3\u207f is a matrix. Is f a convex function? Prove or disprove.",
+      "solution": "One solution is to derive the Hessian 2 A\u1d40 A and note that it is symmetric positive semidefinite.\n\n\u00a9 UCB EECS 127/227AT, Fall 2023. All Rights Reserved. This may not be publicly shared without explicit permission.",
+      "golden_answer": "Yes, f is convex because its Hessian 2A\u1d40A is positive semidefinite.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 66,
+      "source": "2023 Fall, EECS 127/227AT, Midterm, Q7(b)",
+      "problem_statement": "Let g, h : \u211d\u207f \u2192 \u211d be fixed twice-differentiable convex functions, and fix real numbers a, b > 0. Define f : \u211d\u207f \u2192 \u211d by\n\nf(x) = a g(x) + b h(x),\n\nfor each x \u2208 \u211d\u207f. Prove f is a convex function.",
+      "solution": "Fix x, y \u2208 \u211d\u207f, \u03b1 \u2208 [0,1] arbitrarily. Then, appealing to the definition of convexity:\n\nf( \u03b1 x + (1-\u03b1) y )\n= a g( \u03b1 x + (1-\u03b1) y ) + b h( \u03b1 x + (1-\u03b1) y )\n\n\u2264 \u03b1 ( a g(x) + b h(x) ) + (1-\u03b1) ( a g(y) + b h(y) )\n= \u03b1 f(x) + (1-\u03b1) f(y).\n\nThus, f is a convex function.",
+      "golden_answer": "The sum of convex functions with positive coefficients is convex.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 67,
+      "source": "2023 Fall, EECS 127/227AT, Midterm, Q8(a)",
+      "problem_statement": "Compute the gradient and Hessian with respect to x of the function f : \u211d\u207f \u2192 \u211d\n\nf(x) = 1 - (a\u1d40 x)\u00b2,\n\nwhere a \u2208 \u211d\u207f.",
+      "solution": "By the chain rule,\n\n\u2207f(x) = - 2 (a\u1d40 x) a.\n\nFurthermore, the Hessian is\n\n\u2207\u00b2f(x) = - 2 a a\u1d40.\n\n\u00a9 UCB EECS 127/227AT, Fall 2023. All Rights Reserved. This may not be publicly shared without explicit permission.",
+      "golden_answer": "\u2207f(x) = -2 (a\u1d40 x) a;   \u2207\u00b2f(x) = -2 a a\u1d40.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 68,
+      "source": "2023 Fall, EECS 127/227AT, Midterm, Q8(b)",
+      "problem_statement": "Consider\n\nf(x) = \u2211(i=1 to m) log( b\u1d62 - a\u1d62\u1d40 x ),\n\nwhere a\u1d62 \u2208 \u211d\u207f for i=1,\u2026,m, and b\u2081,b\u2082,\u2026,b\u2098 > 0. The domain of f is\n\n{ x \u2208 \u211d\u207f | b\u1d62 - a\u1d62\u1d40 x > 0 for all i=1,\u2026,m },\n\nwhich is assumed to be nonempty. Compute the gradient of f(x) with respect to x.",
+      "solution": "The derivative of log(b - x) with respect to a scalar variable x is -1 / (b - x). Now, using the chain rule, the gradient of log(b\u1d62 - a\u1d62\u1d40 x) with respect to x is\n\n- a\u1d62 / ( b\u1d62 - a\u1d62\u1d40 x ).\n\nHence, summing the gradients for each term, we get:\n\n\u2207f(x) = - \u2211(i=1 to m) [ a\u1d62 / ( b\u1d62 - a\u1d62\u1d40 x ) ].\n\n\u00a9 UCB EECS 127/227AT, Fall 2023. All Rights Reserved. This may not be publicly shared without explicit permission.",
+      "golden_answer": "\u2207f(x) = -\u2211(i=1..m) [ a\u1d62 / ( b\u1d62 - a\u1d62\u1d40 x ) ].",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 69,
+      "source": "2023 Fall, EECS 127/227AT, Midterm, Q9(a)",
+      "problem_statement": "Now, consider any square matrix C \u2208 \u211d\u207f\u02e3\u207f and let C\u2096 \u2208 \u211d\u207f\u02e3\u207f denote its best rank-k approximation in the Frobenius norm. Then, for any orthonormal matrix W \u2208 \u211d\u207f\u02e3\u207f, show that\n\nW C\u2096 W\u1d40 = argmin (over B of rank \u2264 k) \u2225 W C W\u1d40 - B \u2225_F.",
+      "solution": "Using the fact that the Frobenius norm is invariant under orthogonal transformations, we have\n\n\u2225 B - W C W\u1d40 \u2225_F = \u2225 W\u1d40 B W - C \u2225_F.\n\nTherefore,\n\nmin (over rank(B) \u2264 k) \u2225 B - W C W\u1d40 \u2225_F = min (over rank(B) \u2264 k) \u2225 W\u1d40 B W - C \u2225_F.\n\nNext, we show that\n\n{ W\u1d40 B W : rank(B) \u2264 k } = { Z \u2208 \u211d\u207f\u02e3\u207f : rank(Z) \u2264 k }.\n\nHence,\n\nmin (over rank(B) \u2264 k) \u2225 W\u1d40 B W - C \u2225_F = min (over rank(Z) \u2264 k) \u2225 Z - C \u2225_F = \u2225 C\u2096 - C \u2225_F.\n\nLastly,\n\n\u2225 W C\u2096 W\u1d40 - W C W\u1d40 \u2225_F = \u2225 C\u2096 - C \u2225_F,\n\nand since rank(W C\u2096 W\u1d40) \u2264 k, we conclude that W C\u2096 W\u1d40 is a minimizer.\n\n\u00a9 UCB EECS 127/227AT, Fall 2023. All Rights Reserved. This may not be publicly shared without explicit permission.",
+      "golden_answer": "W C\u2096 W\u1d40 is the best rank-k approximation to W C W\u1d40 in Frobenius norm.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 70,
+      "source": "2023 Fall, EECS 127/227AT, Midterm, Q9(b)",
+      "problem_statement": "Find the best rank-n approximation to AA\u1d40 in the Frobenius norm. Justify your answer.",
+      "solution": "AA\u1d40 already has rank n (since A is full rank), so AA\u1d40 itself is the best rank-n approximation.\n\n\u00a9 UCB EECS 127/227AT, Fall 2023. All Rights Reserved. This may not be publicly shared without explicit permission.",
+      "golden_answer": "The matrix AA\u1d40 itself (it already has rank n).",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 71,
+      "source": "2023 Fall, EECS 127/227AT, Midterm, Q9(c)",
+      "problem_statement": "Recall that A \u2208 \u211d\u207f\u02e3\u207f is a square matrix with full rank, and we can write the matrix A as\n\nA = Q R\n\nwhere Q \u2208 \u211d\u207f\u02e3\u207f is an orthonormal matrix and R \u2208 \u211d\u207f\u02e3\u207f is an upper triangular matrix. Assume that\n\nR = diag(r\u2081, r\u2082, \u2026, r\u2099) \u2208 \u211d\u207f\u02e3\u207f\n\nwith\n\n|r\u2081| > |r\u2082| > \u2026 > |r\u2099|,\n\nand all r\u2081,\u2026,r\u2099 are real numbers. Let k < n. Then, show that the best rank-k approximation to AA\u1d40 in the Frobenius norm is Q S Q\u1d40, where S is a diagonal matrix defined as\n\nS = diag(r\u2081\u00b2, \u2026, r\u2096\u00b2, 0, \u2026, 0) \u2208 \u211d\u207f\u02e3\u207f.",
+      "solution": "We can write\n\nAA\u1d40 = Q R R\u1d40 Q\u1d40.\n\nNote that Q is an orthonormal matrix and R R\u1d40 = diag(r\u2081\u00b2, r\u2082\u00b2, \u2026, r\u2099\u00b2) is a diagonal matrix. Therefore, AA\u1d40 = Q diag(r\u2081\u00b2,\u2026,r\u2099\u00b2) Q\u1d40 forms an SVD for AA\u1d40. Then, the result follows by the Eckart-Young Theorem, where taking the top k diagonal entries r\u2081\u00b2,\u2026,r\u2096\u00b2 yields Q S Q\u1d40 as the best rank-k approximation.\n\n\u00a9 UCB EECS 127/227AT, Fall 2023. All Rights Reserved. This may not be publicly shared without explicit permission.",
+      "golden_answer": "The best rank-k approximation is Q diag(r\u2081\u00b2,\u2026,r\u2096\u00b2,0,\u2026,0) Q\u1d40.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 72,
+      "source": "2023 Fall, EECS 127/227AT, Midterm, Q9(d)",
+      "problem_statement": "Recall that A \u2208 \u211d\u207f\u02e3\u207f is a square matrix with full rank, and we can write\n\nA = Q R\n\nwhere Q \u2208 \u211d\u207f\u02e3\u207f is an orthonormal matrix and R \u2208 \u211d\u207f\u02e3\u207f is an upper triangular matrix. Now, we no longer assume that R is diagonal. Let k < n and assume that the best rank-k approximation to R R\u1d40 \u2208 \u211d\u207f\u02e3\u207f in the Frobenius norm is given by G \u2208 \u211d\u207f\u02e3\u207f. Then, using the result of part (a), show that the best rank-k approximation to AA\u1d40 in the Frobenius norm is given by Q G Q\u1d40.",
+      "solution": "We can write\n\nAA\u1d40 = Q R R\u1d40 Q\u1d40.\n\nWe use part (a) with W=Q and C=R R\u1d40. As a result,\n\nQ G Q\u1d40 = argmin(rank(B) \u2264 k) \u2225 B - Q R R\u1d40 Q\u1d40 \u2225_F.\n\nTherefore, the best rank-k approximation to AA\u1d40 in the Frobenius norm is given by Q G Q\u1d40.\n\n\u00a9 UCB EECS 127/227AT, Fall 2023. All Rights Reserved. This may not be publicly shared without explicit permission.",
+      "golden_answer": "By applying the same orthogonal transformation Q, the best rank-k approximation is Q G Q\u1d40.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 73,
+      "source": "Spring 2020, EECS 127/227AT, Midterm, Problem 1(a)",
+      "problem_statement": "State whether the following functions/sets are convex and justify your answer. Answers without\njustification will receive no credit.\n\n(a) (4 points)\nFunction \n\\[\nf(\\vec x) \\;=\\;\\begin{pmatrix}x_1\\\\x_2\\end{pmatrix}^\\top\\begin{pmatrix}-1 & 0\\\\0 & 0\\end{pmatrix}\\begin{pmatrix}x_1\\\\x_2\\end{pmatrix}.\n\\]",
+      "solution": "Not a convex function because the Hessian matrix is not positive semi-definite.",
+      "golden_answer": "Not convex",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 74,
+      "source": "Spring 2020, EECS 127/227AT, Midterm, Problem 1(b)",
+      "problem_statement": "(b) (4 points)\nSet \n\\[\nS = \\{(\\vec x,y)\\mid \\|A\\vec x - \\vec b\\|_2^2 \\le y\\}.\n\\]\nHint: Consider the epigraph of a function. Other proofs may also work.",
+      "solution": "Convex set because the epigraph of a convex function is convex.",
+      "golden_answer": "Convex set",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 75,
+      "source": "Spring 2020, EECS 127/227AT, Midterm, Problem 1(c)",
+      "problem_statement": "(c) (4 points)\nFunction \n\\[\nf(\\vec x) = \\max_{\\vec b}\\bigl[\\vec b^\\top A \\,\\vec b + \\vec x^\\top \\vec b\\bigr],\n\\]\nwhere A is a fixed arbitrary matrix. Hint: Note that the maximization is over \\vec b.",
+      "solution": "Convex function because the pointwise maximum of convex functions (in this case affine functions)\nin \\vec x is convex.",
+      "golden_answer": "Convex function",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 76,
+      "source": "Spring 2020, EECS 127/227AT, Midterm, Problem 2(a)",
+      "problem_statement": "Consider the function f : \\mathbb{R}^n \\to \\mathbb{R} where\n\\[\nf(\\vec x) = \\frac{1}{4}\\|\\vec x\\|_2^4.\n\\]\nLet \n\\[\n\\vec x^* = \\arg\\min_{\\vec x} f(\\vec x).\n\\]\nRecall that the gradient descent update equation for minimizing f is given by\n\\[\n\\vec x_{t+1} = \\vec x_t - \\eta \\,\\nabla f(\\vec x_t),\n\\]\nwhere \\eta>0 is the step size.\n\n(a) (2 points)\nFind \\vec x^*. You need not show any work for this subpart.",
+      "solution": "\\[ f(\\vec x) = \\frac{1}{4}\\|\\vec x\\|_2^4 \\ge 0. \\]\nAlso, f(\\vec 0)=0, so \\(\\vec x^* = \\vec 0\\).",
+      "golden_answer": "\\(\\vec x^* = \\vec 0.\\)",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 77,
+      "source": "Spring 2020, EECS 127/227AT, Midterm, Problem 2(b)",
+      "problem_statement": "(b) (8 points)\nSuppose \\|\\vec x_0\\|_2 = c \\neq 0.\\)\nFind the range of \\eta (in terms of c) such that\ngradient descent converges to \\vec x^*. Justify your answer.",
+      "solution": "Using the chain rule, we can compute the gradient of f to get\n\\[\n\\nabla f(\\vec x_t) = \\|\\vec x_t\\|_2^2 \\,\\vec x_t.\n\\]\nUsing this along with part (a) and the gradient step,\n\\[\n\\|\\vec x_{t+1}-\\vec x^*\\| = \\|\\vec x_t - \\eta \\,\\|\\vec x_t\\|_2^2 \\,\\vec x_t\\| = \\|\\vec x_t\\|\\,\\bigl\\lvert 1 - \\eta \\|\\vec x_t\\|_2^2\\bigr\\rvert.\n\\]\nTo guarantee convergence to \\vec x^*, we require for all t,\n\\[\n\\bigl\\lvert 1 - \\eta \\|\\vec x_t\\|_2^2 \\bigr\\rvert < 1\\quad\\Longrightarrow\\quad 0 < \\eta < \\frac{2}{\\|\\vec x_t\\|_2^2}.\n\\]\nBut the lowest upper bound for \\eta occurs at t=0, so\n\\[\n0 < \\eta < \\frac{2}{\\|\\vec x_0\\|_2^2} = \\frac{2}{c^2}.\n\\]",
+      "golden_answer": "\\(0 < \\eta < 2/c^2.\\)",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 78,
+      "source": "Spring 2020, EECS 127/227AT, Midterm, Problem 3(a)",
+      "problem_statement": "In this problem, we will find the principal components of data points on a regularly spaced grid.\n\nConsider a set S of n=15 data points that lie at each integer node of a 5\\times3 grid:\n\\[\nS = \\Bigl\\{\\,\\vec x =\n\\begin{pmatrix}\nx_1\\\\\nx_2\n\\end{pmatrix} \\in \\mathbb{R}^2 \\;\\bigl|\\;\nx_1 \\in \\{-2,-1,0,1,2\\},\\,x_2 \\in \\{-1,0,1\\}\n\\Bigr\\}.\n\\]\n\\[\n\\text{Note that the empirical covariance matrix of these data points is }\nC = \\begin{pmatrix}2 & 0\\\\0 & 2/3\\end{pmatrix}.\n\\]\n\n(a) (6 points)\nRecall that for data with empirical covariance matrix C, the variance \\sigma^2(\\vec u) along\nany unit vector \\vec u is given by \\sigma^2(\\vec u) = \\vec u^\\top C\\,\\vec u.\nThe data\u2019s first principal component \\vec u_1 is the unit vector direction that maximizes variance,\ni.e.,\n\\[\n\\vec u_1 = \\arg \\max_{\\|\\vec u\\|_2 = 1} \\sigma^2(\\vec u).\n\\]\nCompute both \\vec u_1 and \\sigma^2(\\vec u_1). Show your work.",
+      "solution": "The first principal component \\(\\vec u_1\\) is the eigenvector corresponding to the largest\neigenvalue of C, so \\(\\vec u_1 = \\begin{pmatrix}1\\\\0\\end{pmatrix}\\). Also,\n\\(\\sigma^2(\\vec u_1) = 2.\\)",
+      "golden_answer": "\\(\\vec u_1 = (1,0)^\\top\\) and \\(\\sigma^2(\\vec u_1) = 2.\\)",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 79,
+      "source": "Spring 2020, EECS 127/227AT, Midterm, Problem 3(b)",
+      "problem_statement": "(b) (6 points)\nLet \\vec x_i for i=1,\\dots,15 represent the elements of set S. Suppose we transform\nevery point \\vec x \\in S by multiplying by an arbitrary orthonormal matrix W to generate\nnew data points \\vec z_i = W \\vec x_i, where i=1,\\dots,15 indexes over every element of S.\nLet \\vec v_1 denote the first principal component of the transformed data and let \\vec v_2\ndenote its second principal component. Find \\vec v_1 and \\vec v_2 in terms of \\vec u_1,\n\\vec u_2, and W.",
+      "solution": "First compute the transformed data\u2019s covariance matrix\n\\(\nC_W = W C W^\\top.\n\\)\nThe first principal component \\(\\vec v_1\\) satisfies\n\\(\n\\vec v_1 = W \\,\\vec u_1,\n\\)\nand the second must be orthogonal to the first, so \\(\\vec v_2 = W\\,\\vec u_2\\).",
+      "golden_answer": "\\(\\vec v_1 = W\\,\\vec u_1\\) and \\(\\vec v_2 = W\\,\\vec u_2.\\)",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 80,
+      "source": "Spring 2020, EECS 127/227AT, Midterm, Problem 4(a)",
+      "problem_statement": "Consider a partially known matrix A\\in\\mathbb{R}^{3\\times2} given by\n\\[\nA = \\begin{pmatrix}\n? & 1\\\\\n? & 1\\\\\n? & 1\n\\end{pmatrix},\n\\]\nwhere question marks denote unknown entries of A. We can write the compact QR decomposition\nof A in terms of Q_1\\in \\mathbb{R}^{3\\times2} and R_1\\in \\mathbb{R}^{2\\times2} as\n\\[\nA = Q_1 R_1\n=\n\\begin{pmatrix}\n1 & q_{12}\\\\\n0 & q_{22}\\\\\n0 & q_{23}\n\\end{pmatrix}\n\\begin{pmatrix}\n? & r_{12}\\\\\n0 & r_{22}\n\\end{pmatrix},\n\\]\nfor some unknown entry \u201c?\u201d and entries r_{12}, r_{22}, q_{12}, q_{22}, q_{23}. Suppose r_{22}>0.\nCompute r_{12}, r_{22}, q_{12}, q_{22} and q_{23}. Show all your work.",
+      "solution": "Using Gram\u2013Schmidt,\n\\(\nr_{12} = \\begin{pmatrix}1\\\\1\\\\1\\end{pmatrix}^\\top\\begin{pmatrix}1\\\\0\\\\0\\end{pmatrix} = 1.\\)\nSet \\(\\vec q = (q_{12}, q_{22}, q_{23})^\\top\\). From orthonormality and r_{22}>0:\n\\(\nr_{22} = \\sqrt{2},\\) and \\(\\vec q = \\begin{pmatrix}0\\\\1/\\sqrt{2}\\\\1/\\sqrt{2}\\end{pmatrix}.\\)",
+      "golden_answer": "\\(r_{12} = 1,\\; r_{22} = \\sqrt{2},\\; q_{12} = 0,\\; q_{22} = 1/\\sqrt{2},\\; q_{23} = 1/\\sqrt{2}.\\)",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 81,
+      "source": "Spring 2020, EECS 127/227AT, Midterm, Problem 4(b)",
+      "problem_statement": "(b) (12 points)\nSuppose we can write the full QR decomposition of A as\n\\[\nA = Q R =\n\\begin{pmatrix}Q_1\\\\Q_2\\end{pmatrix}\n\\begin{pmatrix} R_1\\\\ 0\\end{pmatrix},\n\\]\nwhere Q_1 and R_1 are as defined above. Consider the least squares problem\n\\[\np^*=\\min_{\\vec x}\\,\\|A\\vec x - \\vec b\\|_2^2\n\\]\nfor A given in the previous display and some \\vec b\\in\\mathbb{R}^3. Consider the following two\npossible ways of rewriting this least squares problem in terms of Q_1, Q_2, and R_1:\n\\[\n\\text{Strategy 1:}\\quad\n\\|\\vec b - A\\vec x\\|_2^2\n\\;\\;\\overset{(I)}{=} \\;\\;\n\\|\\,Q^\\top \\vec b - Q^\\top A\\vec x\\,\\|_2^2\n=\n\\|\\,Q_1^\\top \\vec b - R_1 \\vec x\\,\\|_2^2\n+\\|\\,Q_2^\\top \\vec b\\,\\|_2^2.\n\\]\n\\[\n\\text{Strategy 2:}\\quad\n\\|\\vec b - A\\vec x\\|_2^2\n=\\|\\vec b - Q_1 R_1 \\vec x\\|_2^2\n\\;\\;\\overset{(II)}{=}\\;\\;\n\\|\\,Q_1^\\top \\vec b - Q_1^\\top Q_1 R_1 \\vec x\\,\\|_2^2\n\\;\\;\\overset{(III)}{=}\\;\\;\n\\|\\,Q_1^\\top \\vec b - R_1 \\vec x\\,\\|_2^2.\n\\]\nDetermine whether the following labeled steps in the reformulations above are correct or\nincorrect and justify your answer. When evaluating the correctness of an equality, consider\nonly that specific equality\u2019s correctness \u2014 i.e., ignore all earlier steps.",
+      "solution": "\u2022 Equality (I) is correct, using that Q is an orthogonal matrix (Q Q^\\top=I).\n\u2022 Equality (II) is incorrect, because Q_1 is a 3\\times2 matrix and not a full orthogonal matrix, so\n  Q_1 Q_1^\\top \\neq I in \\mathbb{R}^{3\\times3}.\n\u2022 Equality (III) is correct, because the columns of Q_1 are orthonormal, giving Q_1^\\top Q_1 = I.",
+      "golden_answer": "(I) correct, (II) incorrect, (III) correct",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 82,
+      "source": "Spring 2020, EECS 127/227AT, Midterm, Problem 4(c)",
+      "problem_statement": "(c) (5 points)\nNow consider a different matrix A=Q R, unrelated to the matrix A in previous parts. Here\n\\[\nQ =\n\\begin{pmatrix}\n1 & 0 & 0\\\\\n0 & 0 & 1\\\\\n0 & 1 & 0\n\\end{pmatrix},\n\\quad\nR =\n\\begin{pmatrix}\nR_1\\\\[6pt]\n0\n\\end{pmatrix},\n\\]\nwhere R\\in\\mathbb{R}^{3\\times2} and R_1\\in\\mathbb{R}^{2\\times2} is a completely unknown\ninvertible upper triangular matrix. Let\n\\[\n\\vec b =\n\\begin{pmatrix}\n1\\\\\n2\\\\\n3\n\\end{pmatrix}.\n\\]\nAgain consider the least squares optimization problem:\n\\[\np^* = \\min_{\\vec x}\\,\\|A\\vec x - \\vec b\\|_2^2.\n\\]\nFind the optimal value p^*. Your answer should be a real number; it should not be an\nexpression involving A, Q, R, R_1, or \\vec b.",
+      "solution": "From the normal equations and the orthogonality of Q,\n\\(\np^* = \\|Q_2^\\top \\vec b\\|_2^2.\\)\nHere, the lower row (i.e., Q_2) is \\([0\\;1\\;0]\\). Hence Q_2^\\top \\vec b = 2, and p^* = 4.",
+      "golden_answer": "4",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 83,
+      "source": "Spring 2020, EECS 127/227AT, Midterm, Problem 5(a)",
+      "problem_statement": "Consider a set of points \\vec z_1, \\dots, \\vec z_n \\in \\mathbb{R}^d. The first principal component\nof the data, \\vec w^*, is the direction of the line that minimizes the sum of the squared distances\nbetween the points and their projections on \\vec w^*. We now generalize to finding the r-dimensional\nsubspace (instead of a 1-dimensional line) that minimizes the sum of the squared distances between\nthe points \\vec z_i and their projections on the subspace. We assume that 1 \\le r \\le \\min(n,d). We\ncan represent an r-dimensional subspace by its orthonormal basis (\\vec w_1,\\dots,\\vec w_r), and we\nwant to solve:\n\\[\n(\\vec w_1^*,\\dots,\\vec w_r^*)\n= \\arg \\min_{\\|\\vec w_i\\|_2=1,\\;\\langle \\vec w_i,\\vec w_j\\rangle=0}\\sum_{i=1}^n\\min_{\\alpha_1,\\dots,\\alpha_r}\\Bigl\\|\\vec z_i - \\sum_{k=1}^r \\alpha_k\\,\\vec w_k\\Bigr\\|^2.\n\\]\n\n(a) (6 points)\nWith the following definition of matrices Z and W:\n\\[\nZ =\n\\begin{pmatrix}\n\\uparrow & & \\uparrow\\\\\n\\vec z_1 & \\cdots & \\vec z_n\\\\\n\\downarrow & & \\downarrow\n\\end{pmatrix},\n\\quad\nW =\n\\begin{pmatrix}\n\\uparrow & & \\uparrow\\\\\n\\vec w_1 & \\cdots & \\vec w_r\\\\\n\\downarrow & & \\downarrow\n\\end{pmatrix},\n\\]\nshow that we can rewrite the optimization problem above as:\n\\[\n(\\vec w_1^*,\\dots,\\vec w_r^*)\n=\\arg \\min_{\\|\\vec w_i\\|_2=1,\\;\\langle \\vec w_i,\\vec w_j\\rangle=0}\\;\\|\\,Z - W W^\\top Z\\,\\|_F^2.\n\\]",
+      "solution": "For each \\vec z, the best projection onto span(\\vec w_i) is \\sum_{i=1}^r \\langle \\vec w_i,\\vec z\\rangle\\vec w_i.\nIn matrix form, W W^\\top Z. Hence\n\\(\n\\sum_{i=1}^n \\|\\vec z_i - \\sum_{j=1}^r \\langle \\vec w_j,\\vec z_i\\rangle \\vec w_j\\|^2 = \\|Z - W W^\\top Z\\|_F^2.\n\\)",
+      "golden_answer": "\\(\\min_{W}\\|Z - W W^\\top Z\\|_F^2\\) is equivalent to the original subspace problem.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 84,
+      "source": "Spring 2020, EECS 127/227AT, Midterm, Problem 5(b)",
+      "problem_statement": "(b) (6 points)\nLet \\sigma_i refer to the i-th largest singular value of Z, and l=\\min(n,d). First show\nthat\n\\[\n\\min_{\\|\\vec w_i\\|_2=1,\\;\\langle \\vec w_i,\\vec w_j\\rangle=0}\\|\\,Z - W W^\\top Z\\,\\|_F^2\n\\;\\ge\\;\n\\sum_{i=r+1}^l \\sigma_i^2.\n\\]",
+      "solution": "Using the SVD Z = \\sum_{i=1}^l \\sigma_i\\,\\vec u_i\\,\\vec v_i^\\top, the rank of W W^\\top Z is at most r.\nBy the Eckart\u2013Young theorem, the error is minimized by the best r-rank approximation:\n\\(\n\\|Z - W W^\\top Z\\|_F^2 \\ge \\|Z - Z_r\\|_F^2 = \\sum_{i=r+1}^l \\sigma_i^2.\n\\)",
+      "golden_answer": "At least \\(\\sum_{i=r+1}^l \\sigma_i^2\\).",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 85,
+      "source": "Spring 2020, EECS 127/227AT, Midterm, Problem 5(c)",
+      "problem_statement": "(c) (6 points)\nAgain \\sigma_i refers to the i-th largest singular value of Z, and l=\\min(n,d). Show that\n\\[\n\\min_{\\|\\vec w_i\\|_2=1,\\;\\langle \\vec w_i,\\vec w_j\\rangle=0}\\|\\,Z - W W^\\top Z\\,\\|_F^2\n\\;\\le\\;\n\\sum_{i=r+1}^l \\sigma_i^2.\n\\]\nHint: Find a W that achieves this upper bound.",
+      "solution": "By choosing the columns of W to be the top-r left singular vectors \\vec u_1,\\dots,\\vec u_r,\nwe match the rank-r approximation in the Eckart\u2013Young theorem, giving \\(\\sum_{i=r+1}^l \\sigma_i^2\\).",
+      "golden_answer": "We achieve equality by choosing \\(\\vec w_i = \\vec u_i\\) for i=1,...,r.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 86,
+      "source": "Spring 2020, EECS 127/227AT, Midterm, Problem 6(a)",
+      "problem_statement": "Consider the function\n\\[\nf(\\vec x)=\\vec x^\\top A\\,\\vec x \\;-\\;2\\,\\vec b^\\top \\vec x.\n\\]\nFirst, we consider the unconstrained optimization problem\n\\[\np^*=\\min_{\\vec x\\in\\mathbb{R}^n}\\;f(\\vec x)=\\min_{\\vec x\\in\\mathbb{R}^n}\\;[\\vec x^\\top A\\,\\vec x - 2\\,\\vec b^\\top \\vec x],\n\\]\nwhere A\\in S^n is a real symmetric matrix and \\vec b\\in\\mathbb{R}^n.\n\n(a) (6 points)\nSuppose A\\succeq 0 (positive semidefinite) and \\vec b\\in \\mathcal{R}(A). Let \\mathrm{rank}(A)=n.\nFind p^*.",
+      "solution": "Because A\\succ 0, we set the gradient to zero:\n\\(2 A \\vec x - 2 \\vec b = 0 => A \\vec x = \\vec b => \\vec x^* = A^{-1}\\vec b.\\)\nThen\n\\[\nf(\\vec x^*) = \\vec b^\\top A^{-1}\\vec b - 2\\,\\vec b^\\top A^{-1}\\vec b = -\\,\\vec b^\\top A^{-1}\\vec b.\n\\]",
+      "golden_answer": "\\(p^* = -\\,\\vec b^\\top A^{-1}\\,\\vec b.\\)",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 87,
+      "source": "Spring 2020, EECS 127/227AT, Midterm, Problem 6(b)",
+      "problem_statement": "(b) (8 points)\nSuppose A\\succeq 0 and \\vec b\\in \\mathcal{R}(A) as before. Let A be rank-deficient, i.e.,\n\\mathrm{rank}(A)=r<n. Let A have the compact/thin and full SVD as follows, with diagonal\npositive definite \\Lambda_r\\in\\mathbb{R}^{r\\times r}:\n\\[\nA=U_r\\Lambda_r\\,U_r^\\top\n=\\begin{pmatrix} U_r\\\\ U_1\\end{pmatrix}\n\\begin{pmatrix}\\Lambda_r & 0\\\\ 0 & 0\\end{pmatrix}\n\\begin{pmatrix}U_r^\\top & U_1^\\top\\end{pmatrix}.\n\\]\nShow that the minimizer \\vec x^* of the optimization problem is not unique by finding a general\nform for the family of solutions for \\vec x^*.",
+      "solution": "Since A\\succeq 0, f(\\vec x) is convex. Setting the gradient to zero gives A\\vec x=\\vec b.\nWith \\mathrm{rank}(A)=r<n but \\vec b\\in \\mathcal{R}(A), we may write:\n\\(\n\\vec x = U_r\\vec \\alpha + U_1\\vec \\beta,\\quad \\vec b = U_r\\vec \\gamma,\n\\)\nso \\(U_r\\Lambda_rU_r^\\top (U_r\\vec \\alpha + U_1\\vec \\beta) = U_r\\vec \\gamma.\\)\nOrthogonality implies \\(\\vec \\alpha=\\Lambda_r^{-1}\\vec \\gamma=\\Lambda_r^{-1}U_r^\\top\\vec b.\\)\nHence\n\\(\n\\vec x^* = U_r\\Lambda_r^{-1}U_r^\\top\\vec b + U_1\\vec \\beta,\n\\)\nfor any \\vec \\beta.",
+      "golden_answer": "\\(\\vec x^* = U_r\\Lambda_r^{-1}U_r^\\top\\vec b + U_1\\,\\vec \\beta,\\) for any \\vec \\beta.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 88,
+      "source": "Spring 2020, EECS 127/227AT, Midterm, Problem 6(c)",
+      "problem_statement": "(c) (6 points)\nIf A\\not\\succeq 0 (i.e. A not positive semidefinite), show that p^*=-\\infty by finding \\vec v such\nthat f(\\alpha\\,\\vec v)\\to -\\infty as \\alpha\\to\\infty.",
+      "solution": "Since A\\not\\succeq 0, there exists an eigenvalue \\mu<0 with eigenvector \\vec v. Also pick \\vec v\nso that -2\\,\\vec b^\\top\\vec v \\le 0. Then\n\\(\nf(\\alpha\\vec v) = \\alpha^2\\,\\vec v^\\top A\\vec v - 2\\,\\alpha\\,\\vec b^\\top\\vec v => \\alpha^2\\,\\mu + \\alpha(\\dots).\\)\nAs \\alpha\\to\\infty, this goes to -\\infty.",
+      "golden_answer": "p^*=-\\infty, since the negative eigenvalue direction unboundedly decreases f.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 89,
+      "source": "Spring 2020, EECS 127/227AT, Midterm, Problem 6(d)",
+      "problem_statement": "(d) (6 points)\nSuppose A\\succeq 0 and \\vec b\\notin \\mathcal{R}(A). Find p^*. Justify mathematically.",
+      "solution": "Write \\vec b=\\vec v_1+\\vec v_2 with \\vec v_1\\in \\mathcal{R}(A) and \\vec v_2\\in \\mathcal{N}(A),\n\\vec v_2\\neq 0. Then for \\vec x=\\alpha\\,\\vec v_2,\n\\(\nf(\\alpha\\,\\vec v_2) = \\alpha^2\\,\\vec v_2^\\top A\\vec v_2 - 2\\,\\alpha\\,\\vec b^\\top\\vec v_2= -2\\,\\alpha\\,\\|\\vec v_2\\|^2 -> -\\infty.\n\\)\nHence p^*=-\\infty.",
+      "golden_answer": "p^*=-\\infty.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 90,
+      "source": "Spring 2020, EECS 127/227AT, Midterm, Problem 6(e)",
+      "problem_statement": "Now consider the constrained optimization problem\n\\[\np^*\n=\\min_{\\vec x\\in\\mathbb{R}^n}\\;[\\vec x^\\top A\\,\\vec x - 2\\,\\vec b^\\top \\vec x]\n\\quad\\text{s.t.}\\;\\vec x^\\top \\vec x\\;\\ge 1.\n\\]\n\n(e) (4 points)\nWrite the Lagrangian L(\\vec x,\\lambda), where \\lambda is the dual variable corresponding to\nthe inequality constraint.",
+      "solution": "\\(\nL(\\vec x,\\lambda) = \\vec x^\\top A\\,\\vec x - 2\\,\\vec b^\\top\\vec x + \\lambda(1-\\vec x^\\top\\vec x).\n\\)",
+      "golden_answer": "\\(L(\\vec x,\\lambda)=\\vec x^\\top A\\,\\vec x -2\\,\\vec b^\\top\\vec x + \\lambda(1-\\vec x^\\top\\vec x).\\)",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 91,
+      "source": "Spring 2020, EECS 127/227AT, Midterm, Problem 6(f)",
+      "problem_statement": "(f) (6 points)\nFor any matrix C\\in\\mathbb{R}^{n\\times n} with \\mathrm{rank}(C)=r\\le n and compact SVD\n\\[\nC=U_r\\Lambda_r\\,V_r^\\top,\n\\]\nwe define the pseudoinverse\n\\[\nC^\\dagger=V_r\\,\\Lambda_r^{-1}\\,U_r^\\top.\n\\]\nIf \\vec d lies in the range of C, then a solution to C\\,\\vec x=\\vec d can be written\nas \\vec x=C^\\dagger \\vec d, even when C is not full-rank. Show that the dual problem to\nthe primal problem above can be written as\n\\[\nd^*\n=\\max_{\\lambda\\ge 0,\\;A-\\lambda I\\succeq 0,\\;\\vec b\\in \\mathcal{R}(A-\\lambda I)}\n\\;\\bigl[-\\,\\vec b^\\top(A-\\lambda I)^\\dagger\\,\\vec b + \\lambda\\bigr].\n\\]\nHint: First argue that if the constraints are not satisfied, then \\min_{\\vec x}\\,L(\\vec x,\\lambda)=-\\infty.\nThen show that if the constraints are satisfied,\n\\(\\min_{\\vec x}\\,L(\\vec x,\\lambda)=-\\,\\vec b^\\top (A-\\lambda I)^\\dagger \\vec b + \\lambda.\\)",
+      "solution": "We define\n\\(\ng(\\lambda) = \\min_{\\vec x}\\,L(\\vec x,\\lambda)\n=\\min_{\\vec x}\\,[\\vec x^\\top(A-\\lambda I)\\,\\vec x -2\\,\\vec b^\\top\\vec x + \\lambda].\\)\nIf A-\\lambda I\\not\\succeq 0 or \\vec b\\notin \\mathcal{R}(A-\\lambda I), we can send the objective\nof L(\\vec x,\\lambda) to -\\infty. Otherwise, set the gradient to zero:\n\\(\n(A-\\lambda I)\\,\\vec x = \\vec b => \\vec x^* = (A-\\lambda I)^\\dagger\\vec b.\n\\)\nPlugging back,\n\\(\nL(\\vec x^*,\\lambda) = -\\,\\vec b^\\top (A-\\lambda I)^\\dagger\\vec b + \\lambda.\n\\)\nHence\n\\(\n\\max_{\\lambda\\ge 0}\\,g(\\lambda)\n=\\max_{\\lambda\\ge 0,\\;A-\\lambda I\\succeq 0,\\;\\vec b\\in \\mathcal{R}(A-\\lambda I)}\\,[ -\\,\\vec b^\\top (A-\\lambda I)^\\dagger\\vec b + \\lambda ].\\)",
+      "golden_answer": "\\(d^* = \\max_{\\lambda\\ge 0,\\;A-\\lambda I\\succeq 0,\\;\\vec b\\in \\mathcal{R}(A-\\lambda I)}\\,[ -\\vec b^\\top(A-\\lambda I)^\\dagger\\vec b + \\lambda ].\\)",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 92,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 1",
+      "problem_statement": "Please copy the following statement in the space provided below and sign your name.\\newline As a member of the UC Berkeley community, I act with honesty, integrity, and respect for others. I will follow the rules and do this exam on my own.\\newline If you do not copy the honor code and sign your name, you will get a 0 on the exam.",
+      "solution": null,
+      "golden_answer": "",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 93,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 2",
+      "problem_statement": "When the exam starts, write your SID at the top of every page.\\newline No extra time will be given to complete this task.",
+      "solution": null,
+      "golden_answer": "",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 94,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 3(a)",
+      "problem_statement": "(1 pt) What\u2019s something that made you happy this year?",
+      "solution": "Any answer is fine.",
+      "golden_answer": "Any answer is fine.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 95,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 3(b)",
+      "problem_statement": "(1 pt) What\u2019s your favorite number?",
+      "solution": "Any answer is fine.",
+      "golden_answer": "Any answer is fine.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 96,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 4(a)",
+      "problem_statement": "Consider the linear program\\newline\\(\\min_{\\vec{x} \\in \\mathbb{R}^2} \\begin{pmatrix}1 \\\\ -1\\end{pmatrix}^\\top \\vec{x}\\)\\newline subject to\\newline\\(\\begin{pmatrix}-1 \\\\ -1\\end{pmatrix} \\le \\vec{x} \\le \\begin{pmatrix}1 \\\\ 1\\end{pmatrix}, \\quad 0 \\;\\le\\; \\begin{pmatrix}1 \\\\ 1\\end{pmatrix}^\\top \\vec{x} \\;\\le\\; 1.5,\\)\\newline where\\newline\\(\\vec{x} = \\begin{pmatrix} x_1 \\\\ x_2 \\end{pmatrix}.\\)\\newline\\newline (a) Draw the constraints on this problem and shade in the feasible region.",
+      "solution": null,
+      "golden_answer": "",
+      "has_image": true,
+      "image": null
+    },
+    {
+      "id": 97,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 4(b)",
+      "problem_statement": "Consider the same linear program above.\\newline (b) Plot and label level sets of the objective, i.e., \\(\\begin{pmatrix}1 \\\\ -1\\end{pmatrix}^\\top \\vec{x} = k\\) for \\(k = \\{-2, 0, 2\\}\\) on the figure.",
+      "solution": null,
+      "golden_answer": "",
+      "has_image": true,
+      "image": null
+    },
+    {
+      "id": 98,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 4(c)",
+      "problem_statement": "Consider the same linear program above.\\newline (c) Identify the optimal value \\(p^\\star\\) for the problem and the vector \\(\\vec{x}^\\star\\) which achieves it. You do not need to justify your answer. What are the active constraints at the optimal solution?",
+      "solution": "Because the \\(-2\\)-level set only intersects the feasible set at one point, and no \\(k\\)-level set intersects the feasible set for \\(k < -2\\), we have that \\(p^\\star = -2\\) and the optimal \\(\\vec{x}^\\star\\) is \\(\\begin{pmatrix} -1 \\\\ 1 \\end{pmatrix}\\). At this point, the active constraints are:\\newline\\(x_1 \\ge -1,\\quad x_2 \\le 1,\\quad x_1 + x_2 \\ge 0.\\)",
+      "golden_answer": "p^\u22c6 = \u22122, x^\u22c6 = (\u22121, 1), active constraints: x\u2081 \u2265 \u22121, x\u2082 \u2264 1, x\u2081 + x\u2082 \u2265 0.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 99,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 5(a)",
+      "problem_statement": "Consider the convex problem\\newline\\(p^\\star = \\min_{\\vec{x}\\in\\mathbb{R}^2} \\tfrac12\\,(x_1+1)^2 + x_2^2\\)\\newline subject to\\newline\\(x_1 = 0.\\)\\newline (a) Find the primal optimum \\(p^\\star\\) in the problem above by substituting the constraint \\(x_1 = 0\\) into the objective function. You do not need to justify your answer.",
+      "solution": "Substituting the constraint in, we have \\(p^\\star = \\tfrac12 + \\min_{x_2}\\; x_2^2 = \\tfrac12,\\) with \\(\\vec{x}^\\star = (0, 0).\\)",
+      "golden_answer": "p^\u22c6 = 1/2, x^\u22c6 = (0, 0).",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 100,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 5(b)",
+      "problem_statement": "Does Slater\u2019s condition hold for this problem? Does strong duality hold? Justify.",
+      "solution": "Yes, since the objective function is convex and the single constraint is an affine equality, Slater\u2019s condition holds. Thus strong duality holds.",
+      "golden_answer": "Yes, Slater\u2019s condition holds; strong duality holds.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 101,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 5(c)",
+      "problem_statement": "Find the dual function \\(g(\\nu)\\) and the dual optimum \\(d^\\star = \\max_{\\nu} g(\\nu)\\). Show your work.",
+      "solution": "The Lagrangian is \\(L(\\vec{x},\\nu) = \\tfrac12\\,(x_1+1)^2 + x_2^2 + \\nu x_1.\\) Minimizing over \\(\\vec{x}\\) yields \\(g(\\nu) = -\\tfrac12\\,\\nu^2 -\\nu.\\) The maximum of this quadratic is attained at \\(\\nu^\\star = -1\\), giving \\(d^\\star = \\tfrac12.\\)",
+      "golden_answer": "d^\u22c6 = 1/2, attained at \u03bd\u22c6 = \u22121.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 102,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 6(a)",
+      "problem_statement": "If \\(\\max_{\\vec{x}\\in X} f(\\vec{x}) < \\infty,\\)\\newline\\(\\max_{\\vec{x}\\in X} f(\\vec{x}) = -\\min_{\\vec{x}\\in X}[ -f(\\vec{x}) ].\\)\\newline True or False?",
+      "solution": "True.",
+      "golden_answer": "True.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 103,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 6(b)",
+      "problem_statement": "If \\(\\Omega \\subset X,\\)\\newline\\(\\max_{\\vec{x}\\in X} f(\\vec{x}) \\le \\max_{\\vec{x}\\in \\Omega} f(\\vec{x}).\\)\\newline True or False?",
+      "solution": "False. The correct relation is \\(\\max_{\\vec{x}\\in X} f(\\vec{x}) \\ge \\max_{\\vec{x}\\in \\Omega} f(\\vec{x}).\\)",
+      "golden_answer": "False.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 104,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 6(c)",
+      "problem_statement": "Suppose \\(\\max_{\\vec{x}\\in X} f(\\vec{x}) < \\infty,\\;\\max_{\\vec{x}\\in X} g(\\vec{x}) < \\infty,\\) and both maxima are achieved. Then\\newline\\(\\max_{\\vec{x}\\in X}[ f(\\vec{x}) + g(\\vec{x}) ] \\le \\max_{\\vec{x}\\in X} f(\\vec{x}) + \\max_{\\vec{x}\\in X} g(\\vec{x}).\\)\\newline True or False?",
+      "solution": "True.",
+      "golden_answer": "True.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 105,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 6(d)",
+      "problem_statement": "Suppose \\(\\max_{\\vec{x}\\in X} f(\\vec{x}) < \\infty\\) and the maximum is achieved at a unique maximizer. Then\\newline\\(\\arg\\max_{\\vec{x}\\in X} e^{f(\\vec{x})} = \\arg\\max_{\\vec{x}\\in X} f(\\vec{x}).\\)\\newline True or False?",
+      "solution": "True, since \\(e^t\\) is monotonic in \\(t\\).",
+      "golden_answer": "True.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 106,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 7",
+      "problem_statement": "Let \\(A\\in\\mathbb{R}^{3\\times 4}\\) have the full SVD:\\newline\\(A = U\\,\\Sigma\\,V^\\top.\\)\\newline Give the best rank-1 approximation to \\(A\\), i.e.,\\newline\\(\\arg\\min_{B: \\mathrm{rk}(B)\\le 1}\\|A - B\\|_F^2.\\)",
+      "solution": "The best rank-1 approximation is given by keeping the largest singular value and corresponding singular vectors. Specifically,\\newline\\(B^\\star = 7\\begin{pmatrix}1\\\\0\\\\0\\end{pmatrix}\\begin{pmatrix}\\tfrac{1}{\\sqrt{2}} & -\\tfrac{1}{\\sqrt{2}} & 0 & 0\\end{pmatrix}.\\)",
+      "golden_answer": "B^\u22c6 = 7 ( [1,0,0]\u1d40 [1/\u221a2, \u22121/\u221a2, 0, 0] ).",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 107,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 8(a)",
+      "problem_statement": "Consider \\(A\\in\\mathbb{R}^{m\\times n},\\;\\vec{b}\\in\\mathbb{R}^m,\\;\\vec{c}\\in\\mathbb{R}^n,\\;d\\in\\mathbb{R}.\\) The problem is\\newline\\(\\min_{\\vec{z}\\in\\mathbb{R}^n} (\\|A\\vec{z} - \\vec{b}\\|_2 - \\vec{c}^\\top\\vec{z} - d)^2.\\)\\newline Suppose \\(m=1\\) and \\(n=1\\), so \\(z\\) is scalar, \\(A = 1,\\;\\vec{b} = 1,\\;\\vec{c}=1,\\;d=1.\\) Is the problem convex? Justify using \\(z=0\\) and \\(z=2\\).",
+      "solution": "By evaluating at those points and checking midpoint convexity, we see it fails Jensen\u2019s inequality. Hence it is not convex.",
+      "golden_answer": "Not convex.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 108,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 8(b)",
+      "problem_statement": "The problem above can be reformulated as two inequalities in an equivalent form. Which constraint is dropped to make it an SOCP? Justify.",
+      "solution": "We must drop the second constraint \\(\\|\\begin{pmatrix}A\\\\ \\vec{0}\\end{pmatrix}\\vec{x} - \\vec{b}\\|_2^2 - (\\vec{c}^\\top \\vec{x} + (-1)x_{n+1}) - d \\ge 0.\\) Removing it yields a second-order cone form, though it changes the problem.",
+      "golden_answer": "We drop the second (\u22650) constraint to get an SOCP.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 109,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 9(a)",
+      "problem_statement": "A consumer needs \\(d\\) kWh of electrical energy from \\(n\\) generators with outputs \\(x_i\\). The cost is\\newline\\(f_i(x_i) = a_i x_i^2 + b_i x_i,\\quad a_i \\ge 0.\\)\\newline Each generator has \\(0 \\le x_i \\le m_i\\). The consumer solves\\newline\\(\\min \\sum_{i=1}^n f_i(x_i)\\quad\\text{s.t.}\\quad\\sum_{i=1}^n x_i = d,\\quad 0\\le x_i \\le m_i.\\)\\newline (a) Choose the smallest class that problem belongs to.",
+      "solution": "This is a quadratic program (QP).",
+      "golden_answer": "Quadratic Program.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 110,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 9(b)",
+      "problem_statement": "Consider\\newline\\(\\min_{x_1,x_2}\\; [x_1^2 + 2x_1] + [\\tfrac{3}{2} x_2^2]\\)\\newline subject to\\newline\\(x_1 + x_2 = 1,\\quad 0\\le x_1\\le 2,\\quad 0\\le x_2\\le 1.\\)\\newline (b) Find optimal \\(x_1\\) and \\(x_2\\).",
+      "solution": "Substitute \\(x_2 = 1 - x_1\\) into the objective and minimize. Solving yields \\(x_1=\\tfrac{1}{5}, x_2=\\tfrac{4}{5}.\\)",
+      "golden_answer": "x\u2081 = 1/5, x\u2082 = 4/5.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 111,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 9(c)",
+      "problem_statement": "Now let \\(d=2\\).\\newline\\(\\min\\; x_1^2 + 2x_1 + \\tfrac{3}{2} x_2^2\\)\\newline subject to\\newline\\(x_1 + x_2 = 2,\\;0\\le x_1\\le2,\\;0\\le x_2\\le1.\\)\\newline (c) Find optimal \\(x_1, x_2\\).",
+      "solution": "The unconstrained minimizer is \\((4/5, 6/5)\\), but that violates \\(x_2\\le 1\\). Checking boundaries yields \\(x_1=1, x_2=1\\) with objective \\(9/2\\).",
+      "golden_answer": "x\u2081 = 1, x\u2082 = 1, objective = 9/2.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 112,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 9(d)",
+      "problem_statement": "We consider again \\(\\min_{x_1,x_2}\\; f_1(x_1) + f_2(x_2)\\quad\\text{s.t.}\\quad x_1 + x_2=d,\\;0\\le x_i\\le m_i.\\) Dual variables: \\(\\nu\\) for the equality, and \\(\\lambda_1,\\lambda_2,\\lambda_3,\\lambda_4\\) for bound constraints. Suppose a solution has \\(0<x_1<m_1\\) and \\(0<x_2=m_2\\). Which dual variables are necessarily zero?",
+      "solution": "From complementary slackness, \\(\\lambda_1=\\lambda_2=0\\) since \\(0<x_1<m_1\\). Also \\(\\lambda_3=0\\) since \\(0<x_2=m_2\\).",
+      "golden_answer": "\u03bb\u2081, \u03bb\u2082, \u03bb\u2083 must be zero.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 113,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 10",
+      "problem_statement": "For \\(h(x)=\\lambda|x|\\), with \\(\\lambda\\ge0\\), define\\newline\\(\\mathrm{prox}_h(x_0) = \\arg\\min_{u}\\bigl[\\lambda|u| + \\tfrac12(x_0 - u)^2\\bigr].\\)\\newline Prove that\\newline\\(\\mathrm{prox}_h(x_0) = \\begin{cases} x_0 + \\lambda, & x_0< -\\lambda,\\\\ 0, & -\\lambda\\le x_0\\le \\lambda,\\\\ x_0 - \\lambda, & x_0 > \\lambda.\\end{cases}\\)",
+      "solution": "One checks separately for \\(u>0\\), \\(u<0\\), or \\(u=0\\). Setting the gradient to zero or checking the feasible region yields the soft-threshold function.",
+      "golden_answer": "prox\u2095(x\u2080) = 0 if |x\u2080| \u2264 \u03bb; else x\u2080 \u2212 \u03bb\u00b7sign(x\u2080).",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 114,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 11(a)",
+      "problem_statement": "Let \\(Z\\in\\mathbb{R}^{n\\times d}\\), \\(C>0\\). Consider:\\newline\\(p^\\star = \\min_{\\vec{w},\\vec{s}} \\tfrac12\\,\\|\\vec{w}\\|_2^2 + \\tfrac{C}{2}\\,\\|\\vec{s}\\|_2^2\\quad\\text{s.t.}\\quad\\vec{s}\\ge\\vec{0},\\;\\vec{s}\\ge\\vec{1} - Z\\vec{w}.\\)\\newline (a) Smallest class:",
+      "solution": "It is a quadratic program (QP).",
+      "golden_answer": "Quadratic Program.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 115,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 11(b)",
+      "problem_statement": "Are the KKT conditions necessary, sufficient, or both for global optimality?",
+      "solution": "They are both necessary and sufficient for this convex problem with strong duality.",
+      "golden_answer": "They are both necessary and sufficient.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 116,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 11(c)",
+      "problem_statement": "Dimension of dual variable \\(\\vec{\\alpha}\\) for \\(\\vec{s}\\ge\\vec{0}\\)?",
+      "solution": "\\(\\vec{\\alpha}\\in\\mathbb{R}^n.\\)",
+      "golden_answer": "It is in \\(\\mathbb{R}^n\\).",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 117,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 11(d)",
+      "problem_statement": "Show the Lagrangian:\\newline\\(L(\\vec{w},\\vec{s},\\vec{\\alpha},\\vec{\\beta}) = \\tfrac12\\|\\vec{w}\\|_2^2 + \\tfrac{C}{2}\\|\\vec{s}\\|_2^2 - \\vec{s}^\\top(\\vec{\\alpha}+\\vec{\\beta}) - \\vec{w}^\\top Z^\\top\\vec{\\beta} + \\vec{1}^\\top\\vec{\\beta}.\\)",
+      "solution": "This follows by adding dual terms for \\(\\vec{s}\\ge\\vec{0}\\) and \\(\\vec{s}\\ge\\vec{1}-Z\\vec{w}\\) to the primal objective \\(\\tfrac12\\|\\vec{w}\\|^2 + \\tfrac{C}{2}\\|\\vec{s}\\|^2\\).",
+      "golden_answer": "L(w,s,\u03b1,\u03b2) = \u00bd||w||\u2082\u00b2 + (C/2)||s||\u2082\u00b2 - s\u1d40(\u03b1+\u03b2) - w\u1d40Z\u1d40\u03b2 + 1\u1d40\u03b2.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 118,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 11(e)",
+      "problem_statement": "Write the KKT conditions; show that \\(\\vec{w}^\\star = Z^\\top \\vec{\\beta}^\\star\\) and \\(\\vec{s}^\\star = (\\vec{\\alpha}^\\star + \\vec{\\beta}^\\star)/C\\).",
+      "solution": "From setting gradients wrt \\(\\vec{w},\\vec{s}\\) to zero and using complementary slackness for \\(\\vec{s}\\ge 0,\\;\\vec{s}\\ge\\vec{1}-Z\\vec{w},\\;\\vec{\\alpha}\\ge 0,\\;\\vec{\\beta}\\ge 0\\), we get \\(\\vec{w}^\\star = Z^\\top \\vec{\\beta}^\\star\\) and \\(\\vec{s}^\\star = (\\vec{\\alpha}^\\star + \\vec{\\beta}^\\star)/C\\).",
+      "golden_answer": "w* = Z\u1d40\u03b2*, s* = (\u03b1* + \u03b2*) / C.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 119,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 11(f)",
+      "problem_statement": "Compute the dual function \\(g(\\vec{\\alpha},\\vec{\\beta})\\).",
+      "solution": "Substitute \\(\\vec{w}^\\star(\\vec{\\alpha},\\vec{\\beta}),\\;\\vec{s}^\\star(\\vec{\\alpha},\\vec{\\beta})\\) into the Lagrangian to get\\newline\\(g(\\vec{\\alpha},\\vec{\\beta}) = -\\tfrac12\\,\\vec{\\beta}^\\top (Z\\,Z^\\top)\\,\\vec{\\beta} - \\tfrac{1}{2C}\\|\\vec{\\alpha}+\\vec{\\beta}\\|_2^2 + \\vec{1}^\\top\\vec{\\beta}.\\)",
+      "golden_answer": "g(\u03b1,\u03b2) = -\u00bd \u03b2\u1d40 (Z Z\u1d40) \u03b2 - (1/(2C))||\u03b1+\u03b2||\u00b2 + 1\u1d40\u03b2.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 120,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 11(g)",
+      "problem_statement": "Let \\(\\vec{\\alpha}^\\star,\\vec{\\beta}^\\star\\) be optimal duals. Then \\(\\vec{\\alpha}^\\star\\) also solves\\newline\\(\\min_{\\vec{\\alpha}\\ge\\vec{0}} \\|\\vec{\\alpha}+\\vec{\\beta}^\\star\\|_2^2.\\)\\newline Solve this QP: \\(\\vec{\\alpha}^\\star=\\vec{0}\\).",
+      "solution": "Since \\(\\vec{\\alpha}\\ge0\\) and we want to minimize \\(\\|\\vec{\\alpha}+\\vec{\\beta}^\\star\\|_2^2\\), the optimal is \\(\\vec{\\alpha}^\\star=\\vec{0}\\).",
+      "golden_answer": "\u03b1* = 0.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 121,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 12(a)",
+      "problem_statement": "Newton\u2019s method step: \\(\\vec{x}_{k+1} = \\vec{x}_k - [H(\\vec{x}_k)]^{-1}\\nabla f(\\vec{x}_k).\\)\\newline (a) Write the Newton step.",
+      "solution": "The Newton step is exactly \\(\\vec{x}_{k+1} = \\vec{x}_k - [H(\\vec{x}_k)]^{-1}\\nabla f(\\vec{x}_k).\\)",
+      "golden_answer": "x\u2096\u208a\u2081 = x\u2096 - [H(x\u2096)]\u207b\u00b9 \u2207f(x\u2096).",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 122,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 12(b)",
+      "problem_statement": "For any symmetric \\(A\\in S^n\\), \\(\\|A\\|_F^2 = \\sum_{i=1}^n \\lambda_i(A)^2.\\)",
+      "solution": "This follows from the eigen-decomposition of \\(A\\); the Frobenius norm is the sum of the squares of its eigenvalues.",
+      "golden_answer": "\u2016A\u2016\u2093F\u00b2 = \u03a3\u1d62 \u03bb\u1d62(A)\u00b2.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 123,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 12(c)",
+      "problem_statement": "If \\(\\|H(\\vec{x})\\|_F^2 \\le M^2\\) for all \\(\\vec{x}\\), then \\(\\lambda_{\\min}(H(\\vec{x})) \\ge -M\\).",
+      "solution": "Because the sum of the squares of the eigenvalues is bounded by \\(M^2\\), a negative eigenvalue cannot be less than \\(-M\\).",
+      "golden_answer": "\u03bb\u2098\u1d62\u2099(H(x)) \u2265 \u2212M.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 124,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 12(d)",
+      "problem_statement": "We want \\(H(\\vec{x}) + \\mu I\\) to be positive definite. The condition \\(\\lambda_{\\min}\\{H(\\vec{x}) + \\mu I\\}\\ge \\epsilon\\) is equivalent to \\(\\lambda_{\\min}(H(\\vec{x}))\\ge -\\mu + \\epsilon\\).",
+      "solution": "Eigenvalues shift by \\(\\mu\\) when adding \\(\\mu I\\). Hence the minimal eigenvalue of \\(H(\\vec{x})+\\mu I\\) is at least \\(\\epsilon\\) if and only if \\(\\lambda_{\\min}(H(\\vec{x})) \\ge -\\mu + \\epsilon\\).",
+      "golden_answer": "\u03bb\u2098\u1d62\u2099(H(x)) \u2265 \u2212\u00b5 + \u03b5.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 125,
+      "source": "Fall 2022, EECS 127/227AT, Final, Section 12(e)",
+      "problem_statement": "Hence\\newline\\(\\mu^\\star=\\min_{\\mu\\ge0}\\;\\mu\\quad\\text{s.t.}\\quad\\lambda_{\\min}\\{H(\\vec{x})\\}\\ge -\\mu + \\epsilon,\\;\\forall \\vec{x}\\).\\newline Rewrite via slack-variable analogy to conclude\\newline\\(\\mu^\\star = \\epsilon - \\min_{\\vec{x}}\\lambda_{\\min}\\{H(\\vec{x})\\} = \\epsilon + M.\\)",
+      "solution": "Assuming there exists an \\(\\vec{x}_0\\) such that \\(\\lambda_{\\min}(H(\\vec{x}_0)) = -M\\), we conclude \\(\\mu^\\star = \\epsilon + M\\).",
+      "golden_answer": "\u00b5* = \u03b5 + M.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 126,
+      "source": "Fall 2022, EECS 127/227AT, Midterm, Problem 1",
+      "problem_statement": "Honor Code (0 pts)\n\nPlease copy the following statement in the space provided below and sign your name.\n\nAs a member of the UC Berkeley community, I act with honesty, integrity, and respect for others. I\nwill follow the rules and do this exam on my own.\n\nIf you do not copy the honor code and sign your name, you will get a 0 on the exam.",
+      "solution": null,
+      "golden_answer": "No official final answer provided.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 127,
+      "source": "Fall 2022, EECS 127/227AT, Midterm, Problem 2(a)",
+      "problem_statement": "(a) (1 pts) What\u2019s your favorite building in Berkeley?",
+      "solution": "Any answer is fine.",
+      "golden_answer": "Any answer is fine.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 128,
+      "source": "Fall 2022, EECS 127/227AT, Midterm, Problem 2(b)",
+      "problem_statement": "(b) (1 pts) What is a hobby or activity that makes you happy?",
+      "solution": "Any answer is fine.",
+      "golden_answer": "Any answer is fine.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 129,
+      "source": "Fall 2022, EECS 127/227AT, Midterm, Problem 3(a)",
+      "problem_statement": "(a) (3 pts) Let \\(\\vec{x} \\in \\mathbb{R}^n\\) be a vector, and let \\(U \\in \\mathbb{R}^{m \\times n}\\), where \\(m \\ge n\\), be an orthonormal matrix.\nProve the following equality:\n\\[\n\\|U\\vec{x}\\|_2 = \\|\\vec{x}\\|_2.\n\\]",
+      "solution": "We have\n\\[\n\\|U\\vec{x}\\|_2^2 = (U\\vec{x})^\\top (U\\vec{x}) = \\vec{x}^\\top U^\\top U \\vec{x} = \\vec{x}^\\top \\vec{x} = \\|\\vec{x}\\|_2^2.\n\\]\nHere \\(U^\\top U = I\\) as a consequence of \\(U\\) having orthonormal columns.",
+      "golden_answer": "Therefore, \\(\\|U\\vec{x}\\|_2 = \\|\\vec{x}\\|_2.\\)",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 130,
+      "source": "Fall 2022, EECS 127/227AT, Midterm, Problem 3(b)",
+      "problem_statement": "(b) (3 pts) Let \\(A \\in \\mathbb{R}^{n \\times n}\\) be a square matrix, and suppose \\(A = QR\\) is a QR decomposition of \\(A\\).\nCompute \\(\\|R\\|_F\\) in terms of \\(\\|A\\|_F\\).",
+      "solution": "We have\n\\[\n\\|A\\|_F = \\|QR\\|_F = \\|R\\|_F\n\\]\nsince \\(Q\\) is an orthonormal matrix, and the Frobenius norm is invariant under multiplication by a square orthonormal matrix.",
+      "golden_answer": "Hence \\(\\|R\\|_F = \\|A\\|_F.\\)",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 131,
+      "source": "Fall 2022, EECS 127/227AT, Midterm, Problem 4(a)",
+      "problem_statement": "(a) (4 pts) Calculate the gradient of \\(f(\\vec{x}) \\coloneqq \\|A\\vec{x}\\|_2^2.\\) Show your work.",
+      "solution": "Denote the \\(i\\)th row of \\(A\\) by \\(\\vec{a}_i^\\top\\). The \\(i\\)th element of \\(A\\vec{x}\\) is \\(\\vec{a}_i^\\top \\vec{x}\\), and\n\\[\nf(\\vec{x}) = \\sum_{i=1}^n (\\vec{a}_i^\\top \\vec{x})^2.\n\\]\nThen\n\\[\n\\nabla f(\\vec{x}) = \\sum_{i=1}^n 2(\\vec{a}_i^\\top \\vec{x}) \\nabla_{\\vec{x}}(\\vec{a}_i^\\top \\vec{x}).\n\\]\nFor a vector \\(\\vec{c} \\in \\mathbb{R}^n\\), we know that \\(\\nabla_{\\vec{x}}(\\vec{c}^\\top \\vec{x}) = \\vec{c}\\). This means that \\(\\nabla_{\\vec{x}}(\\vec{a}_i^\\top \\vec{x}) = \\vec{a}_i.\\)\nWe have\n\\[\n\\nabla f(\\vec{x}) = \\sum_{i=1}^n 2(\\vec{a}_i^\\top \\vec{x}) \\vec{a}_i.\n\\]\nNoting that \\(\\vec{a}_i^\\top \\vec{x}\\) are the elements of \\(A\\vec{x}\\), and \\(\\vec{a}_i\\) are the columns of \\(A^\\top\\), this sum can be recognized as \\(A^\\top(A\\vec{x})\\). Hence\n\\[\n\\nabla f(\\vec{x}) = 2 A^\\top A \\vec{x}.\n\\]\nAlternatively, since \\(f(\\vec{x}) = \\vec{x}^\\top A^\\top A \\vec{x}\\), we deduce \\(\\nabla f(\\vec{x}) = 2 A^\\top A \\vec{x}\\).",
+      "golden_answer": "Thus, the gradient is \\(\\nabla f(\\vec{x}) = 2 A^\\top A \\vec{x}.\\)",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 132,
+      "source": "Fall 2022, EECS 127/227AT, Midterm, Problem 4(b)",
+      "problem_statement": "(b) (3 pts) Calculate the Hessian of \\(f(\\vec{x}) \\coloneqq \\|A\\vec{x}\\|_2^2\\) with respect to \\(\\vec{x}\\). You do not need to show your work.",
+      "solution": "\\(f(\\vec{x}) = \\vec{x}^\\top A^\\top A \\vec{x}.\\) The Hessian is \\(\\nabla^2 f(\\vec{x}) = 2A^\\top A.\\)",
+      "golden_answer": "The Hessian is \\(2 A^\\top A.\\)",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 133,
+      "source": "Fall 2022, EECS 127/227AT, Midterm, Problem 5(a)",
+      "problem_statement": "(a) (4 pts) Let \\(f_1, \\ldots, f_k : \\mathbb{R}^n \\to \\mathbb{R}\\) be convex functions. Prove that\nthe set\n\\[\nS \\coloneqq \\{\\vec{x} \\in \\mathbb{R}^n \\mid f_i(\\vec{x}) \\le 0~\\forall i = 1, \\ldots, k\\}\n\\]\nis convex.",
+      "solution": "Fix \\(\\vec{x}, \\vec{y} \\in S\\) and \\(\\lambda \\in [0, 1]\\). We aim to show that \\(\\lambda \\vec{x} + (1-\\lambda) \\vec{y} \\in S\\).\nFor \\(i \\in \\{1, \\ldots, k\\}\\), since \\(f_i\\) is convex we use the definition of convexity for \\(f_i\\) to get\n\\[\nf_i(\\lambda \\vec{x} + (1-\\lambda)\\vec{y})\n\\;\\;\\le\\;\\;\n\\lambda\\, f_i(\\vec{x})\\;+\\;(1-\\lambda)\\,f_i(\\vec{y})\n\\;\\;\\le\\;\\;\n0.\n\\]\nThus \\(\\lambda\\vec{x} + (1-\\lambda)\\vec{y} \\in S\\). Since this holds for arbitrary \\(\\vec{x}, \\vec{y}\\), and \\(\\lambda\\), it follows that \\(S\\) is convex.",
+      "golden_answer": "Hence, the set \\(S\\) is convex.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 134,
+      "source": "Fall 2022, EECS 127/227AT, Midterm, Problem 5(b)",
+      "problem_statement": "(b) (5 pts) Let \\(\\vec{x} = \\begin{pmatrix} x_1 \\\\ \\vdots \\\\ x_n \\end{pmatrix}\\). Prove that \\(f : \\mathbb{R}^n \\to \\mathbb{R}\\) given by \\(f(\\vec{x}) \\coloneqq \\max_{1 \\le i \\le n} |x_i|\\) is convex.",
+      "solution": "There are many valid solutions, two of which we have listed below:\n\n\\(\\textbf{i. Pointwise Maximum}\\)\n\nWe can write the absolute value as a max of two affine functions,\n\\[\nf(x) = \\max_{1 \\le i \\le n} |x_i|\n= \\max_{1 \\le i \\le n} \\max\\{\\,x_i,\\,-x_i\\}\\n= \\max_{1 \\le i \\le n,\\,j \\in \\{0,1\\}} (-1)^j x_i.\n\\]\nAffine functions are convex, and since the pointwise maximum of convex functions is convex, \\(f(x)\\) is convex as well.\n\n\\(\\textbf{ii. Jensen\u2019s Inequality}\\)\n\nFor any \\(\\vec{x}, \\vec{y} \\in \\mathbb{R}^n\\) and all \\(\\theta \\in [0,1]\\),\n\\[\nf(\\theta \\vec{x} + (1-\\theta)\\vec{y})\n=\n\\max_{1 \\le i \\le n} \\bigl|\\theta x_i + (1-\\theta) y_i\\bigr|\n\\;\\le\\;\n\\max_{1 \\le i \\le n} \\bigl|\\theta x_i\\bigr| + \\bigl|(1-\\theta) y_i\\bigr|\n\\]\n\\[\n\\;\\le\\;|\\theta|\\max_{1 \\le i \\le n} |x_i| \\;+\\; |1-\\theta|\\max_{1 \\le i \\le n} |y_i|\n=\\theta f(\\vec{x}) \\;+\\; (1-\\theta) f(\\vec{y}).\n\\]\nHence \\(f\\) is convex.",
+      "golden_answer": "Hence, \\(f(\\vec{x}) = \\max_i |x_i|\\) is convex.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 135,
+      "source": "Fall 2022, EECS 127/227AT, Midterm, Problem 6",
+      "problem_statement": "Let \\(A \\in \\mathbb{R}^{4 \\times 3}\\) be a matrix whose full SVD is\n\\[\nA\n=\n\\underbrace{\\begin{pmatrix}\n1 & 0 & 0 & 0\\\\\n0 & 1 & 0 & 0\\\\\n0 & 0 & 1/\\sqrt{2} & 1/\\sqrt{2}\\\\\n0 & 0 & -1/\\sqrt{2} & 1/\\sqrt{2}\n\\end{pmatrix}}_{U}\n\\underbrace{\\begin{pmatrix}\n3 & 0 & 0\\\\\n0 & 2 & 0\\\\\n0 & 0 & 1\\\\\n0 & 0 & 0\n\\end{pmatrix}}_{\\Sigma}\n\\underbrace{\\begin{pmatrix}\n1/\\sqrt{2} & -1/\\sqrt{2} & 0\\\\\n0 & 0 & 1\\\\\n1/\\sqrt{2} & 1/\\sqrt{2} & 0\n\\end{pmatrix}^\\top}_{V^\\top}.\n\\]\nGive the best rank-2 approximation to \\(A\\), i.e., the solution to the problem\n\\[\n\\arg\\min_{B \\in \\mathbb{R}^{4 \\times 3},\\;\\mathrm{rk}(B)\\le 2} \\|A - B\\|_F^2.\n\\]\nNo justification is necessary. Please leave your answer in terms of a matrix product.",
+      "solution": "By the Eckart\u2013Young theorem, a best rank-2 approximation to \\(A\\) is given by the rank-2 truncated SVD \\(U_2 \\Sigma_2 V_2^\\top\\), where \\(U_2 \\in \\mathbb{R}^{4 \\times 2}\\) is the first two columns of \\(U\\), \\(\\Sigma_2 \\in \\mathbb{R}^{2 \\times 2}\\) is the top-left \\(2 \\times 2\\) sub-block of \\(\\Sigma\\), and \\(V_2 \\in \\mathbb{R}^{3 \\times 2}\\) is the first two columns of \\(V\\). In block form:\n\\[\nA_2\n=\n\\begin{pmatrix}\n1 & 0 \\\\\n0 & 1 \\\\\n0 & 0 \\\\\n0 & 0\n\\end{pmatrix}\n\\begin{pmatrix}\n3 & 0 \\\\\n0 & 2\n\\end{pmatrix}\n\\begin{pmatrix}\n1/\\sqrt{2} & -1/\\sqrt{2} \\\\\n0 & 0 \\\\\n1/\\sqrt{2} & 1/\\sqrt{2}\n\\end{pmatrix}^\\top.\n\\]",
+      "golden_answer": "The best rank-2 approximation is the truncated SVD, \\(A_2 = U_2 \\Sigma_2 V_2^\\top.\\)",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 136,
+      "source": "Fall 2022, EECS 127/227AT, Midterm, Problem 7(a)",
+      "problem_statement": "(a) (4 pts) Let \\(A \\in \\mathbb{R}^{m \\times n}\\) be known to you. Explain how to use \\(\\mathrm{PowIter}\\) to compute a top right singular vector, i.e., the first column \\(\\vec{v}_1\\) of \\(V\\) in an SVD of \\(A = U \\Sigma V^\\top\\), as well as its corresponding singular value \\(\\sigma_1\\). A 1-2 sentence algorithm description or pseudocode will suffice.",
+      "solution": "We know that \\(A^\\top A\\) is PSD and its eigenvectors coincide with the right singular vectors of \\(A\\). Thus, we call \\(\\mathrm{PowIter}(A^\\top A) = (\\sigma_1^2, \\vec{v}_1)\\). Taking \\(\\sigma_1 = \\sqrt{\\sigma_1^2}\\) yields the largest singular value and the corresponding right singular vector.",
+      "golden_answer": "Use PowIter on \\(A^\\top A\\) to get \\((\\sigma_1^2,\\vec{v}_1)\\) and then \\(\\sigma_1=\\sqrt{\\sigma_1^2}\\).",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 137,
+      "source": "Fall 2022, EECS 127/227AT, Midterm, Problem 7(b)",
+      "problem_statement": "(b) (6 pts) Let \\(B \\in S^n_+\\) be a symmetric positive semidefinite matrix with eigenpairs \\((\\lambda_1, \\vec{w}_1), \\ldots, (\\lambda_n, \\vec{w}_n)\\) where \\(\\lambda_1 \\ge \\cdots \\ge \\lambda_n \\ge 0.\\) Prove that the matrix \\(D \\coloneqq B - \\lambda_1 \\vec{w}_1 \\vec{w}_1^\\top\\) is a symmetric positive semidefinite matrix with eigenpairs \\((0,\\vec{w}_1), (\\lambda_2, \\vec{w}_2), \\ldots, (\\lambda_n, \\vec{w}_n)\\).",
+      "solution": "Since\n\\[\nB = \\sum_{i=1}^n \\lambda_i\\, \\vec{w}_i\\,\\vec{w}_i^\\top,\n\\]\nwe have\n\\[\nD = B - \\lambda_1 \\vec{w}_1 \\vec{w}_1^\\top\n= 0 \\cdot \\vec{w}_1 \\vec{w}_1^\\top \\;+\\; \\sum_{i=2}^n \\lambda_i \\,\\vec{w}_i\\,\\vec{w}_i^\\top,\n\\]\nwhich shows that \\(D\\) has the stated eigenpairs. It is clearly symmetric, and since \\(\\lambda_i \\ge 0\\), \\(D\\) is also PSD.",
+      "golden_answer": "Therefore, \\(D\\) has eigenvalue 0 for \\(\\vec{w}_1\\) and \\(\\lambda_i\\) for \\(\\vec{w}_i\\), \\(i=2,\\dots,n\\), hence is PSD.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 138,
+      "source": "Fall 2022, EECS 127/227AT, Midterm, Problem 7(c)",
+      "problem_statement": "(c) (5 pts) Let \\(A \\in \\mathbb{R}^{m \\times n}\\) and \\(k \\le \\min\\{m,n\\}\\) be known to you. Explain how to use \\(\\mathrm{PowIter}\\) to compute the top \\(k\\) right singular vectors of \\(A\\), i.e., the first \\(k\\) columns of \\(V\\) in an SVD \\(A = U \\Sigma V^\\top\\), as well as their corresponding singular values. A 1-2 sentence algorithm description or pseudocode will suffice.",
+      "solution": "First, compute \\((\\sigma_1^2, \\vec{v}_1) = \\mathrm{PowIter}(A^\\top A)\\). Then set \\(B_2 = A^\\top A - \\sigma_1^2 \\vec{v}_1 \\vec{v}_1^\\top\\) and call \\(\\mathrm{PowIter}(B_2)\\) to find \\((\\sigma_2^2, \\vec{v}_2)\\). Continue by removing each found eigencomponent from \\(A^\\top A\\) until you have \\(k\\) singular vectors. The singular values are the square roots of the corresponding eigenvalues found in each step.",
+      "golden_answer": "Iteratively remove the top eigencomponent from \\(A^\\top A\\) and apply PowIter to the remainder, obtaining each top singular vector and its singular value in turn.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 139,
+      "source": "Fall 2022, EECS 127/227AT, Midterm, Problem 7(d)",
+      "problem_statement": "(d) (4 pts)\n\nSuppose that you know how to compute any number of right singular vectors of any matrix using \\(\\mathrm{PowIter}\\). Let \\(A \\in \\mathbb{R}^{m \\times n}\\) and \\(r \\coloneqq \\mathrm{rk}(A)\\) be known to you. Explain how to compute a basis for \\(\\mathrm{R}(A^\\top)\\). A 1-2 sentence solution will suffice.",
+      "solution": "Compute the first \\(r\\) right singular vectors of \\(A\\), i.e., all nonzero right singular vectors. These \\(r\\) vectors form a basis for \\(\\mathrm{R}(A^\\top)\\).",
+      "golden_answer": "Collect the top \\(r\\) right singular vectors; they form a basis for \\(\\mathrm{R}(A^\\top)\\).",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 140,
+      "source": "Fall 2022, EECS 127/227AT, Midterm, Problem 7(e)",
+      "problem_statement": "(e) (3 pts) Let \\(A \\in \\mathbb{R}^{m \\times n}\\) be unknown to you (so you cannot compute its SVD or even use \\(\\mathrm{PowIter}\\)). Suppose that you are given a basis for \\(\\mathrm{R}(A^\\top)\\). Explain how to compute a basis for \\(\\mathrm{N}(A)\\). A one sentence solution will suffice.",
+      "solution": "Extend the given basis for \\(\\mathrm{R}(A^\\top)\\) into a basis for \\(\\mathbb{R}^n\\) via Gram\u2013Schmidt; the additional vectors in the extension form a basis for \\(\\mathrm{N}(A)\\), by the fundamental theorem of linear algebra.",
+      "golden_answer": "Add vectors orthogonal to \\(\\mathrm{R}(A^\\top)\\) to complete a basis for \\(\\mathbb{R}^n\\); those added vectors span \\(\\mathrm{N}(A)\\).",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 141,
+      "source": "Fall 2022, EECS 127/227AT, Midterm, Problem 8",
+      "problem_statement": "Let \\(A, B \\in S^n_{++}\\) be symmetric positive definite matrices.\n\nAs \\(B\\) is symmetric, it has an orthonormal eigendecomposition \\(B = V\\Lambda V^\\top\\). Since \\(B\\) is positive definite, we can define its matrix square root as \\(B^{1/2} = V \\Lambda^{1/2} V^\\top\\). We denote the inverse of \\(B^{1/2}\\) as \\(B^{-1/2}\\). Finally, define \\(C \\coloneqq B^{-1/2} A B^{-1/2}\\).\n\nProve that the maximum eigenvalue of \\(C\\) is \\(\\lambda^\\star\\), where\n\\[\n\\lambda^\\star \\coloneqq \\max_{\\vec{x} \\neq \\vec{0}}\n\\frac{\\vec{x}^\\top A \\vec{x}}{\\vec{x}^\\top B \\vec{x}}.\n\\]",
+      "solution": "Define \\(y = B^{1/2} x\\) so that \\(x = B^{-1/2} y\\). Since \\(B\\) is positive definite, \\(x \\neq 0\\) if and only if \\(y \\neq 0\\). Then\n\\[\n\\max_{x \\neq 0} \\frac{x^\\top A x}{x^\\top B x}\n= \\max_{y \\neq 0} \\frac{(B^{-1/2}y)^\\top A (B^{-1/2}y)}{(B^{-1/2}y)^\\top B (B^{-1/2}y)}\n= \\max_{y \\neq 0} \\frac{y^\\top B^{-1/2} A B^{-1/2} y}{y^\\top y},\n\\]\nwhich is the Rayleigh quotient of \\(C = B^{-1/2} A B^{-1/2}\\). Therefore it equals the largest eigenvalue of \\(C\\).",
+      "golden_answer": "Hence the maximum eigenvalue of \\(C\\) is \\(\\max_{x} \\frac{x^\\top A x}{x^\\top B x}\\).",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 142,
+      "source": "Fall 2022, EECS 127/227AT, Midterm, Problem 9(a)",
+      "problem_statement": "(a) (3 pts) Consider the following problem:\n\\[\nX \\vec{w} = \\vec{y}\n\\]\nwhere \\(\\vec{w} \\in \\mathbb{R}^d\\) is unknown. How many solutions does Equation (25) have? Justify your answer.",
+      "solution": "Since \\(X\\) has full row rank and \\(n < d\\), the null space of \\(X\\) has dimension \\(d-n > 0\\). If \\(\\vec{y}\\) is in the range of \\(X\\), there exists at least one solution \\(\\vec{w}_0\\). Then any vector of the form \\(\\vec{w}_0 + t\\vec{s}\\) (where \\(\\vec{s} \\in \\mathrm{N}(X)\\)) is a solution, so there are infinitely many solutions.",
+      "golden_answer": "There are infinitely many solutions, since \\(\\mathrm{dim}(\\mathrm{N}(X)) > 0\\).",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 143,
+      "source": "Fall 2022, EECS 127/227AT, Midterm, Problem 9(b)",
+      "problem_statement": "(b) (5 pts) Consider the minimum-norm problem\n\\[\n\\vec{w}^\\star = \\arg\\min_{\\vec{w} \\in \\mathbb{R}^d,\\; X\\vec{w}=\\vec{y}} \\|\\vec{w}\\|_2^2.\n\\]\nWe know that the optimal solution to this problem is \\(\\vec{w}^\\star = X^\\top(XX^\\top)^{-1}\\vec{y}.\\) Now let\n\\[\nX = U \\Sigma V^\\top = U\n\\begin{pmatrix}\n\\Sigma_1 & 0\n\\end{pmatrix}\nV^\\top\n\\]\nbe the SVD of \\(X\\), where \\(\\Sigma_1 \\in \\mathbb{R}^{n \\times n}\\). Prove that \\(\\vec{w}^\\star\\) is given by\n\\[\n\\vec{w}^\\star\n=\nV\n\\begin{pmatrix}\n\\Sigma_1^{-1}\\\\\n0\n\\end{pmatrix}\nU^\\top\n\\vec{y}.\n\\]\nAll steps must be shown and justified for full credit.",
+      "solution": "Starting from \\(\\vec{w}^\\star = X^\\top (XX^\\top)^{-1}\\vec{y}\\), we substitute the SVD \\(X = U\\begin{pmatrix}\\Sigma_1 & 0\\end{pmatrix}V^\\top\\). Then \\(XX^\\top = U\\Sigma\\Sigma^\\top U^\\top = U \\begin{pmatrix}\\Sigma_1 & 0\\\\ 0 & 0\\end{pmatrix} \\begin{pmatrix}\\Sigma_1 & 0\\\\ 0 & 0\\end{pmatrix}^\\top U^\\top = U (\\Sigma_1^2) U^\\top\\). Since \\(\\Sigma_1^2\\) is invertible, \\((XX^\\top)^{-1} = U(\\Sigma_1^2)^{-1}U^\\top\\). Also, \\(X^\\top = V \\begin{pmatrix}\\Sigma_1 & 0\\\\ 0 & 0\\end{pmatrix}^\\top U^\\top = V\\begin{pmatrix}\\Sigma_1^\\top\\\\ 0\\end{pmatrix} U^\\top\\). Combining these gives\n\\[\n\\vec{w}^\\star = \\Bigl[V\\begin{pmatrix}\\Sigma_1^\\top\\\\ 0\\end{pmatrix} U^\\top\\Bigr] \\Bigl[ U(\\Sigma_1^2)^{-1}U^\\top \\Bigr] \\vec{y}.\n\\]\nBecause \\(U^\\top U = I\\), we can simplify inside to \\(V\\begin{pmatrix}\\Sigma_1^{-1}\\\\ 0\\end{pmatrix}U^\\top\\vec{y}\\). Thus\n\\[\n\\vec{w}^\\star = V\\begin{pmatrix}\\Sigma_1^{-1}\\\\ 0\\end{pmatrix}U^\\top\\vec{y}.\n\\]",
+      "golden_answer": "Therefore, \\(\\vec{w}^\\star = V\\bigl[\\Sigma_1^{-1}, 0\\bigr]^\\top U^\\top\\vec{y}.\\)",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 144,
+      "source": "Fall 2022, EECS 127/227AT, Midterm, Problem 9(c)",
+      "problem_statement": "(c) (5 pts) Let \\(\\eta > 0\\), and \\(I\\) be the identity matrix of appropriate dimension.\nUsing the SVD\n\\(X = U\\begin{pmatrix}\\Sigma_1 & 0\\end{pmatrix}V^\\top,\\)\nprove the following identity for all positive integers \\(i > 0\\):\n\\[\n(I - \\eta X^\\top X)^i\n=\nV\n\\Bigl(\nI - \\eta\n\\begin{pmatrix}\n\\Sigma_1^2 & 0\\\\\n0 & 0\n\\end{pmatrix}\n\\Bigr)^i\nV^\\top.\n\\]\nAll steps must be shown and justified for full credit.",
+      "solution": "We have \\(X^\\top X = V\\begin{pmatrix}\\Sigma_1^2 & 0\\\\ 0 & 0\\end{pmatrix}V^\\top\\). Then\n\\[\n(I - \\eta X^\\top X)\n= I - \\eta V\\begin{pmatrix}\\Sigma_1^2 & 0\\\\ 0 & 0\\end{pmatrix}V^\\top\n= V\\Bigl[I - \\eta \\begin{pmatrix}\\Sigma_1^2 & 0\\\\ 0 & 0\\end{pmatrix}\\Bigr] V^\\top,\n\\]\nbecause \\(V^\\top V = I\\). Repeatedly applying this factorization \\(i\\) times gives\n\\[\n(I - \\eta X^\\top X)^i = V\\Bigl[I - \\eta \\begin{pmatrix}\\Sigma_1^2 & 0\\\\ 0 & 0\\end{pmatrix}\\Bigr]^i V^\\top.\n\\]",
+      "golden_answer": "Hence, factoring out \\(V\\) and \\(V^\\top\\) repeatedly yields the claimed identity.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 145,
+      "source": "Fall 2022, EECS 127/227AT, Midterm, Problem 9(d)",
+      "problem_statement": "(d) (9 pts) Recall that \\(X \\in \\mathbb{R}^{n \\times d}\\), and we can write its SVD as \\(X = U \\begin{pmatrix}\\Sigma_1 & 0\\end{pmatrix} V^\\top.\\) We will use gradient descent to solve\n\\[\n\\min_{\\vec{w} \\in \\mathbb{R}^d} \\tfrac12 \\| X \\vec{w} - \\vec{y}\\|_2^2\n\\]\nwith step-size \\(\\eta > 0\\). Let \\(\\vec{w}_0 = \\vec{0}\\) be the initial state, and \\(\\vec{w}_k\\) be the \\(k\\)th iterate. Use the identity\n\\[\n(I - \\eta X^\\top X)^i\n=\nV\n\\Bigl(\nI - \\eta\n\\begin{pmatrix}\n\\Sigma_1^2 & 0\\\\\n0 & 0\n\\end{pmatrix}\n\\Bigr)^i\nV^\\top\n\\]\nto prove that after \\(k\\) steps,\n\\[\n\\vec{w}_k\n=\n\\eta\n\\sum_{i=0}^{k-1}\nV\n\\Bigl(\nI - \\eta\n\\begin{pmatrix}\n\\Sigma_1^2 & 0\\\\\n0 & 0\n\\end{pmatrix}\n\\Bigr)^i\n\\begin{pmatrix}\n\\Sigma_1 \\\\\n0\n\\end{pmatrix}\nU^\\top \\vec{y}.\n\\]",
+      "solution": "Gradient descent on \\(f(\\vec{w}) = \\tfrac12 \\|X\\vec{w} - \\vec{y}\\|_2^2\\) gives\n\\[\n\\vec{w}_{k+1} = \\vec{w}_k - \\eta \\nabla_{\\vec{w}} f(\\vec{w}_k) = \\vec{w}_k + \\eta X^\\top(\\vec{y}-X\\vec{w}_k) = (I - \\eta X^\\top X)\\vec{w}_k + \\eta X^\\top\\vec{y}.\n\\]\nHence, by unrolling the recursion from \\(\\vec{w}_0 = \\vec{0}\\),\n\\[\n\\vec{w}_k = \\sum_{i=0}^{k-1} (I - \\eta X^\\top X)^i \\bigl(X^\\top \\vec{y}\\bigr).\n\\]\nWe then substitute \\((I - \\eta X^\\top X)^i = V\\bigl(I - \\eta \\begin{pmatrix}\\Sigma_1^2 & 0\\\\ 0 & 0\\end{pmatrix}\\bigr)^i V^\\top\\) and \\(X^\\top = V\\begin{pmatrix}\\Sigma_1\\\\ 0\\end{pmatrix}U^\\top\\). Factoring out \\(V\\), we obtain the desired expression\n\\(\n\\vec{w}_k = \\eta \\sum_{i=0}^{k-1} V \\Bigl(I - \\eta \\begin{pmatrix}\\Sigma_1^2 & 0\\\\ 0 & 0\\end{pmatrix}\\Bigr)^i \\begin{pmatrix}\\Sigma_1\\\\ 0\\end{pmatrix} U^\\top \\vec{y}.\n\\).",
+      "golden_answer": "Unrolling the gradient descent recursion and inserting the factorization of \\((I - \\eta X^\\top X)^i\\) directly yields the stated formula.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 146,
+      "source": "Fall 2022, EECS 127/227AT, Midterm, Problem 9(e)",
+      "problem_statement": "(e) (9 pts) Now let \\(0 < \\eta < \\tfrac{1}{\\sigma_1^2}\\), where \\(\\sigma_1\\) denotes the maximum singular value of \\(X\\). Let\n\\[\n\\vec{w}_k\n=\n\\eta\n\\sum_{i=0}^{k-1}\nV\n\\Bigl(\nI - \\eta\n\\begin{pmatrix}\n\\Sigma_1^2 & 0\\\\\n0 & 0\n\\end{pmatrix}\n\\Bigr)^i\n\\begin{pmatrix}\n\\Sigma_1\\\\\n0\n\\end{pmatrix}\nU^\\top \\vec{y},\n\\]\nand let \\(\\vec{w}^\\star\\) be the minimum norm solution\n\\[\n\\vec{w}^\\star\n=\nV\n\\begin{pmatrix}\n\\Sigma_1^{-1}\\\\\n0\n\\end{pmatrix}\nU^\\top \\vec{y}.\n\\]\nProve that \\(\\lim_{k\\to\\infty} \\vec{w}_k = \\vec{w}^\\star.\\)",
+      "solution": "We can factor out \\(V\\) and rewrite\n\\[\n\\vec{w}_k\n= V \\Bigl[\\eta \\sum_{i=0}^{k-1} \\bigl(I - \\eta \\Sigma_1^2\\bigr)^i \\Sigma_1 \\Bigr] U^\\top \\vec{y}.\n\\]\nInside the brackets, for each singular value \\(\\sigma_j\\), the term \\(\\bigl(1 - \\eta \\sigma_j^2\\bigr)^i\\) tends to zero as \\(i\\to\\infty\\) provided \\(0 < \\eta < 1/\\sigma_1^2\\). This is the Neumann series expansion for \\((\\Sigma_1)^{-1}\\), and so the sum converges to \\(\\Sigma_1^{-1}\\). Therefore,\n\\[\n\\lim_{k\\to\\infty} \\vec{w}_k = V\\begin{pmatrix}\\Sigma_1^{-1}\\\\ 0\\end{pmatrix}U^\\top\\vec{y} = \\vec{w}^\\star.\n\\]",
+      "golden_answer": "Because the geometric series in \\((I - \\eta \\Sigma_1^2)\\) converges (\\(\\eta < 1/\\sigma_1^2\\)), we obtain \\(\\Sigma_1^{-1}\\) in the limit, so \\(\\vec{w}_k \\to \\vec{w}^\\star\\).",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 147,
+      "source": "Spring 2023, EECS 127/227AT, Final, Section 3(a)",
+      "problem_statement": "What\u2019s a movie you are looking forward to watching this summer?",
+      "solution": "Any answer is fine.",
+      "golden_answer": "Any answer is fine.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 148,
+      "source": "Spring 2023, EECS 127/227AT, Final, Section 3(b)",
+      "problem_statement": "If you could have any animal as a pet, what animal would you choose?",
+      "solution": "Any answer is fine.",
+      "golden_answer": "Any answer is fine.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 149,
+      "source": "Spring 2023, EECS 127/227AT, Final, Section 4(a)",
+      "problem_statement": "Prove that the function f : R_{++} \\to R given by f(x) \\coloneqq \\log(1/x) is a strictly convex function,\nwhere R_{++} is the set of strictly positive real numbers.",
+      "solution": "The domain R_{++} is convex. To show that f is convex we see that f(x) = -\\log(x) and compute\nits Hessian \\nabla^2 f(x) = \\frac{1}{x^2}, which is strictly positive over R_{++}.",
+      "golden_answer": "Yes, it is strictly convex since its Hessian 1/x^2 is always positive for x>0.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 150,
+      "source": "Spring 2023, EECS 127/227AT, Final, Section 4(b)",
+      "problem_statement": "Is the function g: R_{++} \\to R given by \n\\[\ng(x) \\coloneqq \\max\\{(ax - b)^2, \\log(1/x)\\}\\]\na convex function? Justify your answer. You may use the fact that the function f(x) \\coloneqq \\log(1/x) is convex for x \\in R_{++}.",
+      "solution": "The domain R_{++} is convex. We know from part (a) that \\log(1/x) is a (strictly) convex function.\nSince the Hessian \\nabla^2_x (ax - b)^2 = 2a^2 \\ge 0, we know that the function x \\mapsto (ax - b)^2 is convex. We know\nthat the maximum of convex functions is convex, so g is convex.",
+      "golden_answer": "Yes, g is convex as it is the maximum of two convex functions.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 151,
+      "source": "Spring 2023, EECS 127/227AT, Final, Section 5(a)",
+      "problem_statement": "Give a hyperplane of the form \n\\[\nH \\coloneqq \\{\\vec{x} \\in \\mathbb{R}^n \\mid \\vec{c}^\\top (\\vec{x} - \\vec{x}_0) = 0\\}\n\\]\nwhich goes through the point (2,3) and is orthogonal to the vector (1,1). No justification is necessary.",
+      "solution": "One candidate hyperplane is\n\\[\n\\vec{c} = \n\\begin{pmatrix}\n1\\\\\n1\n\\end{pmatrix},\n\\quad\n\\vec{x}_0 =\n\\begin{pmatrix}\n2\\\\\n3\n\\end{pmatrix}.\n\\]",
+      "golden_answer": "H = { x | (1,1)^T (x - (2,3)) = 0 }.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 152,
+      "source": "Spring 2023, EECS 127/227AT, Final, Section 5(b)",
+      "problem_statement": "Let \\vec{c}_1 \\neq \\vec{0} and \\vec{c}_2 \\neq \\vec{0} be two vectors in \\mathbb{R}^n. Define the two hyperplanes\n\\[\nH_1 = \\{\\vec{x} \\in \\mathbb{R}^n \\mid \\vec{c}_1^\\top \\vec{x} = 0\\}\n\\quad\\text{and}\\quad\nH_2 = \\{\\vec{x} \\in \\mathbb{R}^n \\mid \\vec{c}_2^\\top \\vec{x} = 0\\}\n\\]\nwhere \\vec{c}_1^\\top \\vec{c}_2 = 0. Give any point \\vec{x}^\\star in terms of \\vec{c}_1 and \\vec{c}_2 such that\n\\vec{c}_1^\\top \\vec{x}^\\star > 0 and \\vec{c}_2^\\top \\vec{x}^\\star > 0.",
+      "solution": "The point \\vec{x}^\\star = \\vec{c}_1 + \\vec{c}_2 satisfies these two conditions. We have\n\\[\n\\vec{c}_1^\\top \\vec{x}^\\star = \n\\vec{c}_1^\\top (\\vec{c}_1 + \\vec{c}_2)\n= \\|\\vec{c}_1\\|_2^2 + 0\n> 0,\n\\]\nand\n\\[\n\\vec{c}_2^\\top \\vec{x}^\\star =\n\\vec{c}_2^\\top (\\vec{c}_1 + \\vec{c}_2)\n= 0 + \\|\\vec{c}_2\\|_2^2\n> 0.\n\\]",
+      "golden_answer": "A suitable choice is \\vec{x}^\\star = \\vec{c}_1 + \\vec{c}_2.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 153,
+      "source": "Spring 2023, EECS 127/227AT, Final, Section 6(a)",
+      "problem_statement": "Let f : \\mathbb{R}^n \\to \\mathbb{R} be a twice-differentiable function that we are attempting to minimize using\nNewton\u2019s method. Suppose that at the kth iterate \\vec{x}_k \\in \\mathbb{R}^n we have \\nabla^2 f(\\vec{x}_k) = \\alpha_k I_n,\nwhere \\alpha_k > 0 is some positive constant and I_n \\in \\mathbb{R}^{n \\times n} is the identity matrix. Write the\nNewton\u2019s method step for \\vec{x}_{k+1} in terms of \\vec{x}_k, \\alpha_k, and \\nabla f(\\vec{x}_k).",
+      "solution": "Since [\\alpha_k I_n]^{-1} = \\frac{1}{\\alpha_k} I_n, the Newton\u2019s method step is\n\\[\n\\vec{x}_{k+1} = \\vec{x}_k - \\frac{1}{\\alpha_k} \\nabla f(\\vec{x}_k).\n\\]",
+      "golden_answer": "\\(\\vec{x}_{k+1} = \\vec{x}_k - \\tfrac{1}{\\alpha_k}\\nabla f(\\vec{x}_k).\\)",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 154,
+      "source": "Spring 2023, EECS 127/227AT, Final, Section 6(b)",
+      "problem_statement": "Now suppose we are trying to minimize the same function f via gradient descent. Write the gradient descent step\nfor \\vec{x}_{k+1} in terms of \\vec{x}_k and \\nabla f(\\vec{x}_k), with some arbitrary step size \\eta_k > 0 at time k.\nFor what value of \\eta_k is the gradient descent update equation the same as the Newton\u2019s update equation from part (a)?",
+      "solution": "The gradient descent step is\n\\[\n\\vec{x}_{k+1} = \\vec{x}_k - \\eta_k \\nabla f(\\vec{x}_k).\n\\]\nThe two descent steps are equivalent when \\(\\eta_k = \\tfrac{1}{\\alpha_k}.\\)",
+      "golden_answer": "Gradient descent: \\(\\vec{x}_{k+1} = \\vec{x}_k - \\eta_k\\nabla f(\\vec{x}_k).\\) Equivalence if \\(\\eta_k = 1/\\alpha_k.\\)",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 155,
+      "source": "Spring 2023, EECS 127/227AT, Final, Section 7(a)",
+      "problem_statement": "If \\(\\vec{b} = (1,2,3)\\) then is \\(p^\\star = -\\infty\\) or is it finite? You do not need to calculate \\(p^\\star.\\)\nJustify your answer.",
+      "solution": "\\(p^\\star = -\\infty\\) because the matrix \\(M\\) is not full rank and the vector \\(\\vec{b}\\) is not in the range of \\(M.\\)\nAdditional justification: The nullspace of \\(M\\) is spanned by \\((0,1,0)^T\\) and \\(\\vec{b}\\) is not orthogonal to the nullspace.\nHence we can let \\(\\vec{x}\\) increase without bound in that direction to drive the objective value to \\(-\\infty.\\)",
+      "golden_answer": "\\(p^\\star = -\\infty.\\)",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 156,
+      "source": "Spring 2023, EECS 127/227AT, Final, Section 7(b)",
+      "problem_statement": "If \\(\\vec{b} = (1,0,1)\\) then is \\(p^\\star = -\\infty\\) or is it finite? You do not need to calculate \\(p^\\star.\\)\nJustify your answer.",
+      "solution": "\\(p^\\star\\) is finite since \\(\\vec{b}\\) is in the range of \\(M.\\)\nAdditional justification: The solution to the optimization problem can be obtained by setting the gradient to zero,\nleading to \\(M \\vec{x} = \\vec{b}\\). One obtains \\(p^\\star = -\\frac{1}{7}.\\)",
+      "golden_answer": "\\(p^\\star\\) is finite (specifically \\(-\\frac{1}{7}\\)).",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 157,
+      "source": "Spring 2023, EECS 127/227AT, Final, Section 8(a)",
+      "problem_statement": "Is this problem convex? Does strong duality hold here? Justify your answer.",
+      "solution": "Since \\(Q \\succ 0\\), the function \\(\\tfrac{1}{2}(\\vec{x} - \\vec{x}_0)^\\top Q (\\vec{x} - \\vec{x}_0) - \\epsilon\\) is convex,\nand the objective function \\(\\vec{c}^\\top \\vec{x}\\) is linear. Hence the problem is convex.\nBy Slater\u2019s condition (the set has nonempty relative interior), strong duality holds.",
+      "golden_answer": "Yes, it is convex and strong duality applies by Slater\u2019s condition.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 158,
+      "source": "Spring 2023, EECS 127/227AT, Final, Section 8(b)",
+      "problem_statement": "Show that the dual function associated with the primal problem in (18) is\n\\[\ng(\\lambda) =\n\\begin{cases}\n-\\infty, & \\text{if } \\lambda = 0,\\\\\n\\vec{c}^\\top \\vec{x}_0 - \\frac{1}{2}\\lambda \\,\\vec{c}^\\top Q^{-1} \\vec{c} - \\lambda \\epsilon, & \\text{if } \\lambda > 0,\n\\end{cases}\n\\]\nfor \\(\\lambda \\ge 0\\), where \\(\\lambda\\) is the dual variable associated with the quadratic inequality constraint.",
+      "solution": "The Lagrangian is \\(L(\\vec{x},\\lambda) = \\vec{c}^\\top \\vec{x} + \\lambda \\bigl(\\tfrac{1}{2}(\\vec{x} - \\vec{x}_0)^\\top Q (\\vec{x} - \\vec{x}_0) - \\epsilon\\bigr).\\)\nFor \\(\\lambda=0\\), it simplifies to \\(\\vec{c}^\\top \\vec{x}\\), minimized over all \\(\\vec{x}\\to -\\infty.\\)\nFor \\(\\lambda>0\\), we complete the square by setting the gradient w.r.t. \\(\\vec{x}\\) to zero => obtains\n\\(\\vec{x}^\\star(\\lambda) = \\vec{x}_0 - \\frac{1}{\\lambda}Q^{-1}\\vec{c}\\). Substituting back yields\n\\(\\vec{c}^\\top \\vec{x}_0 - \\frac{1}{2}\\lambda \\,\\vec{c}^\\top Q^{-1}\\vec{c} - \\lambda\\epsilon.\\)",
+      "golden_answer": "g(\\lambda)= -\\infty if \\lambda=0; otherwise \\(\\vec{c}^\\top\\vec{x}_0 - \\frac{1}{2}\\lambda\\,\\vec{c}^\\top Q^{-1}\\vec{c}-\\lambda \\epsilon.\\)",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 159,
+      "source": "Spring 2023, EECS 127/227AT, Final, Section 8(c)",
+      "problem_statement": "Consider the dual problem\n\\[\nd^\\star = \\max_{\\lambda \\ge 0} g(\\lambda),\n\\quad\n\\text{where }\ng(\\lambda) =\n\\begin{cases}\n-\\infty, & \\lambda = 0,\\\\\n\\vec{c}^\\top \\vec{x}_0 - \\tfrac{1}{2}\\lambda\\,\\vec{c}^\\top Q^{-1}\\vec{c} - \\lambda \\epsilon, & \\lambda > 0.\n\\end{cases}\n\\]\nFind the optimal dual variable \\(\\lambda^\\star.\\)",
+      "solution": "We differentiate the expression w.r.t. \\(\\lambda\\) and set to zero to find a critical point. Solving yields\n\\(\\lambda^\\star = \\sqrt{\\frac{\\vec{c}^\\top Q^{-1}\\vec{c}}{2\\epsilon}}.\\)",
+      "golden_answer": "\\(\\lambda^\\star = \\sqrt{\\frac{\\vec{c}^\\top Q^{-1}\\vec{c}}{2\\epsilon}}.\\)",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 160,
+      "source": "Spring 2023, EECS 127/227AT, Final, Section 9(a)",
+      "problem_statement": "Rewrite this problem as an equivalent quadratic program (i.e.\\ with quadratic objective function and finitely\nmany linear constraints). The problem is:\n\\[\n\\min_{\\vec{w} \\in \\mathbb{R}^d} \\quad \\frac{1}{2}\\,\\|\\vec{w}\\|_2^2\n\\quad\n\\text{s.t.}\n\\quad\n\\|X\\vec{w} - \\vec{y}\\|_\\infty \\le \\epsilon.\n\\]",
+      "solution": "We have \\(\\|X\\vec{w} - \\vec{y}\\|_\\infty \\le \\epsilon\\) which is equivalent to\n\\( -\\epsilon \\vec{1} \\le X\\vec{w} - \\vec{y} \\le \\epsilon \\vec{1}.\\)\nHence the QP is\n\\(\n\\min_{\\vec{w}\\in \\mathbb{R}^d}\\quad \\tfrac{1}{2}\\,\\|\\vec{w}\\|_2^2\n\\quad\n\\text{s.t.}\n\\quad\nX\\vec{w} - \\vec{y} \\le \\epsilon\\vec{1},\n\\quad\n-\\bigl(X\\vec{w} - \\vec{y}\\bigr) \\le \\epsilon\\vec{1}.\n\\)",
+      "golden_answer": "min (1/2 \u2016w\u2016\u00b2) subject to Xw - y \u2264 \u03b51 and \u2212(Xw - y) \u2264 \u03b51.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 161,
+      "source": "Spring 2023, EECS 127/227AT, Final, Section 9(b)",
+      "problem_statement": "Now consider the problem:\n\\[\n\\min_{\\vec{w} \\in \\mathbb{R}^d}\\Bigl(\n\\tfrac{1}{2}\\,\\|\\vec{w}\\|_2^2 + \\lambda \\sum_{i=1}^n \\max\\bigl\\{0,\\;\\bigl|\\vec{x}_i^\\top \\vec{w} - y_i\\bigr| - \\epsilon\\bigr\\}\n\\Bigr).\n\\]\nRewrite this problem as an equivalent quadratic program (with quadratic objective and finitely many linear constraints).\n\\textit{HINT: Introduce a new variable \\(\\vec{z}.\\)}",
+      "solution": "We rewrite each term \\(\\max\\{0,|\\vec{x}_i^\\top\\vec{w} - y_i| - \\epsilon\\}\\) by introducing slack variables\n\\(z_i \\ge 0\\) and ensuring \\(z_i \\ge \\vec{x}_i^\\top \\vec{w} - y_i - \\epsilon\\) and \\(z_i \\ge -(\\vec{x}_i^\\top \\vec{w} - y_i) - \\epsilon\\).\nThus the problem becomes\n\\(\n\\min_{\\vec{w}\\in \\mathbb{R}^d,\\;\\vec{z}\\in \\mathbb{R}^n} \\quad \\tfrac{1}{2}\\,\\|\\vec{w}\\|_2^2 + \\lambda\\,\\vec{1}^\\top \\vec{z}\n\\)\n\\(\n\\text{s.t.}\\quad\nz_i \\ge \\vec{x}_i^\\top \\vec{w} - y_i - \\epsilon,\\quad\nz_i \\ge -(\\vec{x}_i^\\top \\vec{w} - y_i) - \\epsilon,\\quad\nz_i \\ge 0,\\; \\forall i.\n\\)",
+      "golden_answer": "min (1/2 \u2016w\u2016\u00b2 + \u03bb \u03a3 z\u1d62) subject to z\u1d62 \u2265 x\u1d62\u1d40w \u2212 y\u1d62 \u2212 \u03b5, z\u1d62 \u2265 \u2212(x\u1d62\u1d40w \u2212 y\u1d62) \u2212 \u03b5, z\u1d62 \u2265 0 for all i.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 162,
+      "source": "Spring 2023, EECS 127/227AT, Final, Section 10(a)",
+      "problem_statement": "Consider the linear program\n\\[\n\\min_{\\vec{x}\\in \\mathbb{R}^2}\\,\n\\begin{pmatrix}\n2\\\\\n1\n\\end{pmatrix}^\\top \\vec{x}\n\\quad\n\\text{s.t.}\n\\quad\n\\vec{x} \\ge 0,\n\\quad\n\\begin{pmatrix}\n1 & 1\\\\\n1 & 0\n\\end{pmatrix}\n\\vec{x}\n\\ge\n\\begin{pmatrix}\n2\\\\\n1\n\\end{pmatrix}.\n\\]\n\\textbf{i.} Sketch and shade the feasible region of the above optimization problem in the graph provided.\n\\textbf{ii.} Use your sketch to identify the optimal solution \\(\\vec{x}^\\star\\) and write it in the box below.",
+      "solution": "The feasible region is the set of \\(\\vec{x} = (x_1, x_2)\\) with \\(x_1 \\ge 0, x_2 \\ge 0\\), \\(x_1 + x_2 \\ge 2\\), and \\(x_1 \\ge 1\\).\nFrom the sketch or direct reasoning, the optimal solution is\n\\(\n\\vec{x}^\\star =\n\\begin{pmatrix}\n1\\\\\n1\n\\end{pmatrix}.\n\\)",
+      "golden_answer": "The optimal solution is x^* = (1,1).",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 163,
+      "source": "Spring 2023, EECS 127/227AT, Final, Section 10(b)",
+      "problem_statement": "Let \\(A \\in S^n\\) be a symmetric matrix and \\(\\vec{c} \\neq \\vec{0}\\) be a vector in \\mathbb{R}^n. Consider the linear program\n\\[\n\\min_{\\vec{x}\\in \\mathbb{R}^n}\\quad \\vec{c}^\\top \\vec{x}\n\\quad\n\\text{s.t.}\n\\quad\nA\\vec{x} \\ge \\vec{c},\n\\quad\n\\vec{x} \\ge 0.\n\\]\nConsider a point \\(\\vec{x}^\\star > 0\\) such that \\(A\\vec{x}^\\star = \\vec{c}.\\) Prove that \\(\\vec{x}^\\star\\) is a minimizer of the above optimization problem.\n\\textit{HINT: Let \\(\\vec{\\lambda}\\) be the dual variables associated with \\(A\\vec{x} \\ge \\vec{c}\\)\nand \\(\\vec{\\mu}\\) be the dual variables associated with \\(\\vec{x} \\ge 0\\). Use the KKT conditions.}",
+      "solution": "The Lagrangian is\n\\(\nL(\\vec{x}, \\vec{\\lambda}, \\vec{\\nu}) = \\vec{c}^\\top \\vec{x} + \\vec{\\lambda}^\\top (\\vec{c} - A\\vec{x}) - \\vec{\\nu}^\\top \\vec{x}.\n\\)\nStationarity gives \\(\\vec{c} - A^\\top \\vec{\\lambda} - \\vec{\\nu} = 0.\\) If \\(\\vec{x}^\\star > 0\\), then \\(\\vec{\\nu}^\\star = \\vec{0}\\)\nby complementary slackness. Also \\(A\\vec{x}^\\star = \\vec{c}\\) yields other KKT conditions. Thus \\(\\vec{x}^\\star\\) satisfies KKT\nand is optimal for the linear program.",
+      "golden_answer": "By KKT conditions (stationarity & complementary slackness) with x^*>0 => x^* is optimal.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 164,
+      "source": "Spring 2023, EECS 127/227AT, Final, Section 11",
+      "problem_statement": "Let\n\\[\nP := \\{\\vec{x} \\in \\mathbb{R}^n \\mid A\\vec{x} \\le \\vec{b}\\}\n\\]\nbe a bounded polyhedron. We wish to find the maximal radius box\n\\[\nB(\\vec{x}_0, r) = \\{\\vec{x}_0 + r\\vec{u} \\mid \\|\\vec{u}\\|_\\infty \\le 1\\},\n\\]\nsuch that \\(B(\\vec{x}_0, r) \\subseteq P.\\) Express the problem\n\\(\\max_{\\vec{x}_0,\\,r} r\\) subject to \\(B(\\vec{x}_0, r) \\subseteq P\\)\nas a linear program with at most \\(m\\) constraints. Justify your answer.",
+      "solution": "The condition \\(B(\\vec{x}_0, r) \\subseteq P\\) means that for all \\(\\|\\vec{u}\\|_\\infty \\le 1\\),\n\\(A(\\vec{x}_0 + r\\vec{u}) \\le \\vec{b}.\\)\nTaking each row \\(\\vec{a}_i^\\top\\) of \\(A\\), the worst case occurs when \\(\\|\\vec{u}\\|_\\infty=1\\), giving\n\\(\\vec{a}_i^\\top \\vec{x}_0 + r\\,\\|\\vec{a}_i\\|_1 \\le b_i.\\)\nHence the linear program:\n\\(\n\\max_{\\vec{x}_0,\\,r}\\quad r\n\\quad\\text{s.t.}\\quad\n\\vec{a}_i^\\top \\vec{x}_0 + r\\,\\|\\vec{a}_i\\|_1 \\le b_i,\\;\\forall i.\n\\)",
+      "golden_answer": "max r subject to a\u1d62\u1d40x\u2080 + r\u2016a\u1d62\u2016\u2081 \u2264 b\u1d62 for i=1..m. This is an LP in x\u2080,r.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 165,
+      "source": "Spring 2023, EECS 127/227AT, Final, Section 12(a)",
+      "problem_statement": "Aekus and Aditya have \\(c>0\\) dollars to bet on a marathon with \\(n\\) athletes. For each athlete \\(i\\), they bet \\(b_i\\) dollars.\nIf athlete \\(i\\) wins (with probability \\(p_i\\)), they receive \\(b_i r_i\\) dollars, otherwise nothing. Exactly one athlete wins.\nThey want to maximize their expected profit, i.e.\n\\(\n\\min_{b_1,\\dots,b_n}\\; -\\sum_{i=1}^n p_i\\,b_i r_i + \\bigl(c - \\sum_{i=1}^n b_i\\bigr)\n\\quad\n\\text{s.t.}\\quad\n\\sum_{i=1}^n b_i \\le c, b_i \\ge 0.\n\\)\nWrite the Lagrangian and KKT conditions, and show:\n\\(\\bullet\\) If \\(p_j r_j > 1\\) then \\(\\sum b_i^\\star = c.\\)\n\\(\\bullet\\) If \\(p_j r_j < 1\\) then \\(b_j^\\star = 0.\\)\n\\(\\bullet\\) If \\(p_i r_i > p_j r_j\\) then \\(\\mu_j^\\star > \\mu_i^\\star.\\)",
+      "solution": "The Lagrangian is\n\\(\nL(\\vec{b}, \\lambda, \\vec{\\mu})\n= -\\sum_{i=1}^n b_i (p_i r_i -1) + c + \\lambda\\bigl(\\sum_{i=1}^n b_i - c\\bigr)\n- \\sum_{i=1}^n \\mu_i b_i.\n\\)\nThe KKT conditions are:\nStationarity: \\(0 = 1 - p_i r_i + \\lambda^\\star - \\mu_i^\\star\\) for all \\(i\\).\nPrimal/dual feasibility and complementary slackness follow similarly.\n\\(p_j r_j > 1\\implies 1 - p_j r_j < 0\\implies \\lambda^\\star > 0\\implies \\sum b_i^\\star = c.\\)\n\\(p_j r_j < 1\\implies 1 - p_j r_j > 0\\implies \\mu_j^\\star > 0\\implies b_j^\\star = 0.\\)\nIf \\(p_i r_i > p_j r_j\\), comparing stationarity for i,j gives \\(\\mu_j^\\star > \\mu_i^\\star.\\)",
+      "golden_answer": "By forming the Lagrangian and using stationarity, we deduce the three stated bullet-point relations.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 166,
+      "source": "Spring 2023, EECS 127/227AT, Final, Section 12(b)",
+      "problem_statement": "Use these relations to argue that if there exists athlete \\(j\\) with \\(p_j r_j > 1\\) and \\(p_j r_j > p_i r_i\\) for all \\(i\\neq j\\),\nthen \\(b_j^\\star = c.\\)",
+      "solution": "Since \\(p_j r_j > 1\\) implies \\(\\sum b_i^\\star = c\\), and \\(p_j r_j > p_i r_i\\) implies \\(\\mu_j^\\star < \\mu_i^\\star\\)\nfor all \\(i\\neq j\\). Hence \\(b_i^\\star = 0\\) for \\(i \\neq j\\). Thus \\(b_j^\\star = c.\\)",
+      "golden_answer": "All the other b\u1d62 vanish, so b\u2c7c* = c.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 167,
+      "source": "Spring 2023, EECS 127/227AT, Final, Section 13(a)",
+      "problem_statement": "Consider a set of vectors \\(\\{\\vec{u}_1, \\dots, \\vec{u}_k\\}\\) in \\(\\mathbb{R}^n.\\) Suppose that for some \\(\\vec{v}\\in \\mathbb{R}^n\\)\nwe have that \\(\\vec{v}^\\top A \\vec{u}_i = 0\\) for all \\(1 \\le i \\le k\\). Show that \\(\\vec{v}^\\top A \\vec{w} = 0\\) for any vector\n\\(\\vec{w} \\in \\text{span}(\\vec{u}_1, \\dots, \\vec{u}_k).\\)",
+      "solution": "Write \\(\\vec{w} = \\sum_{i=1}^k \\alpha_i \\vec{u}_i\\). Then\n\\(\\vec{v}^\\top A \\vec{w} = \\sum_{i=1}^k \\alpha_i \\vec{v}^\\top A \\vec{u}_i = 0.\\)",
+      "golden_answer": "By linearity, the inner product with A vanishes on that entire span.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 168,
+      "source": "Spring 2023, EECS 127/227AT, Final, Section 13(b)",
+      "problem_statement": "Let \\(\\vec{v}, \\vec{w} \\in \\mathbb{R}^n\\) with \\(\\vec{v} \\neq \\vec{0}\\) and \\(\\vec{w} \\neq \\vec{0}\\). Show that if\n\\(\\vec{v}^\\top A \\vec{w} = 0\\), then \\(\\vec{v}\\) and \\(\\vec{w}\\) must be linearly independent.",
+      "solution": "If they were dependent, \\(\\vec{v} = \\alpha \\vec{w}\\) for some nonzero \\(\\alpha\\). Then\n\\(\\vec{v}^\\top A \\vec{w} = \\alpha \\vec{w}^\\top A \\vec{w}\\). Because \\(A\\succ 0\\), \\(\\vec{w}^\\top A \\vec{w} >0\\).\nHence \\(\\vec{v}^\\top A \\vec{w}\\neq 0\\), a contradiction.",
+      "golden_answer": "If v = \u03b1w for \u03b1\u22600, then v\u1d40Aw = \u03b1 w\u1d40Aw \u22600, contradiction => must be independent.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 169,
+      "source": "Spring 2023, EECS 127/227AT, Final, Section 13(c)",
+      "problem_statement": "Recall that \\(A \\in S^n_{++}\\) is a symmetric positive definite matrix. Suppose \\(\\{\\vec{u}_1, \\dots, \\vec{u}_n\\}\\) are a set\nof vectors in \\(\\mathbb{R}^n\\) such that \\(\\vec{u}_i^\\top A \\vec{u}_j = 0\\) for all \\(i \\neq j\\). Consider the matrix\n\\(\nU = [\\vec{u}_1 \\;\\; \\vec{u}_2 \\;\\; \\dots \\;\\; \\vec{u}_n].\n\\)\nShow that \\(\\mathrm{rank}(U^\\top A U) = n.\\)",
+      "solution": "Because \\(\\vec{u}_i^\\top A \\vec{u}_j = 0\\) for \\(i\\neq j\\), \\(U^\\top A U\\) is diagonal. Each diagonal element\n\\(\\vec{u}_i^\\top A \\vec{u}_i >0\\) since \\(A\\succ 0\\). Hence the matrix is full rank, implying rank = n.",
+      "golden_answer": "It\u2019s diagonal with strictly positive diagonal entries => rank n.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 170,
+      "source": "Spring 2023, EECS 127/227AT, Final, Section 13(d)",
+      "problem_statement": "Consider \\(A\\vec{x} = \\vec{b}\\) where \\(A \\succ 0\\). Suppose \\(\\{\\vec{u}_1,\\dots,\\vec{u}_n\\}\\) is an \\(A\\)-conjugate basis.\nDefine\n\\(\n\\vec{x}^\\star\n= \\sum_{i=1}^n \\frac{\\vec{u}_i^\\top \\vec{b}}{\\vec{u}_i^\\top A \\vec{u}_i}\\,\\vec{u}_i.\n\\)\nShow that \\(\\vec{x}^\\star\\) solves \\(A\\vec{x} = \\vec{b}\\).",
+      "solution": "We must check \\(A\\vec{x}^\\star = \\vec{b}\\). Inner products with each \\(\\vec{u}_k\\) match those of \\(\\vec{b}\\),\nand \\(\\{\\vec{u}_i\\}\\) form a basis. Hence \\(A\\vec{x}^\\star = \\vec{b}\\).",
+      "golden_answer": "By construction, x* satisfies A x* = b using the A-conjugate basis projection.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 171,
+      "source": "Spring 2023, EECS 127/227AT, Final, Section 13(e)",
+      "problem_statement": "Recall that \\(A \\succ 0\\). Let \\(\\{\\vec{u}_1,\\dots,\\vec{u}_n\\}\\) be an \\(A\\)-conjugate basis in \\(\\mathbb{R}^n\\). Then the \\((k+1)\\)th\niterate of conjugate gradient descent, \\(\\vec{x}_{k+1}\\), is\n\\(\n\\vec{x}_{k+1}\n= \\sum_{i=1}^k \\frac{\\vec{u}_i^\\top \\vec{r}_i}{\\vec{u}_i^\\top A \\vec{u}_i}\\,\\vec{u}_i,\n\\)\nwhere \\(\\vec{r}_i = \\vec{b} - A \\vec{x}_i.\\) From part (d) we know\n\\(\n\\vec{x}^\\star\n= \\sum_{i=1}^n \\frac{\\vec{u}_i^\\top \\vec{b}}{\\vec{u}_i^\\top A \\vec{u}_i}\\,\\vec{u}_i.\n\\)\nShow that \\(\\vec{x}_{n+1} = \\vec{x}^\\star.\\)",
+      "solution": "We show \\(\\vec{u}_k^\\top \\vec{r}_k = \\vec{u}_k^\\top \\vec{b}\\) for each k. By induction and the fact \\(\\vec{x}_k\\)\nlies in span\\(\\{\\vec{u}_1,\\dots,\\vec{u}_{k-1}\\}\\) plus the A-orthogonality, one argues that\n\\(\\vec{x}_{n+1} = \\vec{x}^\\star.\\)",
+      "golden_answer": "The residual satisfies u\u2096\u1d40r\u2096 = u\u2096\u1d40b, so summing yields x\u2099\u208a\u2081 = x* exactly.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 172,
+      "source": "Spring 2023, EECS 127/227AT, Final, Section 13(f)",
+      "problem_statement": "Now consider \\(f(\\vec{x}) = \\frac{1}{2}\\,\\vec{x}^\\top A \\vec{x} - \\vec{b}^\\top \\vec{x}.\\) In conjugate gradient we also\nhave the recursive form\n\\(\n\\vec{x}_{k+1} = \\vec{x}_k\n+ \\frac{\\vec{u}_k^\\top \\vec{r}_k}{\\vec{u}_k^\\top A \\vec{u}_k}\\,\\vec{u}_k.\n\\)\nShow that for \\(1\\le k\\le n,\\) \\(f(\\vec{x}_{k+1}) \\le f(\\vec{x}_k).\\) Thus, if we use the conjugate gradient method to\nminimize \\(f(\\vec{x}),\\) the objective is non-increasing at each iteration.",
+      "solution": "By convexity (the first-order condition),\n\\(f(\\vec{x}_k) \\ge f(\\vec{x}_{k+1}) + \\nabla f(\\vec{x}_{k+1})^\\top (\\vec{x}_k - \\vec{x}_{k+1}).\\)\nWe note that \\(\\nabla f(\\vec{x}_{k+1}) = A \\vec{x}_{k+1} - \\vec{b}\\). Using the update \\(\\vec{x}_{k+1}\\) and A-orthogonality\narguments, one shows \\(f(\\vec{x}_k) \\ge f(\\vec{x}_{k+1}).\\)\nHence \\(f\\bigl(\\vec{x}_{k+1}\\bigr) \\le f\\bigl(\\vec{x}_k\\bigr).\\)",
+      "golden_answer": "Each step is a descent step, so f(x\u208d\u2096\u208a\u2081\u208e) \u2264 f(x\u2096).",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 173,
+      "source": "Spring 2023, EECS 127/227AT, Midterm, Problem 1",
+      "problem_statement": "Please copy the following statement in the space provided below and sign your name. As a member of the UC Berkeley community, I act with honesty, integrity, and respect for others. I will follow\nthe rules and do this exam on my own.\nIf you do not copy the honor code and sign your name, you will get a 0 on the exam.",
+      "solution": "No official solution provided.",
+      "golden_answer": "No official final answer needed.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 174,
+      "source": "Spring 2023, EECS 127/227AT, Midterm, Problem 2",
+      "problem_statement": "When the exam starts, write your SID at the top of every page. No extra time will be given for this task.",
+      "solution": null,
+      "golden_answer": "No official final answer needed.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 175,
+      "source": "Spring 2023, EECS 127/227AT, Midterm, Problem 3(a)",
+      "problem_statement": "(a) (1 pt) What\u2019s your favorite restaurant in Berkeley?",
+      "solution": "Any answer is fine.",
+      "golden_answer": "Any answer is fine.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 176,
+      "source": "Spring 2023, EECS 127/227AT, Midterm, Problem 3(b)",
+      "problem_statement": "(b) (1 pt) What\u2019s some music that makes you happy?",
+      "solution": "Any answer is fine.",
+      "golden_answer": "Any answer is fine.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 177,
+      "source": "Spring 2023, EECS 127/227AT, Midterm, Problem 4(a)",
+      "problem_statement": "(a) (3 pts) What are the singular values of the matrix A? You do not have to justify your answer.",
+      "solution": "We have \u03c3\u1d62(A) = \u221a(\u03bb\u1d62(A\u1d40A)) by definition. Hence \n\u03c3\u2081(A) = \u221a90 and \u03c3\u2082(A) = \u221a40.",
+      "golden_answer": "\u03c3\u2081(A) = \u221a90 and \u03c3\u2082(A) = \u221a40.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 178,
+      "source": "Spring 2023, EECS 127/227AT, Midterm, Problem 4(b)",
+      "problem_statement": "(b) (4 pts)\nFor A as given in (1) with A\u1d40 A as given in (2), consider the following problem:\np\u22c6 = min_{B \u2208 \u211d\u00b2\u02e3\u00b2, rank(B)=1} \u2016A - B\u2016_F\u00b2.\nWhat is the value of p\u22c6? Justify your answer.",
+      "solution": "The rank 1 approximation minimizing the Frobenius norm error of A is \u03c3\u2081(A)u\u2081v\u2081\u1d40, and the squared Frobenius norm error is \u2211(i=2 to n) \u03c3\u1d62(A)\u00b2. In our case, \u03c3\u2082(A)\u00b2 = 40.",
+      "golden_answer": "p\u22c6 = 40.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 179,
+      "source": "Spring 2023, EECS 127/227AT, Midterm, Problem 5(a)",
+      "problem_statement": "(a) (4 pts)\nSketch the feasible region of the above optimization problem in the graph provided below. Label each constraint.",
+      "solution": null,
+      "golden_answer": "No official final answer is provided.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 180,
+      "source": "Spring 2023, EECS 127/227AT, Midterm, Problem 5(b)",
+      "problem_statement": "(b) (3 pts)\nSketch the 2-level set, the 0-level set, and the -2-level set of the objective function. Label each set.",
+      "solution": null,
+      "golden_answer": "No official final answer is provided.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 181,
+      "source": "Spring 2023, EECS 127/227AT, Midterm, Problem 6",
+      "problem_statement": "Is P\u2099 convex? If yes, prove it. If no, justify your answer using an example.",
+      "solution": "Yes, P\u2099 is convex. Let x, y \u2208 P\u2099, let \u03b8 \u2208 [0,1], and define z = \u03b8x + (1-\u03b8)y. We show that z \u2208 P\u2099. Indeed, z\u1d62 = \u03b8x\u1d62 + (1-\u03b8)y\u1d62 \u2265 0 and \u2211\u1d62 z\u1d62 = \u03b8\u2211\u1d62 x\u1d62 + (1-\u03b8)\u2211\u1d62 y\u1d62 = 1. Thus z \u2208 P\u2099, so P\u2099 is convex.",
+      "golden_answer": "Yes, P\u2099 is convex.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 182,
+      "source": "Spring 2023, EECS 127/227AT, Midterm, Problem 7(a)",
+      "problem_statement": "(a) (6 pts)\nLet A \u2208 S\u207f be an n\u00d7n symmetric matrix. Compute the gradient with respect to x of the function f(x) = (x\u1d40 A x)/(x\u1d40 x). Show your work.",
+      "solution": "Define n(x) = x\u1d40 A x and d(x) = x\u1d40 x. Then \u2207n(x) = 2A x, \u2207d(x) = 2x. By the quotient rule:\n\u2207f(x) = [ d(x) \u2207n(x) - n(x) \u2207d(x) ] / [ d(x) ]\u00b2 = 2 [ (x\u1d40x) A x - (x\u1d40 A x) x ] / (x\u1d40 x)\u00b2.",
+      "golden_answer": "\u2207f(x) = 2 [ (x\u1d40x) A x - (x\u1d40 A x) x ] / (x\u1d40 x)\u00b2.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 183,
+      "source": "Spring 2023, EECS 127/227AT, Midterm, Problem 7(b)",
+      "problem_statement": "(b) (6 pts)\nLet u \u2208 \u211d\u207f. Compute the Jacobian with respect to x of the function g(x) = x(x\u1d40 u). Show your work.",
+      "solution": "Define h(x) = u\u1d40x. Then g\u1d62(x) = h(x)x\u1d62. We compute partial derivatives and find Dg(x) = x u\u1d40 + (u\u1d40 x)I.",
+      "golden_answer": "Dg(x) = x u\u1d40 + (u\u1d40 x)I.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 184,
+      "source": "Spring 2023, EECS 127/227AT, Midterm, Problem 8(a)",
+      "problem_statement": "(a) (4 pts)\nIs f\u2080(x) = \u00bd\u2016x - y\u2016\u2082\u00b2 a convex function? Justify your answer.",
+      "solution": "We compute \u2207f\u2080(x) = x - y, and \u2207\u00b2f\u2080(x) = I, which is positive semidefinite. Therefore f\u2080 is convex.",
+      "golden_answer": "Yes, f\u2080 is convex.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 185,
+      "source": "Spring 2023, EECS 127/227AT, Midterm, Problem 8(b)",
+      "problem_statement": "(b) (5 pts)\nProve that for each t \u2265 0, x\u209c - y = (1 - \u03b7)\u1d57 (x\u2080 - y).",
+      "solution": "We have x\u209c\u208a\u2081 = x\u209c - \u03b7 \u2207f\u2080(x\u209c) = x\u209c - \u03b7(x\u209c - y). Then x\u209c\u208a\u2081 - y = (1 - \u03b7)(x\u209c - y). By induction, x\u209c - y = (1 - \u03b7)\u1d57 (x\u2080 - y).",
+      "golden_answer": "x\u209c - y = (1 - \u03b7)\u1d57 (x\u2080 - y).",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 186,
+      "source": "Spring 2023, EECS 127/227AT, Midterm, Problem 8(c)",
+      "problem_statement": "(c) (4 pts)\nDetermine the range of \u03b7 \u2208 \u211d such that, for all initializations x\u2080, we have x\u2081 = y. Justify your answer.",
+      "solution": "We require x\u2081 - y = (1 - \u03b7)(x\u2080 - y) = 0 for all x\u2080, which forces 1 - \u03b7 = 0. Thus \u03b7 = 1.",
+      "golden_answer": "\u03b7 = 1.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 187,
+      "source": "Spring 2023, EECS 127/227AT, Midterm, Problem 8(d)",
+      "problem_statement": "(d) (5 pts)\nDetermine the range of \u03b7 \u2208 \u211d such that, for all initializations x\u2080 and all t \u2265 0, x\u209c is a convex combination of x\u2080 and y.",
+      "solution": "We have x\u209c = (1 - \u03b7)\u1d57 x\u2080 + [1 - (1 - \u03b7)\u1d57] y. For this to be a convex combination, 0 \u2264 (1 - \u03b7)\u1d57 \u2264 1 for all t \u2265 0, which means \u03b7 \u2208 [0, 1].",
+      "golden_answer": "\u03b7 \u2208 [0, 1].",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 188,
+      "source": "Spring 2023, EECS 127/227AT, Midterm, Problem 9(a)",
+      "problem_statement": "(a) (4 pts)\nWhat is rank(V)? What about rank(W)? You do not need to justify your answers.",
+      "solution": "Since V is an orthonormal n \u00d7 n matrix, rank(V) = n. The shifted matrix W has columns v\u2082 through v\u2099 and 0, so rank(W) = n - 1.",
+      "golden_answer": "rank(V) = n, rank(W) = n - 1.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 189,
+      "source": "Spring 2023, EECS 127/227AT, Midterm, Problem 9(b)",
+      "problem_statement": "(b) (6 pts)\nFind a basis for the null space of V - W and compute rank(V - W). Show your work.",
+      "solution": "Suppose x \u2208 N(V - W). Then 0 = (V - W)x. Expanding in terms of v\u1d62 reveals x must be 0. The null space is trivial, so by rank-nullity, rank(V - W) = n.",
+      "golden_answer": "Null space is {0}, so rank(V - W) = n.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 190,
+      "source": "Spring 2023, EECS 127/227AT, Midterm, Problem 10(a)",
+      "problem_statement": "(a) (4 pts)\nProve that if A is symmetric then A^(2k) is symmetric positive semidefinite for all integers k > 1.",
+      "solution": "By diagonalizing A = U\u039bU\u1d40, we have A^(2k) = U\u039b^(2k)U\u1d40. Since \u039b^(2k) is nonnegative, A^(2k) is symmetric positive semidefinite.",
+      "golden_answer": "A^(2k) is symmetric positive semidefinite.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 191,
+      "source": "Spring 2023, EECS 127/227AT, Midterm, Problem 10(b)",
+      "problem_statement": "(b) (6 pts)\nProve that if A is symmetric then its matrix exponential e^A is symmetric positive definite.",
+      "solution": "Diagonalizing A = U\u039bU\u1d40, we get e^A = U diag(e^\u03bb\u1d62) U\u1d40. Since e^\u03bb\u1d62 > 0 for all i, e^A is symmetric positive definite.",
+      "golden_answer": "e^A is symmetric positive definite.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 192,
+      "source": "Spring 2023, EECS 127/227AT, Midterm, Problem 11",
+      "problem_statement": "Let A \u2208 \u211d\u207f\u02e3\u207f be a symmetric matrix with eigenvalue-eigenvector pairs (\u03bb\u2081, v\u2081), \u2026, (\u03bb\u2099, v\u2099), where \u03bb\u2081 > \u2026 > \u03bb\u2099. Consider the problem\np\u22c6 = max\u2093 x\u1d40 A x  subject to \u2016x\u2016\u2082\u00b2 = 1,  x\u1d40 v\u2081 = 0.\nShow that p\u22c6 = \u03bb\u2082. Prove your answer.",
+      "solution": "Since x = v\u2082 is feasible and yields x\u1d40 A x = \u03bb\u2082, p\u22c6 \u2265 \u03bb\u2082. No larger value is possible because x must be orthogonal to v\u2081, implying x lies in the span of {v\u2082, \u2026, v\u2099}, so x\u1d40 A x \u2264 \u03bb\u2082. Thus p\u22c6 = \u03bb\u2082.",
+      "golden_answer": "p\u22c6 = \u03bb\u2082.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 193,
+      "source": "Spring 2023, EECS 127/227AT, Midterm, Problem 12(a)",
+      "problem_statement": "(a) (6 pts)\nCompute \u2207f\u2080(x) for the block ridge regression problem. Show your work.",
+      "solution": "\u2207\u2016A x - y\u2016\u2082\u00b2 = 2A\u1d40(Ax - y) and \u2207\u2016D x\u2016\u2082\u00b2 = 2D\u00b2 x. Hence\n\u2207f\u2080(x) = 2[(A\u1d40A + D\u00b2)x - A\u1d40y].",
+      "golden_answer": "\u2207f\u2080(x) = 2[(A\u1d40A + D\u00b2)x - A\u1d40y].",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 194,
+      "source": "Spring 2023, EECS 127/227AT, Midterm, Problem 12(b)",
+      "problem_statement": "(b) (7 pts)\nGive an expression for x_BRR similar to the ridge regression formula. Justify your answer.",
+      "solution": "Setting the gradient to zero gives (A\u1d40A + D\u00b2) x_BRR = A\u1d40 y. Hence x_BRR = (A\u1d40A + D\u00b2)\u207b\u00b9 A\u1d40 y.",
+      "golden_answer": "x_BRR = (A\u1d40A + D\u00b2)\u207b\u00b9 A\u1d40 y.",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 195,
+      "source": "Spring 2023, EECS 127/227AT, Midterm, Problem 13(a)",
+      "problem_statement": "(a) (8 pts)\nProve that f(B) \u2264 max_{C \u2208 \u211d\u1d50\u02e3\u207f, \u2016C\u2016\u2082 \u2264 1} tr(C\u1d40 B).",
+      "solution": "Write B = U\u1d63 \u03a3\u1d63 V\u1d63\u1d40 as its SVD (rank r). Let D = U\u1d63 V\u1d63\u1d40, then \u2016D\u2016\u2082 = 1 and tr(D\u1d40 B) = tr(\u03a3\u1d63) = \u2211\u1d62 \u03c3\u1d62(B) = f(B). Thus f(B) \u2264 that maximum.",
+      "golden_answer": "f(B) \u2264 max_{\u2016C\u2016\u2082 \u2264 1} tr(C\u1d40 B).",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 196,
+      "source": "Spring 2023, EECS 127/227AT, Midterm, Problem 13(b)",
+      "problem_statement": "(b) (9 pts)\nProve that f(B) \u2265 max_{C \u2208 \u211d\u1d50\u02e3\u207f, \u2016C\u2016\u2082 \u2264 1} tr(C\u1d40 B).",
+      "solution": "Write B = \u2211\u1d62 \u03c3\u1d62(B) u\u1d62 v\u1d62\u1d40. Then tr(C\u1d40 B) = \u2211\u1d62 \u03c3\u1d62(B) v\u1d62\u1d40 C\u1d40 u\u1d62 \u2264 \u2211\u1d62 \u03c3\u1d62(B) = f(B), since \u2016C\u2016\u2082 \u2264 1. Taking the maximum over such C completes the proof.",
+      "golden_answer": "f(B) \u2265 max_{\u2016C\u2016\u2082 \u2264 1} tr(C\u1d40 B).",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 197,
+      "source": "Spring 2023, EECS 127/227AT, Midterm, Problem 13(c)",
+      "problem_statement": "(c) (6 pts)\nShow that for all B\u2081,B\u2082 \u2208 \u211d\u1d50\u02e3\u207f, f(B\u2081 + B\u2082) \u2264 f(B\u2081) + f(B\u2082).",
+      "solution": "Using the characterization f(B) = max_{\u2016C\u2016\u2082 \u2264 1} tr(C\u1d40 B) and linearity of trace, f(B\u2081 + B\u2082) \u2264 f(B\u2081) + f(B\u2082).",
+      "golden_answer": "f satisfies the triangle inequality: f(B\u2081 + B\u2082) \u2264 f(B\u2081) + f(B\u2082).",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 198,
+      "source": "Spring 2023, EECS 127/227AT, Midterm, Problem 13(d)",
+      "problem_statement": "(d) (5 pts)\nIs f a convex function? If yes, prove it. If no, justify your answer using an example.",
+      "solution": "Yes, f is convex (the nuclear norm). By the triangle inequality and scaling property, f(\u03b8B\u2081 + (1-\u03b8)B\u2082) \u2264 \u03b8 f(B\u2081) + (1-\u03b8) f(B\u2082).",
+      "golden_answer": "Yes, f is convex.",
+      "has_image": false,
+      "image": null
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+pytest
+python-dotenv
+docstring_parser
+deepeval
+aisuite
+matplotlib
+numpy

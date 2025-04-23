@@ -1,0 +1,40 @@
+{
+  "entries": [
+    {
+      "id": 33,
+      "source": "Spring 2020, EECS 127/227AT, Final, Problem 3(a)",
+      "problem_statement": "3. (8 points) Newton's method\n\nConsider the function $f : \\mathbb{R} \\to \\mathbb{R}, \\; f(x) = x^4.$\n\n(a) (2 points) Find the optimal value $x^* = \\arg\\min_x f(x).$",
+      "solution": "Note that $f(x) = x^4 \\ge 0$ and is equal to $0$ if and only if $x = 0.$ Thus $x^* = 0.$",
+      "golden_answer": "$x^* = 0.$",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 34,
+      "source": "Spring 2020, EECS 127/227AT, Final, Problem 3(b)",
+      "problem_statement": "(b) (6 points) Now, we analyze the performance of Newton's method on this problem. Starting from $x_0,$ for $k \\ge 0$ we take Newton steps of the form\n\\[\nx_{k+1} = x_k \\;-\\; \\frac{f'(x_k)}{f''(x_k)}.\n\\]\nFind the minimum number of Newton steps that are required to be within a distance of $\\varepsilon > 0$ from the optimum $x^*.$ Formally find $k^* \\in \\mathbb{N}$ which is the smallest $k$ for which $|x_k - x^*| \\le \\varepsilon,$ i.e.\n\\[\nk^* = \\min_{k \\in \\mathbb{N} :\\, |x_k - x^*| \\le \\varepsilon} k.\\]\nAssume that $x_0 > \\varepsilon > 0.$ Your answer should be in terms of $\\varepsilon$ and $x_0.$",
+      "solution": "First we calculate the derivatives of $f(x).$\\[ f'(x) = 4x^3, \\quad f''(x) = 12x^2.\\]For $k \\ge 0$ we have\\[ x_{k+1} = x_k - \\frac{4x_k^3}{12x_k^2} = x_k - \\frac{x_k}{3} = \\frac{2}{3} x_k.\\]Thus,\\[ x_k = \\Bigl(\\tfrac{2}{3}\\Bigr)^k x_0.\\]Since $x^* = 0,$\\[\\Bigl(\\tfrac{2}{3}\\Bigr)^k |x_0| \\le \\varepsilon \\;\\;\\Longrightarrow\\;\\; \\Bigl(\\tfrac{2}{3}\\Bigr)^k \\le \\frac{\\varepsilon}{|x_0|}\\;\\;\\Longrightarrow\\;\\; k \\,\\log\\Bigl(\\tfrac{2}{3}\\Bigr) \\le \\log\\Bigl(\\tfrac{\\varepsilon}{|x_0|}\\Bigr).\\]We switched the sign of the inequality since $\\log(\\tfrac{2}{3}) < 0.$ The smallest natural number $k^*$ for which this occurs is\\[ k^* \\;=\\; \\left\\lceil \\frac{\\log(\\tfrac{\\varepsilon}{|x_0|})}{\\log(\\tfrac{2}{3})} \\right\\rceil.\\]",
+      "golden_answer": "$k^* = \\displaystyle \\left\\lceil \\frac{\\log\\bigl(\\tfrac{\\varepsilon}{|x_0|}\\bigr)}{\\log\\bigl(\\tfrac{2}{3}\\bigr)} \\right\\rceil.$",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 35,
+      "source": "Spring 2020, EECS 127/227AT, Final, Problem 4(a)",
+      "problem_statement": "4. (9 points) A Linear Program\n\n(a) (5 points) Copy the axes below onto your answer sheet. Plot the feasible region for the optimization problem:\\[\\min_{\\vec{x} \\in \\mathbb{R}^2} \\; x_1 + x_2\\]\\[x_1 \\ge 0,\\quad x_2 \\ge 0,\\quad 1 - x_1 - x_2 \\le 0,\\quad x_1 \\le 3,\\quad x_2 \\le 3.\\]",
+      "solution": "No written solution provided here, the student plots the region.",
+      "golden_answer": "The feasible region is the intersection of the constraints $x_1 \\ge 0, x_2 \\ge 0, x_1 \\le 3, x_2 \\le 3,$ and $1 - x_1 - x_2 \\le 0.$",
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 36,
+      "source": "Spring 2020, EECS 127/227AT, Final, Problem 4(b)",
+      "problem_statement": "(b) (4 points) Find $p^*.$ Justify your answer. \\textit{Hint: You don't have to find the dual to solve this part.}",
+      "solution": "To solve any LP, we can just look at the vertices of the polytope defined by the constraints, evaluate the objective at each of these points, and find the minimum. In this problem, there are a total of 5 vertices. At $(0,3)$ and $(3,0)$, the objective value is 3. At $(3,3),$ the objective value is 6. At $(0,1)$ and $(1,0),$ the value is 1. Therefore, $p^* = 1,$ which is attained anywhere on the line connecting $(0,1)$ and $(1,0).$",
+      "golden_answer": "$p^* = 1.$",
+      "has_image": false,
+      "image": null
+    }
+  ]
+}
